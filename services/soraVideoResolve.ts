@@ -1,3 +1,5 @@
+import i18n from '../i18n';
+
 function asString(v: unknown): string | null {
   return typeof v === 'string' && v.length > 0 ? v : null;
 }
@@ -168,9 +170,9 @@ export async function fetchVideoUrlAsDataUrl(url: string): Promise<string> {
     reader.onloadend = () => {
       const r = reader.result as string;
       if (r && r.startsWith('data:')) resolve(r);
-      else reject(new Error('视频转 base64 失败'));
+      else reject(new Error(i18n.t('director:errors.videoToBase64Failed')));
     };
-    reader.onerror = () => reject(new Error('读取视频失败'));
+    reader.onerror = () => reject(new Error(i18n.t('director:errors.readVideoFailed')));
     reader.readAsDataURL(blob);
   });
 }
@@ -240,9 +242,9 @@ async function blobResponseToDataUrl(downloadResponse: Response): Promise<string
       reader.onloadend = () => {
         const result = reader.result as string;
         if (result && result.startsWith('data:')) resolve(result);
-        else reject(new Error('视频转换失败'));
+        else reject(new Error(i18n.t('director:errors.videoConversionFailed')));
       };
-      reader.onerror = () => reject(new Error('视频读取失败'));
+      reader.onerror = () => reject(new Error(i18n.t('director:errors.videoReadFailed')));
       reader.readAsDataURL(videoBlob);
     });
   }
@@ -254,13 +256,13 @@ async function blobResponseToDataUrl(downloadResponse: Response): Promise<string
   } catch {
     const fromText = extractAnyVideoDownloadUrl(text);
     if (fromText) return resolveVideoStorageUrl(fromText);
-    throw new Error(text || '未获取到视频下载地址');
+    throw new Error(text || i18n.t('director:errors.noVideoDownloadUrl'));
   }
 
   const nestedUrl = extractAnyVideoDownloadUrl(downloadData);
   if (nestedUrl) return resolveVideoStorageUrl(nestedUrl);
 
-  throw new Error('未获取到视频下载地址');
+  throw new Error(i18n.t('director:errors.noVideoDownloadUrl'));
 }
 
 async function tryDownloadContentUrl(
@@ -340,9 +342,7 @@ export async function downloadSoraCompletedVideo(options: {
 
   if (contentUrls.length === 0) {
     console.warn('[video] 任务状态样本:', latestStatus || completedStatus);
-    throw new Error(
-      '任务已完成但未解析到视频地址。请在 Network 中打开该任务的 GET 响应，将 JSON 发给开发者或检查是否含 https 的 mp4 链接。'
-    );
+    throw new Error(i18n.t('director:errors.taskCompletedNoVideoUrl'));
   }
 
   const maxDownloadRetries = 4;
@@ -376,10 +376,8 @@ export async function downloadSoraCompletedVideo(options: {
 
   const lastMsg = lastError?.message || '';
   if (/502|404/.test(lastMsg)) {
-    throw new Error(
-      `${lastMsg}。平台 /content 下载不可用，且任务响应中未包含可识别的 mp4 直链。请把任务查询接口的 Response JSON 发来以便适配。`
-    );
+    throw new Error(i18n.t('director:errors.contentDownloadUnavailable', { lastMsg }));
   }
 
-  throw lastError || new Error('视频下载失败：已达到最大重试次数');
+  throw lastError || new Error(i18n.t('director:errors.videoDownloadFailedMaxRetries'));
 }

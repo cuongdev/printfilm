@@ -110,7 +110,8 @@
     "sceneDeleted": "Đã xóa bối cảnh \"{{name}}\""
   },
   "errors": {
-    "imageUploadFailed": "Tải ảnh lên thất bại"
+    "imageUploadFailed": "Tải ảnh lên thất bại",
+    "scriptDataRequired": "Dự án chưa tạo nhân vật và bối cảnh, không thể nhập tài sản."
   },
   "defaults": {
     "newCharacterName": "Nhân vật mới",

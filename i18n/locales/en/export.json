@@ -7,10 +7,23 @@
   },
   "errors": {
     "exportFailed": "Export failed: {{message}}",
-    "assetsDownloadFailed": "Failed to download source assets: {{message}}"
+    "assetsDownloadFailed": "Failed to download source assets: {{message}}",
+    "downloadFailed": "Download failed: {{status}}",
+    "noExportableClips": "No exportable video clips",
+    "noDownloadableResources": "No downloadable resources"
   },
   "warnings": {
     "noDownloadableAssets": "No downloadable assets. Please generate characters, scenes, or shots first."
+  },
+  "progress": {
+    "loadingZip": "Loading ZIP library...",
+    "downloadingClips": "Downloading video clips...",
+    "downloadingItem": "Downloading ({{current}}/{{total}})...",
+    "generatingZip": "Generating ZIP file...",
+    "compressing": "Compressing...",
+    "preparingDownload": "Preparing download...",
+    "done": "Done!",
+    "downloadingAssets": "Downloading assets..."
   },
   "actions": {
     "previewVideo": "Preview Video ({{completed}}/{{total}})",

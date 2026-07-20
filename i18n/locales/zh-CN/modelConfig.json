@@ -24,7 +24,14 @@
     "required": "请输入 API Key",
     "verifySuccess": "验证成功！API Key 已保存",
     "verifyError": "验证过程出错",
-    "placeholderUseGlobal": "留空则使用全局 API Key"
+    "placeholderUseGlobal": "留空则使用全局 API Key",
+    "missing": "API Key 缺失，请在模型配置中设置 API Key。"
+  },
+  "verify": {
+    "success": "API Key 验证成功",
+    "invalidResponseFormat": "返回格式异常",
+    "networkError": "网络错误",
+    "failedWithStatus": "验证失败: {{status}}"
   },
   "notes": {
     "title": "配置说明",
@@ -47,7 +54,8 @@
     "apiKeyLabel": "API Key（可选）",
     "apiKeyHelper": "为此模型单独配置 API Key，留空则使用全局配置的 Key",
     "submitButton": "添加模型",
-    "validationRequired": "请填写模型名称和 API 模型名"
+    "validationRequired": "请填写模型名称和 API 模型名",
+    "duplicateIdError": "模型 ID \"{{id}}\" 已存在，请使用其他 ID"
   },
   "videoMode": {
     "label": "API 模式",

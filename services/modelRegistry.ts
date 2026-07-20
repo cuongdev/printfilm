@@ -20,6 +20,7 @@ import {
   AspectRatio,
   VideoDuration,
 } from '../types/model';
+import i18n from '../i18n';
 
 const STORAGE_KEY = 'ai_manga_studio_model_registry';
 const LEGACY_STORAGE_KEY = ['big' + 'banana', 'model', 'registry'].join('_');
@@ -369,7 +370,7 @@ export const registerModel = (model: Omit<ModelDefinition, 'isBuiltIn'> & { id?:
       modelId = `${baseId}_${suffix++}`;
     }
   } else if (state.models.some(m => m.id === modelId)) {
-    throw new Error(`模型 ID "${modelId}" 已存在，请使用其他 ID`);
+    throw new Error(i18n.t('modelConfig:addModel.duplicateIdError', { id: modelId }));
   }
   
   const newModel = {

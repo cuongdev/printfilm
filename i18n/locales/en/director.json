@@ -48,7 +48,15 @@
     "aiActionFailed": "AI action generation failed: {{message}}",
     "optimizeKeyframeFailed": "AI optimization failed: {{message}}",
     "splitFailed": "Split failed: {{message}}",
-    "readFileFailed": "Failed to read the file"
+    "readFileFailed": "Failed to read the file",
+    "videoToBase64Failed": "Failed to convert video to base64",
+    "readVideoFailed": "Failed to read video",
+    "videoConversionFailed": "Video conversion failed",
+    "videoReadFailed": "Failed to read video data",
+    "noVideoDownloadUrl": "Could not find a video download URL",
+    "videoDownloadFailedMaxRetries": "Video download failed: maximum retries reached",
+    "taskCompletedNoVideoUrl": "The task completed but no video URL could be resolved. Please open the task's GET response in Network, send the JSON to the developer, or check whether it contains an https mp4 link.",
+    "contentDownloadUnavailable": "{{lastMsg}}. The platform's /content download is unavailable, and the task response did not contain a recognizable mp4 link. Please send the task query API's response JSON so it can be adapted."
   },
   "progress": {
     "regeneratingAll": "Regenerating all start frames...",

@@ -1,4 +1,5 @@
 import { AssetLibraryItem, Character, ProjectState, Scene } from '../types';
+import i18n from '../i18n';
 
 const generateId = (prefix: string): string => {
   const rand = Math.random().toString(36).slice(2, 6);
@@ -57,7 +58,7 @@ export const cloneSceneForProject = (scene: Scene): Scene => {
 
 export const applyLibraryItemToProject = (project: ProjectState, item: AssetLibraryItem): ProjectState => {
   if (!project.scriptData) {
-    throw new Error('项目尚未生成角色和场景，无法导入资产。');
+    throw new Error(i18n.t('assets:errors.scriptDataRequired'));
   }
 
   const newData = { ...project.scriptData };

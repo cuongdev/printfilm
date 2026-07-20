@@ -10,6 +10,7 @@ import {
 import { addRenderLogWithTokens } from './renderLogService';
 import { throwFromVideoHttpError, formatVideoTaskErrorForUser } from './videoHttpErrors';
 import { resolveSoraVideoDownloadId, downloadSoraCompletedVideo, encodeVideoPathId } from './soraVideoResolve';
+import i18n from '../i18n';
 import { 
   getGlobalApiKey as getRegistryApiKey,
   setGlobalApiKey as setRegistryApiKey,
@@ -63,7 +64,7 @@ const checkApiKey = (type: 'chat' | 'image' | 'video' = 'chat', modelId?: string
   const registryKey = getRegistryApiKey();
   if (registryKey) return registryKey;
   
-  if (!runtimeApiKey) throw new ApiKeyError("API Key 缺失，请在模型配置中设置 API Key。");
+  if (!runtimeApiKey) throw new ApiKeyError(i18n.t('modelConfig:apiKey.missing'));
   return runtimeApiKey;
 };
 
@@ -142,7 +143,7 @@ export const verifyApiKey = async (key: string): Promise<{ success: boolean; mes
     });
 
     if (!response.ok) {
-      let errorMessage = `验证失败: ${response.status}`;
+      let errorMessage = i18n.t('modelConfig:verify.failedWithStatus', { status: response.status });
       try {
         const errorData = await response.json();
         errorMessage = errorData.error?.message || errorMessage;
@@ -154,12 +155,12 @@ export const verifyApiKey = async (key: string): Promise<{ success: boolean; mes
 
     const data = await response.json();
     if (data.choices?.[0]?.message?.content !== undefined) {
-      return { success: true, message: 'API Key 验证成功' };
+      return { success: true, message: i18n.t('modelConfig:verify.success') };
     } else {
-      return { success: false, message: '返回格式异常' };
+      return { success: false, message: i18n.t('modelConfig:verify.invalidResponseFormat') };
     }
   } catch (error: any) {
-    return { success: false, message: error.message || '网络错误' };
+    return { success: false, message: error.message || i18n.t('modelConfig:verify.networkError') };
   }
 };
 
@@ -443,7 +444,7 @@ Output ONLY valid JSON with this structure (no storyParagraphs):
     );
 
     if (!responseText?.trim()) {
-      throw new Error('AI 未返回任何內容，請檢查模型是否可用或稍後重試。');
+      throw new Error(i18n.t('script:errors.aiNoContent'));
     }
 
     const text = cleanJsonString(responseText);
@@ -453,7 +454,7 @@ Output ONLY valid JSON with this structure (no storyParagraphs):
     } catch (e) {
       console.error("Failed to parse script structure JSON:", e);
       console.error("Raw (first 500 chars):", responseText.slice(0, 500));
-      throw new Error('AI 返回的結構格式無法解析，請重試或換用其他模型。');
+      throw new Error(i18n.t('script:errors.aiParseFailed'));
     }
 
     const characters = Array.isArray(parsed.characters)
@@ -468,7 +469,7 @@ Output ONLY valid JSON with this structure (no storyParagraphs):
       : [];
 
     if (characters.length === 0 && scenes.length === 0) {
-      throw new Error('AI 未能從文本中提取角色或場景。請確保輸入的是完整故事/劇本（含人物與地點）。');
+      throw new Error(i18n.t('script:errors.aiNoCharactersOrScenes'));
     }
 
     const genre = parsed.genre || '通用';
@@ -586,7 +587,7 @@ Output ONLY valid JSON: { "storyParagraphs": [ {"id": number, "text": "string", 
 
     console.log('✅ 视觉提示词生成完成！');
     const result: ScriptData = {
-      title: parsed.title || '未命名剧本',
+      title: parsed.title || i18n.t('script:defaults.untitledScript'),
       genre,
       logline: parsed.logline || '',
       language,
@@ -805,7 +806,7 @@ export const generateShotList = async (scriptData: ScriptData, model: string = D
   }
 
   if (allShots.length === 0) {
-    throw new Error('分镜生成失败：AI返回为空（可能是 JSON 结构不匹配或场景内容未被识别）。请打开控制台查看分镜生成日志。');
+    throw new Error(i18n.t('script:errors.shotGenerationFailed'));
   }
 
   return allShots.map((s, idx) => ({

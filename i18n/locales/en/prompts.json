@@ -33,7 +33,9 @@
     "endFrame": "End Frame",
     "imageAlt": "Keyframe {{frame}}",
     "videoPromptLabel": "Video Generation Prompt",
-    "notSavedWarning": "⚠ No prompt was saved when this video was generated; the text above is inferred"
+    "notSavedWarning": "⚠ No prompt was saved when this video was generated; the text above is inferred",
+    "cameraMovementLine": "Camera Movement: {{movement}}",
+    "modelLine": "Model: {{model}}"
   },
   "editor": {
     "placeholder": "Enter a prompt..."

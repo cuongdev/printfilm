@@ -24,7 +24,14 @@
     "required": "Please enter an API Key",
     "verifySuccess": "Verified successfully! API Key saved",
     "verifyError": "Error during verification",
-    "placeholderUseGlobal": "Leave blank to use the global API Key"
+    "placeholderUseGlobal": "Leave blank to use the global API Key",
+    "missing": "API Key is missing. Please set an API Key in Model Config."
+  },
+  "verify": {
+    "success": "API Key verified successfully",
+    "invalidResponseFormat": "Invalid response format",
+    "networkError": "Network error",
+    "failedWithStatus": "Verification failed: {{status}}"
   },
   "notes": {
     "title": "Configuration Notes",
@@ -47,7 +54,8 @@
     "apiKeyLabel": "API Key (optional)",
     "apiKeyHelper": "Configure a dedicated API Key for this model; leave blank to use the globally configured key",
     "submitButton": "Add Model",
-    "validationRequired": "Please fill in the model name and API model name"
+    "validationRequired": "Please fill in the model name and API model name",
+    "duplicateIdError": "Model ID \"{{id}}\" already exists. Please use a different ID"
   },
   "videoMode": {
     "label": "API Mode",

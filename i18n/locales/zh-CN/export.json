@@ -7,10 +7,23 @@
   },
   "errors": {
     "exportFailed": "导出失败: {{message}}",
-    "assetsDownloadFailed": "下载源资源失败: {{message}}"
+    "assetsDownloadFailed": "下载源资源失败: {{message}}",
+    "downloadFailed": "下载失败: {{status}}",
+    "noExportableClips": "没有可导出的视频片段",
+    "noDownloadableResources": "没有可下载的资源"
   },
   "warnings": {
     "noDownloadableAssets": "没有可下载的资源。请先生成角色、场景或镜头素材。"
+  },
+  "progress": {
+    "loadingZip": "正在加载 ZIP 库...",
+    "downloadingClips": "下载视频片段...",
+    "downloadingItem": "下载中 ({{current}}/{{total}})...",
+    "generatingZip": "正在生成 ZIP 文件...",
+    "compressing": "正在压缩...",
+    "preparingDownload": "准备下载...",
+    "done": "完成！",
+    "downloadingAssets": "正在下载资源..."
   },
   "actions": {
     "previewVideo": "Preview Video ({{completed}}/{{total}})",

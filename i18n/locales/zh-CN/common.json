@@ -22,7 +22,20 @@
   },
   "errors": {
     "unknown": "未知错误",
-    "unknownStage": "未知阶段"
+    "unknownStage": "未知阶段",
+    "imageDownloadFailed": "图片下载失败: HTTP {{status}}",
+    "imageConversionFailed": "图片转换失败",
+    "imageDataInvalid": "图片数据无效（base64 为空）",
+    "imageGenerationFailedHttp": "图片生成失败: HTTP {{status}}",
+    "imageGenerationNoData": "图片生成失败：模型 {{model}} 的 /v1/images/generations 未返回图片数据，请检查模型名称与账户权限。"
+  },
+  "upload": {
+    "onlyImageFiles": "只支持图片文件",
+    "imageSizeLimit": "图片大小不能超过 10MB",
+    "imageReadFailed": "图片读取失败"
+  },
+  "defaults": {
+    "untitledProject": "未命名项目"
   },
   "alert": {
     "success": "成功",

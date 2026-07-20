@@ -128,6 +128,13 @@
     "modelRequired": "Vui lòng chọn hoặc nhập tên mô hình.",
     "scriptContentRequired": "Vui lòng nhập nội dung kịch bản.",
     "durationRequired": "Vui lòng chọn thời lượng mục tiêu.",
-    "visualStyleRequired": "Vui lòng chọn hoặc nhập phong cách hình ảnh."
+    "visualStyleRequired": "Vui lòng chọn hoặc nhập phong cách hình ảnh.",
+    "aiNoContent": "AI không trả về nội dung nào, vui lòng kiểm tra xem mô hình có khả dụng không hoặc thử lại sau.",
+    "aiParseFailed": "Không thể phân tích cấu trúc phản hồi của AI, vui lòng thử lại hoặc đổi sang mô hình khác.",
+    "aiNoCharactersOrScenes": "AI không thể trích xuất nhân vật hoặc bối cảnh từ văn bản. Vui lòng đảm bảo bạn đã nhập một câu chuyện/kịch bản hoàn chỉnh (có nhân vật và địa điểm).",
+    "shotGenerationFailed": "Tạo phân cảnh thất bại: AI trả về kết quả rỗng (có thể do cấu trúc JSON không khớp hoặc nội dung bối cảnh không được nhận diện). Vui lòng mở console để xem nhật ký tạo phân cảnh."
+  },
+  "defaults": {
+    "untitledScript": "Kịch bản chưa đặt tên"
   }
 }

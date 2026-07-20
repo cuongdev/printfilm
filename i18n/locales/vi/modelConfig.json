@@ -24,7 +24,14 @@
     "required": "Vui lòng nhập API Key",
     "verifySuccess": "Xác minh thành công! Đã lưu API Key",
     "verifyError": "Có lỗi xảy ra khi xác minh",
-    "placeholderUseGlobal": "Để trống để dùng API Key toàn cục"
+    "placeholderUseGlobal": "Để trống để dùng API Key toàn cục",
+    "missing": "Thiếu API Key, vui lòng thiết lập API Key trong cấu hình mô hình."
+  },
+  "verify": {
+    "success": "Xác minh API Key thành công",
+    "invalidResponseFormat": "Định dạng phản hồi bất thường",
+    "networkError": "Lỗi mạng",
+    "failedWithStatus": "Xác minh thất bại: {{status}}"
   },
   "notes": {
     "title": "Ghi chú cấu hình",
@@ -47,7 +54,8 @@
     "apiKeyLabel": "API Key (tùy chọn)",
     "apiKeyHelper": "Cấu hình API Key riêng cho mô hình này, để trống sẽ dùng Key đã cấu hình toàn cục",
     "submitButton": "Thêm mô hình",
-    "validationRequired": "Vui lòng nhập tên mô hình và tên mô hình API"
+    "validationRequired": "Vui lòng nhập tên mô hình và tên mô hình API",
+    "duplicateIdError": "ID mô hình \"{{id}}\" đã tồn tại, vui lòng dùng ID khác"
   },
   "videoMode": {
     "label": "Chế độ API",

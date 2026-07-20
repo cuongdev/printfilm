@@ -1,5 +1,6 @@
 import { ChatModelDefinition, ChatOptions, ChatModelParams, DEFAULT_CHAT_MODEL_ID } from '../../types/model';
 import { getApiKeyForModel, getApiBaseUrlForModel, getActiveChatModel } from '../modelRegistry';
+import i18n from '../../i18n';
 
 export class ApiKeyError extends Error {
   constructor(message: string) {
@@ -166,7 +167,7 @@ export const verifyApiKey = async (apiKey: string, baseUrl?: string): Promise<{ 
     });
 
     if (!response.ok) {
-      let errorMessage = `验证失败: ${response.status}`;
+      let errorMessage = i18n.t('modelConfig:verify.failedWithStatus', { status: response.status });
       try {
         const errorData = await response.json();
         errorMessage = errorData.error?.message || errorMessage;
@@ -178,11 +179,11 @@ export const verifyApiKey = async (apiKey: string, baseUrl?: string): Promise<{ 
 
     const data = await response.json();
     if (data.choices?.[0]?.message?.content !== undefined) {
-      return { success: true, message: 'API Key 验证成功' };
+      return { success: true, message: i18n.t('modelConfig:verify.success') };
     } else {
-      return { success: false, message: '返回格式异常' };
+      return { success: false, message: i18n.t('modelConfig:verify.invalidResponseFormat') };
     }
   } catch (error: any) {
-    return { success: false, message: error.message || '网络错误' };
+    return { success: false, message: error.message || i18n.t('modelConfig:verify.networkError') };
   }
 };

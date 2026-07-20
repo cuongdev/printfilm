@@ -22,7 +22,20 @@
   },
   "errors": {
     "unknown": "Lỗi không xác định",
-    "unknownStage": "Giai đoạn không xác định"
+    "unknownStage": "Giai đoạn không xác định",
+    "imageDownloadFailed": "Tải hình ảnh thất bại: HTTP {{status}}",
+    "imageConversionFailed": "Chuyển đổi hình ảnh thất bại",
+    "imageDataInvalid": "Dữ liệu hình ảnh không hợp lệ (base64 rỗng)",
+    "imageGenerationFailedHttp": "Tạo hình ảnh thất bại: HTTP {{status}}",
+    "imageGenerationNoData": "Tạo hình ảnh thất bại: mô hình {{model}} tại /v1/images/generations không trả về dữ liệu hình ảnh, vui lòng kiểm tra tên mô hình và quyền tài khoản."
+  },
+  "upload": {
+    "onlyImageFiles": "Chỉ hỗ trợ tệp hình ảnh",
+    "imageSizeLimit": "Kích thước hình ảnh không được vượt quá 10MB",
+    "imageReadFailed": "Đọc hình ảnh thất bại"
+  },
+  "defaults": {
+    "untitledProject": "Dự án chưa đặt tên"
   },
   "alert": {
     "success": "Thành công",

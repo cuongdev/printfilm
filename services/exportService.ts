@@ -1,4 +1,5 @@
 import { ProjectState } from '../types';
+import i18n from '../i18n';
 
 async function downloadFile(urlOrBase64: string): Promise<Blob> {
   if (urlOrBase64.startsWith('data:video/')) {
@@ -10,10 +11,10 @@ async function downloadFile(urlOrBase64: string): Promise<Blob> {
     }
     return new Blob([bytes], { type: 'video/mp4' });
   }
-  
+
   const response = await fetch(urlOrBase64);
   if (!response.ok) {
-    throw new Error(`下载失败: ${response.statusText}`);
+    throw new Error(i18n.t('export:errors.downloadFailed', { status: response.statusText }));
   }
   return await response.blob();
 }
@@ -26,44 +27,44 @@ export async function downloadMasterVideo(
     const completedShots = project.shots.filter(shot => shot.interval?.videoUrl);
     
     if (completedShots.length === 0) {
-      throw new Error('没有可导出的视频片段');
+      throw new Error(i18n.t('export:errors.noExportableClips'));
     }
 
-    onProgress?.('正在加载 ZIP 库...', 0);
-    
+    onProgress?.(i18n.t('export:progress.loadingZip'), 0);
+
     const JSZip = (await import('jszip')).default;
     const zip = new JSZip();
 
-    onProgress?.('下载视频片段...', 10);
+    onProgress?.(i18n.t('export:progress.downloadingClips'), 10);
 
     for (let i = 0; i < completedShots.length; i++) {
       const shot = completedShots[i];
       const videoUrl = shot.interval!.videoUrl!;
       const shotNum = String(i + 1).padStart(3, '0');
       const fileName = `shot_${shotNum}.mp4`;
-      
+
       try {
         const videoBlob = await downloadFile(videoUrl);
         zip.file(fileName, videoBlob);
-        
+
         const progress = 10 + Math.round((i + 1) / completedShots.length * 75);
-        onProgress?.(`下载中 (${i + 1}/${completedShots.length})...`, progress);
+        onProgress?.(i18n.t('export:progress.downloadingItem', { current: i + 1, total: completedShots.length }), progress);
       } catch (err) {
         console.error(`下载视频片段 ${i + 1} 失败:`, err);
       }
     }
 
-    onProgress?.('正在生成 ZIP 文件...', 85);
+    onProgress?.(i18n.t('export:progress.generatingZip'), 85);
 
     const zipBlob = await zip.generateAsync(
       { type: 'blob' },
       (metadata) => {
         const progress = 85 + Math.round(metadata.percent / 10);
-        onProgress?.('正在压缩...', progress);
+        onProgress?.(i18n.t('export:progress.compressing'), progress);
       }
     );
 
-    onProgress?.('准备下载...', 95);
+    onProgress?.(i18n.t('export:progress.preparingDownload'), 95);
 
     const url = URL.createObjectURL(zipBlob);
     const a = document.createElement('a');
@@ -74,7 +75,7 @@ export async function downloadMasterVideo(
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    onProgress?.('完成！', 100);
+    onProgress?.(i18n.t('export:progress.done'), 100);
   } catch (error) {
     console.error('视频导出失败:', error);
     throw error;
@@ -92,7 +93,7 @@ export async function downloadSourceAssets(
   onProgress?: (phase: string, progress: number) => void
 ): Promise<void> {
   try {
-    onProgress?.('正在加载 ZIP 库...', 0);
+    onProgress?.(i18n.t('export:progress.loadingZip'), 0);
     const JSZip = (await import('jszip')).default;
     const zip = new JSZip();
 
@@ -156,31 +157,31 @@ export async function downloadSourceAssets(
     }
 
     if (assets.length === 0) {
-      throw new Error('没有可下载的资源');
+      throw new Error(i18n.t('export:errors.noDownloadableResources'));
     }
 
-    onProgress?.('正在下载资源...', 5);
+    onProgress?.(i18n.t('export:progress.downloadingAssets'), 5);
 
     for (let i = 0; i < assets.length; i++) {
       const asset = assets[i];
       try {
         const blob = await downloadFile(asset.url);
         zip.file(asset.path, blob);
-        
+
         const progress = 5 + Math.round((i + 1) / assets.length * 80);
-        onProgress?.(`下载中 (${i + 1}/${assets.length})...`, progress);
+        onProgress?.(i18n.t('export:progress.downloadingItem', { current: i + 1, total: assets.length }), progress);
       } catch (error) {
         console.error(`下载资源失败: ${asset.path}`, error);
       }
     }
 
-    onProgress?.('正在生成 ZIP 文件...', 90);
+    onProgress?.(i18n.t('export:progress.generatingZip'), 90);
 
     const zipBlob = await zip.generateAsync(
       { type: 'blob' },
       (metadata) => {
         const progress = 90 + Math.round(metadata.percent / 10);
-        onProgress?.('正在压缩...', progress);
+        onProgress?.(i18n.t('export:progress.compressing'), progress);
       }
     );
 
@@ -193,7 +194,7 @@ export async function downloadSourceAssets(
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    onProgress?.('完成！', 100);
+    onProgress?.(i18n.t('export:progress.done'), 100);
   } catch (error) {
     console.error('下载源资源失败:', error);
     throw error;

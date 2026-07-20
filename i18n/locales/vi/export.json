@@ -7,10 +7,23 @@
   },
   "errors": {
     "exportFailed": "Xuất bản thất bại: {{message}}",
-    "assetsDownloadFailed": "Tải tài nguyên gốc thất bại: {{message}}"
+    "assetsDownloadFailed": "Tải tài nguyên gốc thất bại: {{message}}",
+    "downloadFailed": "Tải xuống thất bại: {{status}}",
+    "noExportableClips": "Không có đoạn video nào để xuất",
+    "noDownloadableResources": "Không có tài nguyên nào để tải xuống"
   },
   "warnings": {
     "noDownloadableAssets": "Không có tài nguyên nào để tải xuống. Vui lòng tạo nhân vật, bối cảnh hoặc cảnh quay trước."
+  },
+  "progress": {
+    "loadingZip": "Đang tải thư viện ZIP...",
+    "downloadingClips": "Đang tải các đoạn video...",
+    "downloadingItem": "Đang tải ({{current}}/{{total}})...",
+    "generatingZip": "Đang tạo tệp ZIP...",
+    "compressing": "Đang nén...",
+    "preparingDownload": "Đang chuẩn bị tải xuống...",
+    "done": "Hoàn thành!",
+    "downloadingAssets": "Đang tải tài nguyên..."
   },
   "actions": {
     "previewVideo": "Xem trước video ({{completed}}/{{total}})",

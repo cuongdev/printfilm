@@ -128,6 +128,13 @@
     "modelRequired": "请选择或输入模型名称。",
     "scriptContentRequired": "请输入剧本内容。",
     "durationRequired": "请选择目标时长。",
-    "visualStyleRequired": "请选择或输入视觉风格。"
+    "visualStyleRequired": "请选择或输入视觉风格。",
+    "aiNoContent": "AI 未返回任何內容，請檢查模型是否可用或稍後重試。",
+    "aiParseFailed": "AI 返回的結構格式無法解析，請重試或換用其他模型。",
+    "aiNoCharactersOrScenes": "AI 未能從文本中提取角色或場景。請確保輸入的是完整故事/劇本（含人物與地點）。",
+    "shotGenerationFailed": "分镜生成失败：AI返回为空（可能是 JSON 结构不匹配或场景内容未被识别）。请打开控制台查看分镜生成日志。"
+  },
+  "defaults": {
+    "untitledScript": "未命名剧本"
   }
 }

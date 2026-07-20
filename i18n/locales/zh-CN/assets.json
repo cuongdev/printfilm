@@ -110,7 +110,8 @@
     "sceneDeleted": "场景 \"{{name}}\" 已删除"
   },
   "errors": {
-    "imageUploadFailed": "图片上传失败"
+    "imageUploadFailed": "图片上传失败",
+    "scriptDataRequired": "项目尚未生成角色和场景，无法导入资产。"
   },
   "defaults": {
     "newCharacterName": "新角色",

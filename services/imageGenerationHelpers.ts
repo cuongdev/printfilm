@@ -1,5 +1,6 @@
 // Author: forsearch | Updated: 2026-04-30
 import { AspectRatio } from '../types/model';
+import i18n from '../i18n';
 
 /** qwen-image / dall-e 等应走 OpenAI Images API，而非 chat/completions */
 export const shouldUseImagesGenerationsEndpoint = (
@@ -154,7 +155,7 @@ export const urlToImageDataUrl = async (url: string): Promise<string> => {
   if (url.startsWith('data:image/')) return url;
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`图片下载失败: HTTP ${response.status}`);
+    throw new Error(i18n.t('common:errors.imageDownloadFailed', { status: response.status }));
   }
   const blob = await response.blob();
   return new Promise((resolve, reject) => {
@@ -162,9 +163,9 @@ export const urlToImageDataUrl = async (url: string): Promise<string> => {
     reader.onloadend = () => {
       const result = reader.result as string;
       if (result?.startsWith('data:')) resolve(result);
-      else reject(new Error('图片转换失败'));
+      else reject(new Error(i18n.t('common:errors.imageConversionFailed')));
     };
-    reader.onerror = () => reject(new Error('图片读取失败'));
+    reader.onerror = () => reject(new Error(i18n.t('common:upload.imageReadFailed')));
     reader.readAsDataURL(blob);
   });
 };
@@ -180,7 +181,7 @@ export const normalizeImageResult = async (raw: string): Promise<string> => {
     }
   }
   if (raw.startsWith('data:image/') && raw.length < 100) {
-    throw new Error('图片数据无效（base64 为空）');
+    throw new Error(i18n.t('common:errors.imageDataInvalid'));
   }
   return raw;
 };
@@ -209,7 +210,7 @@ export const callImagesGenerationsApi = async (params: {
   });
 
   if (!res.ok) {
-    let errorMessage = `图片生成失败: HTTP ${res.status}`;
+    let errorMessage = i18n.t('common:errors.imageGenerationFailedHttp', { status: res.status });
     try {
       const errBody = await res.json();
       errorMessage = (errBody as { error?: { message?: string } }).error?.message || errorMessage;
@@ -223,9 +224,7 @@ export const callImagesGenerationsApi = async (params: {
   const data = await res.json();
   const extracted = extractImageFromApiResponse(data);
   if (!extracted) {
-    throw new Error(
-      `图片生成失败：模型 ${params.model} 的 /v1/images/generations 未返回图片数据，请检查模型名称与账户权限。`
-    );
+    throw new Error(i18n.t('common:errors.imageGenerationNoData', { model: params.model }));
   }
   return normalizeImageResult(extracted);
 };

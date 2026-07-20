@@ -48,7 +48,15 @@
     "aiActionFailed": "AI tạo hành động thất bại: {{message}}",
     "optimizeKeyframeFailed": "AI tối ưu thất bại: {{message}}",
     "splitFailed": "Tách cảnh quay thất bại: {{message}}",
-    "readFileFailed": "Đọc tệp thất bại"
+    "readFileFailed": "Đọc tệp thất bại",
+    "videoToBase64Failed": "Chuyển video sang base64 thất bại",
+    "readVideoFailed": "Đọc video thất bại",
+    "videoConversionFailed": "Chuyển đổi video thất bại",
+    "videoReadFailed": "Đọc dữ liệu video thất bại",
+    "noVideoDownloadUrl": "Không lấy được địa chỉ tải video",
+    "videoDownloadFailedMaxRetries": "Tải video thất bại: đã đạt số lần thử lại tối đa",
+    "taskCompletedNoVideoUrl": "Tác vụ đã hoàn thành nhưng không phân giải được địa chỉ video. Vui lòng mở phản hồi GET của tác vụ này trong Network, gửi JSON cho nhà phát triển hoặc kiểm tra xem có liên kết mp4 dạng https hay không.",
+    "contentDownloadUnavailable": "{{lastMsg}}. Nền tảng không hỗ trợ tải /content, và phản hồi tác vụ không chứa liên kết mp4 nhận diện được. Vui lòng gửi JSON phản hồi của API truy vấn tác vụ để được hỗ trợ thích ứng."
   },
   "progress": {
     "regeneratingAll": "Đang tạo lại tất cả khung hình đầu...",

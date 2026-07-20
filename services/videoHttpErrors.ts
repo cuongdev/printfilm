@@ -1,3 +1,5 @@
+import i18n from '../i18n';
+
 export type ParsedApiError = { message?: string; type?: string; code?: string; param?: string };
 
 export function parseOpenAIStyleErrorBody(text: string): { error?: ParsedApiError } | null {
@@ -68,7 +70,7 @@ export function formatVideoTaskErrorForUser(
   const inner =
     extractInnermostErrorMessage(err) ||
     extractInnermostErrorMessage(fallbackMessage);
-  return inner || '未知错误';
+  return inner || i18n.t('common:errors.unknown');
 }
 
 export function throwFromVideoHttpError(status: number, bodyText: string, mode: 'sora' | 'veo' = 'sora'): never {

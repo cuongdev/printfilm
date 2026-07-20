@@ -22,7 +22,20 @@
   },
   "errors": {
     "unknown": "Unknown error",
-    "unknownStage": "Unknown stage"
+    "unknownStage": "Unknown stage",
+    "imageDownloadFailed": "Image download failed: HTTP {{status}}",
+    "imageConversionFailed": "Image conversion failed",
+    "imageDataInvalid": "Invalid image data (base64 is empty)",
+    "imageGenerationFailedHttp": "Image generation failed: HTTP {{status}}",
+    "imageGenerationNoData": "Image generation failed: model {{model}}'s /v1/images/generations did not return image data. Please check the model name and account permissions."
+  },
+  "upload": {
+    "onlyImageFiles": "Only image files are supported",
+    "imageSizeLimit": "Image size must not exceed 10MB",
+    "imageReadFailed": "Failed to read image"
+  },
+  "defaults": {
+    "untitledProject": "Untitled Project"
   },
   "alert": {
     "success": "Success",

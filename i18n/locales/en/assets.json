@@ -110,7 +110,8 @@
     "sceneDeleted": "Scene \"{{name}}\" deleted"
   },
   "errors": {
-    "imageUploadFailed": "Image upload failed"
+    "imageUploadFailed": "Image upload failed",
+    "scriptDataRequired": "The project hasn't generated characters or scenes yet, so assets can't be imported."
   },
   "defaults": {
     "newCharacterName": "New character",

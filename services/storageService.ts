@@ -1,6 +1,7 @@
 // Author: forsearch | Updated: 2026-04-30
 import { ProjectState, AssetLibraryItem } from '../types';
 import { migrateDeprecatedChatModelId } from '../types/model';
+import i18n from '../i18n';
 
 const DB_NAME = 'AiMangaStudioDB';
 const LEGACY_DB_NAME = ['Big', 'Banana', 'DB'].join('');
@@ -205,25 +206,25 @@ export const deleteProjectFromDB = async (id: string): Promise<void> => {
 export const convertImageToBase64 = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {
     if (!file.type.startsWith('image/')) {
-      reject(new Error('只支持图片文件'));
+      reject(new Error(i18n.t('common:upload.onlyImageFiles')));
       return;
     }
 
     const maxSize = 10 * 1024 * 1024;
     if (file.size > maxSize) {
-      reject(new Error('图片大小不能超过 10MB'));
+      reject(new Error(i18n.t('common:upload.imageSizeLimit')));
       return;
     }
 
     const reader = new FileReader();
-    
+
     reader.onload = () => {
       const result = reader.result as string;
       resolve(result);
     };
-    
+
     reader.onerror = () => {
-      reject(new Error('图片读取失败'));
+      reject(new Error(i18n.t('common:upload.imageReadFailed')));
     };
     
     reader.readAsDataURL(file);
@@ -234,7 +235,7 @@ export const createNewProjectState = (): ProjectState => {
   const id = 'proj_' + Date.now().toString(36);
   return {
     id,
-    title: '未命名项目',
+    title: i18n.t('common:defaults.untitledProject'),
     createdAt: Date.now(),
     lastModified: Date.now(),
     stage: 'script',
