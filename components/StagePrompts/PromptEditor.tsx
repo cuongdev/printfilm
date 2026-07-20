@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Save, X } from 'lucide-react';
 import { STYLES } from './constants';
 
@@ -17,10 +18,12 @@ const PromptEditor: React.FC<Props> = ({
   onChange,
   onSave,
   onCancel,
-  placeholder = '输入提示词...',
+  placeholder,
   size = 'large',
   isVideo = false
 }) => {
+  const { t } = useTranslation('prompts');
+  const resolvedPlaceholder = placeholder ?? t('editor.placeholder');
   const textareaClass = `${STYLES.textarea.base} ${
     size === 'large' ? STYLES.textarea.large :
     size === 'video' ? STYLES.textarea.video :
@@ -43,17 +46,17 @@ const PromptEditor: React.FC<Props> = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={textareaClass}
-        placeholder={placeholder}
+        placeholder={resolvedPlaceholder}
         autoFocus
       />
       <div className="flex gap-2">
         <button onClick={onSave} className={saveButtonClass}>
           <Save className="w-3 h-3" />
-          保存
+          {t('common:actions.save')}
         </button>
         <button onClick={onCancel} className={cancelButtonClass}>
           <X className="w-3 h-3" />
-          取消
+          {t('common:actions.cancel')}
         </button>
       </div>
     </div>

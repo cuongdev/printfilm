@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin } from 'lucide-react';
 import { Scene } from '../../types';
 import { EditingPrompt, STYLES } from './constants';
@@ -26,11 +27,12 @@ const SceneSection: React.FC<Props> = ({
   onCancelEdit,
   onPromptChange
 }) => {
+  const { t } = useTranslation('prompts');
   if (scenes.length === 0) return null;
 
   return (
     <CollapsibleSection
-      title="场景"
+      title={t('scene.title')}
       icon={<MapPin className="w-5 h-5" />}
       count={scenes.length}
       isExpanded={isExpanded}
@@ -49,7 +51,7 @@ const SceneSection: React.FC<Props> = ({
               onClick={() => onStartEdit('scene', scene.id, scene.visualPrompt || '')}
               className={STYLES.button.edit}
             >
-              编辑
+              {t('common:actions.edit')}
             </button>
           </div>
 
@@ -63,7 +65,7 @@ const SceneSection: React.FC<Props> = ({
             />
           ) : (
             <p className={STYLES.display.base}>
-              {scene.visualPrompt || '未设置提示词'}
+              {scene.visualPrompt || t('scene.noPrompt')}
             </p>
           )}
         </div>

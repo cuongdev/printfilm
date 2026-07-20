@@ -1,0 +1,47 @@
+{
+  "header": {
+    "title": "Quản lý tài nguyên",
+    "subtitle": "Xem và chỉnh sửa prompt cùng các biến của tất cả tác vụ tạo nội dung"
+  },
+  "search": {
+    "placeholder": "Tìm kiếm prompt, nhân vật, cảnh..."
+  },
+  "categories": {
+    "all": "Tất cả",
+    "characters": "Nhân vật",
+    "scenes": "Cảnh",
+    "keyframes": "Khung hình chính"
+  },
+  "emptyState": {
+    "title": "Chưa có dữ liệu prompt",
+    "detail": "Vui lòng tạo nhân vật và cảnh trong giai đoạn Sáng tác kịch bản trước, hoặc tạo bảng phân cảnh trong Bàn làm việc AI"
+  },
+  "character": {
+    "title": "Nhân vật",
+    "variationsTitle": "Biến thể nhân vật",
+    "noPrompt": "Chưa thiết lập prompt"
+  },
+  "scene": {
+    "title": "Cảnh",
+    "noPrompt": "Chưa thiết lập prompt"
+  },
+  "keyframe": {
+    "title": "Khung hình chính phân cảnh",
+    "shotNumber": "Cảnh quay {{number}}",
+    "defaultShotSize": "Cảnh quay tiêu chuẩn",
+    "startFrame": "Khung hình đầu",
+    "endFrame": "Khung hình cuối",
+    "imageAlt": "Khung hình chính {{frame}}",
+    "videoPromptLabel": "Prompt tạo video",
+    "notSavedWarning": "⚠ Prompt chưa được lưu khi video này được tạo, nội dung trên là suy luận"
+  },
+  "editor": {
+    "placeholder": "Nhập prompt..."
+  },
+  "statusBadge": {
+    "completed": "✓ Đã tạo",
+    "generating": "Đang tạo",
+    "failed": "Thất bại",
+    "idle": "Chờ tạo"
+  }
+}

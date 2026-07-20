@@ -1,0 +1,47 @@
+{
+  "header": {
+    "title": "资产管理",
+    "subtitle": "查看和编辑所有生成任务的提示词和变量"
+  },
+  "search": {
+    "placeholder": "搜索提示词、角色、场景..."
+  },
+  "categories": {
+    "all": "全部",
+    "characters": "角色",
+    "scenes": "场景",
+    "keyframes": "关键帧"
+  },
+  "emptyState": {
+    "title": "暂无提示词数据",
+    "detail": "请先在剧情创作阶段生成角色和场景，或在 AI工作台 生成分镜"
+  },
+  "character": {
+    "title": "角色",
+    "variationsTitle": "角色变体",
+    "noPrompt": "未设置提示词"
+  },
+  "scene": {
+    "title": "场景",
+    "noPrompt": "未设置提示词"
+  },
+  "keyframe": {
+    "title": "分镜关键帧",
+    "shotNumber": "镜头 {{number}}",
+    "defaultShotSize": "标准镜头",
+    "startFrame": "起始帧",
+    "endFrame": "结束帧",
+    "imageAlt": "关键帧 {{frame}}",
+    "videoPromptLabel": "视频生成提示词",
+    "notSavedWarning": "⚠ 此视频生成时未保存提示词，以上为推测内容"
+  },
+  "editor": {
+    "placeholder": "输入提示词..."
+  },
+  "statusBadge": {
+    "completed": "✓ 已生成",
+    "generating": "生成中",
+    "failed": "失败",
+    "idle": "待生成"
+  }
+}

@@ -48,9 +48,11 @@ export const STATUS_STYLES = {
   idle: 'text-zinc-500'
 };
 
-export const STATUS_LABELS = {
-  completed: '✓ 已生成',
-  generating: '生成中',
-  failed: '失败',
-  idle: '待生成'
+// Maps each status VALUE (logic, unchanged) to its i18n key under the `prompts` namespace.
+// The actual display text lives in i18n/locales/*/prompts.json (statusBadge.*).
+export const STATUS_LABEL_KEYS = {
+  completed: 'statusBadge.completed',
+  generating: 'statusBadge.generating',
+  failed: 'statusBadge.failed',
+  idle: 'statusBadge.idle'
 };

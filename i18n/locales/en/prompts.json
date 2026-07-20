@@ -1,0 +1,47 @@
+{
+  "header": {
+    "title": "Asset Management",
+    "subtitle": "View and edit prompts and variables for all generation tasks"
+  },
+  "search": {
+    "placeholder": "Search prompts, characters, scenes..."
+  },
+  "categories": {
+    "all": "All",
+    "characters": "Characters",
+    "scenes": "Scenes",
+    "keyframes": "Keyframes"
+  },
+  "emptyState": {
+    "title": "No prompt data yet",
+    "detail": "Please generate characters and scenes in the Script Creation stage first, or generate the storyboard in the AI Workbench"
+  },
+  "character": {
+    "title": "Characters",
+    "variationsTitle": "Character Variations",
+    "noPrompt": "No prompt set"
+  },
+  "scene": {
+    "title": "Scenes",
+    "noPrompt": "No prompt set"
+  },
+  "keyframe": {
+    "title": "Storyboard Keyframes",
+    "shotNumber": "Shot {{number}}",
+    "defaultShotSize": "Standard Shot",
+    "startFrame": "Start Frame",
+    "endFrame": "End Frame",
+    "imageAlt": "Keyframe {{frame}}",
+    "videoPromptLabel": "Video Generation Prompt",
+    "notSavedWarning": "⚠ No prompt was saved when this video was generated; the text above is inferred"
+  },
+  "editor": {
+    "placeholder": "Enter a prompt..."
+  },
+  "statusBadge": {
+    "completed": "✓ Generated",
+    "generating": "Generating",
+    "failed": "Failed",
+    "idle": "Pending"
+  }
+}
