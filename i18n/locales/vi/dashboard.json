@@ -1,0 +1,54 @@
+{
+  "title": "Thư viện dự án",
+  "tagline": "Quản lý tập trung các dự án phim ngắn và tài nguyên hình ảnh có thể tái sử dụng, từ bản nháp kịch bản đến xuất bản phim.",
+  "nav": {
+    "newProject": "Dự án mới",
+    "library": "Thư viện tài nguyên",
+    "modelConfig": "Cấu hình mô hình",
+    "help": "Trợ giúp",
+    "support": "Hỗ trợ khách hàng"
+  },
+  "sidebarNote": "Thanh điều hướng bên trái tích hợp tạo dự án, thư viện tài nguyên và cấu hình để chuyển đổi nhanh chóng.",
+  "stage": {
+    "script": "Sáng tác kịch bản",
+    "assets": "Cảnh và nhân vật",
+    "director": "Bàn làm việc AI",
+    "export": "Xuất bản phim",
+    "prompts": "Quản lý tài nguyên",
+    "unknown": "Không xác định"
+  },
+  "card": {
+    "deleteTooltip": "Xóa dự án",
+    "lastModifiedLabel": "Sửa lần cuối: {{date}}"
+  },
+  "deleteConfirm": {
+    "title": "Xác nhận xóa dự án?",
+    "irreversible": "Thao tác này không thể hoàn tác",
+    "resourcesIntro": "Tất cả tài nguyên sau đây cũng sẽ bị xóa:",
+    "resourceCharacters": "· Ảnh tham chiếu nhân vật và cảnh",
+    "resourceKeyframes": "· Tất cả hình ảnh keyframe",
+    "resourceVideos": "· Tất cả video clip đã tạo",
+    "resourceHistory": "· Lịch sử render",
+    "confirmButton": "Xóa vĩnh viễn",
+    "deleteError": "Xóa dự án thất bại: {{message}}\n\nVui lòng kiểm tra console trình duyệt để biết chi tiết"
+  },
+  "groupQr": {
+    "scanToAdd": "Quét mã để thêm hỗ trợ",
+    "qrAlt": "Mã QR hỗ trợ khách hàng",
+    "scanNote": "Sau khi quét mã, vui lòng nêu rõ mục đích liên hệ"
+  },
+  "library": {
+    "description": "Thêm nội dung vào thư viện tài nguyên từ mục \"Cảnh và nhân vật\" của dự án để tái sử dụng giữa các dự án",
+    "searchPlaceholder": "Tìm kiếm tên tài nguyên...",
+    "filterAll": "Tất cả",
+    "character": "Nhân vật",
+    "scene": "Cảnh",
+    "emptyState": "Chưa có tài nguyên nào. Có thể thêm từ mục \"Cảnh và nhân vật\" của dự án.",
+    "useInProject": "Chọn dự án để sử dụng",
+    "confirmDeleteAsset": "Bạn có chắc muốn xóa tài nguyên này khỏi thư viện?",
+    "deleteAssetError": "Xóa tài nguyên thất bại: {{message}}",
+    "importIntro": "Nhập tài nguyên \"{{name}}\" vào dự án sau đây",
+    "noProjectsAvailable": "Chưa có dự án nào khả dụng",
+    "importError": "Nhập thất bại: {{message}}"
+  }
+}

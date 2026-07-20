@@ -1,0 +1,54 @@
+{
+  "title": "Project Library",
+  "tagline": "Manage your short-drama projects and reusable visual assets in one place, from story draft to final export.",
+  "nav": {
+    "newProject": "New Project",
+    "library": "Asset Library",
+    "modelConfig": "Model Config",
+    "help": "Help",
+    "support": "Customer Support"
+  },
+  "sidebarNote": "The sidebar brings together project creation, the asset library, and configuration for quick switching.",
+  "stage": {
+    "script": "Script Writing",
+    "assets": "Scenes & Characters",
+    "director": "AI Workbench",
+    "export": "Production Export",
+    "prompts": "Asset Management",
+    "unknown": "Unknown"
+  },
+  "card": {
+    "deleteTooltip": "Delete Project",
+    "lastModifiedLabel": "Last modified: {{date}}"
+  },
+  "deleteConfirm": {
+    "title": "Delete this project?",
+    "irreversible": "This action cannot be undone",
+    "resourcesIntro": "The following resources will also be deleted:",
+    "resourceCharacters": "· Character and scene reference images",
+    "resourceKeyframes": "· All keyframe images",
+    "resourceVideos": "· All generated video clips",
+    "resourceHistory": "· Render history",
+    "confirmButton": "Delete Permanently",
+    "deleteError": "Failed to delete project: {{message}}\n\nCheck the browser console for details"
+  },
+  "groupQr": {
+    "scanToAdd": "Scan to add support",
+    "qrAlt": "Customer support QR code",
+    "scanNote": "Please state your purpose after scanning"
+  },
+  "library": {
+    "description": "Add items to the asset library from a project's \"Scenes & Characters\" tab to reuse them across projects",
+    "searchPlaceholder": "Search asset name...",
+    "filterAll": "All",
+    "character": "Character",
+    "scene": "Scene",
+    "emptyState": "No assets yet. Add items from a project's \"Scenes & Characters\" tab.",
+    "useInProject": "Use in a Project",
+    "confirmDeleteAsset": "Delete this asset from the library?",
+    "deleteAssetError": "Failed to delete asset: {{message}}",
+    "importIntro": "Import asset \"{{name}}\" into the following project",
+    "noProjectsAvailable": "No projects available",
+    "importError": "Import failed: {{message}}"
+  }
+}

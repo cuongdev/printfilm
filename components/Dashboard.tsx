@@ -1,5 +1,6 @@
 // Author: forsearch | Updated: 2026-04-30
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Plus, Trash2, Loader2, Folder, ChevronRight, Calendar, AlertTriangle, X, HelpCircle, Cpu, Archive, Search, Users, MapPin } from 'lucide-react';
 import { ProjectState, AssetLibraryItem, Character, Scene } from '../types';
 import { getAllProjectsMetadata, createNewProjectState, deleteProjectFromDB, getAllAssetLibraryItems, deleteAssetFromLibrary, loadProjectFromDB, saveProjectToDB } from '../services/storageService';
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowModelConfig }) => {
+  const { t, i18n } = useTranslation('dashboard');
   const { showAlert } = useAlert();
   const [projects, setProjects] = useState<ProjectState[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -83,14 +85,14 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
         await loadProjects();
     } catch (error) {
         console.error("删除项目失败:", error);
-        showAlert(`删除项目失败: ${error instanceof Error ? error.message : '未知错误'}\n\n请检查浏览器控制台查看详细信息`, { type: 'error' });
+        showAlert(t('deleteConfirm.deleteError', { message: error instanceof Error ? error.message : t('common:errors.unknown') }), { type: 'error' });
     } finally {
         setDeleteConfirmId(null);
     }
   };
 
   const handleDeleteLibraryItem = (itemId: string) => {
-    showAlert('确定从资产库删除该资源吗？', {
+    showAlert(t('library.confirmDeleteAsset'), {
       type: 'warning',
       showCancel: true,
       onConfirm: async () => {
@@ -98,7 +100,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
           await deleteAssetFromLibrary(itemId);
           setLibraryItems((prev) => prev.filter((item) => item.id !== itemId));
         } catch (error) {
-          showAlert(`删除资产失败: ${error instanceof Error ? error.message : '未知错误'}`, { type: 'error' });
+          showAlert(t('library.deleteAssetError', { message: error instanceof Error ? error.message : t('common:errors.unknown') }), { type: 'error' });
         }
       }
     });
@@ -113,12 +115,12 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
       onOpenProject(updated);
       setAssetToUse(null);
     } catch (error) {
-      showAlert(`导入失败: ${error instanceof Error ? error.message : '未知错误'}`, { type: 'error' });
+      showAlert(t('library.importError', { message: error instanceof Error ? error.message : t('common:errors.unknown') }), { type: 'error' });
     }
   };
 
   const formatDate = (ts: number) => {
-    return new Date(ts).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return new Date(ts).toLocaleDateString(i18n.resolvedLanguage || i18n.language, { year: 'numeric', month: '2-digit', day: '2-digit' });
   };
 
   const filteredLibraryItems = libraryItems.filter((item) => {
@@ -137,10 +139,10 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
               Studio Lobby
             </div>
             <h1 className="text-3xl font-semibold text-white tracking-tight mb-3 flex items-center gap-2">
-              项目库
+              {t('title')}
             </h1>
             <div className="text-xs text-slate-400 leading-relaxed mb-8">
-              从故事草稿到制片导出，集中管理你的短剧项目和可复用视觉资产。
+              {t('tagline')}
             </div>
 
             <nav className="space-y-2">
@@ -150,7 +152,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
               >
                 <span className="flex items-center gap-2">
                   <Plus className="w-3.5 h-3.5" />
-                  新建项目
+                  {t('nav.newProject')}
                 </span>
               </button>
 
@@ -160,7 +162,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
               >
                 <span className="flex items-center gap-2">
                   <Archive className="w-3.5 h-3.5" />
-                  资产库
+                  {t('nav.library')}
                 </span>
               </button>
 
@@ -171,7 +173,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                 >
                   <span className="flex items-center gap-2">
                     <Cpu className="w-3.5 h-3.5" />
-                    模型配置
+                    {t('nav.modelConfig')}
                   </span>
                 </button>
               )}
@@ -183,7 +185,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                 >
                   <span className="flex items-center gap-2">
                     <HelpCircle className="w-3.5 h-3.5" />
-                    帮助
+                    {t('nav.help')}
                   </span>
                 </button>
               )}
@@ -194,14 +196,14 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
               >
                 <span className="flex items-center gap-2">
                   <Users className="w-3.5 h-3.5" />
-                  客服咨询
+                  {t('nav.support')}
                 </span>
               </button>
             </nav>
           </div>
 
           <div className="pt-6 border-t border-white/10 text-[10px] text-slate-500 font-mono leading-relaxed">
-            <p>左侧导航整合了项目创建、资产库和配置入口，方便快速切换。</p>
+            <p>{t('sidebarNote')}</p>
           </div>
         </aside>
 
@@ -209,7 +211,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
           <div className="md:hidden mb-6 space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-2xl font-semibold text-white tracking-tight">项目库</h1>
+                <h1 className="text-2xl font-semibold text-white tracking-tight">{t('title')}</h1>
                 <div className="text-[11px] text-cyan-200/60 font-mono tracking-widest uppercase mt-1">
                   Studio Lobby
                 </div>
@@ -221,14 +223,14 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                 className="flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-300 to-sky-400 text-slate-950 hover:from-cyan-200 hover:to-sky-300 transition-colors text-[11px] font-bold tracking-widest uppercase rounded-2xl"
               >
                 <Plus className="w-3.5 h-3.5" />
-                新建项目
+                {t('nav.newProject')}
               </button>
               <button
                 onClick={() => setShowLibraryModal(true)}
                 className="flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2 border border-white/10 text-slate-400 hover:text-white hover:border-cyan-300/30 transition-colors text-[11px] font-medium tracking-widest uppercase rounded-2xl bg-white/5"
               >
                 <Archive className="w-3.5 h-3.5" />
-                资产库
+                {t('nav.library')}
               </button>
             </div>
           </div>
@@ -265,14 +267,14 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                            <AlertTriangle className="w-5 h-5 text-red-500" />
                         </div>
                         <div className="text-center space-y-2">
-                            <p className="text-white font-bold text-xs uppercase tracking-widest">确认删除项目？</p>
-                            <p className="text-zinc-500 text-[10px] font-mono">此操作无法撤销</p>
+                            <p className="text-white font-bold text-xs uppercase tracking-widest">{t('deleteConfirm.title')}</p>
+                            <p className="text-zinc-500 text-[10px] font-mono">{t('deleteConfirm.irreversible')}</p>
                             <div className="text-[9px] text-zinc-600 space-y-1 pt-2 border-t border-zinc-900">
-                              <p>将同时删除以下所有资源：</p>
-                              <p className="text-zinc-700 font-mono">· 角色和场景参考图</p>
-                              <p className="text-zinc-700 font-mono">· 所有关键帧图像</p>
-                              <p className="text-zinc-700 font-mono">· 所有生成的视频片段</p>
-                              <p className="text-zinc-700 font-mono">· 渲染历史记录</p>
+                              <p>{t('deleteConfirm.resourcesIntro')}</p>
+                              <p className="text-zinc-700 font-mono">{t('deleteConfirm.resourceCharacters')}</p>
+                              <p className="text-zinc-700 font-mono">{t('deleteConfirm.resourceKeyframes')}</p>
+                              <p className="text-zinc-700 font-mono">{t('deleteConfirm.resourceVideos')}</p>
+                              <p className="text-zinc-700 font-mono">{t('deleteConfirm.resourceHistory')}</p>
                             </div>
                         </div>
                         <div className="flex gap-2 w-full pt-2">
@@ -280,13 +282,13 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                                 onClick={cancelDelete}
                                 className="flex-1 py-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white text-[10px] font-bold uppercase tracking-wider transition-colors border border-white/10 rounded-xl"
                             >
-                                取消
+                                {t('common:actions.cancel')}
                             </button>
-                            <button 
+                            <button
                                 onClick={(e) => confirmDelete(e, proj.id)}
                                 className="flex-1 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-300 hover:text-red-100 text-[10px] font-bold uppercase tracking-wider transition-colors border border-red-400/20 rounded-xl"
                             >
-                                永久删除
+                                {t('deleteConfirm.confirmButton')}
                             </button>
                         </div>
                     </div>
@@ -296,7 +298,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                      <button 
                         onClick={(e) => requestDelete(e, proj.id)}
                         className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 p-2 hover:bg-white/10 text-slate-500 hover:text-red-300 transition-all rounded-xl z-10"
-                        title="删除项目"
+                        title={t('card.deleteTooltip')}
                     >
                         <Trash2 className="w-4 h-4" />
                     </button>
@@ -306,11 +308,11 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                         <h3 className="text-sm font-bold text-white mb-2 line-clamp-1 tracking-wide">{proj.title}</h3>
                         <div className="flex flex-wrap gap-2 mb-4">
                             <span className="text-[9px] font-mono text-cyan-100/70 border border-cyan-200/15 bg-cyan-300/10 px-2 py-1 uppercase tracking-wider rounded-full">
-                              {proj.stage === 'script' ? '剧情创作' :
-                               proj.stage === 'assets' ? '场景角色' :
-                               proj.stage === 'director' ? 'AI工作台' :
-                               proj.stage === 'export' ? '制片导出' :
-                               proj.stage === 'prompts' ? '资产管理' : '未知'}
+                              {proj.stage === 'script' ? t('stage.script') :
+                               proj.stage === 'assets' ? t('stage.assets') :
+                               proj.stage === 'director' ? t('stage.director') :
+                               proj.stage === 'export' ? t('stage.export') :
+                               proj.stage === 'prompts' ? t('stage.prompts') : t('stage.unknown')}
                             </span>
                         </div>
                         {proj.scriptData?.logline && (
@@ -344,17 +346,17 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
             <button
               onClick={() => setShowGroupQr(false)}
               className="absolute right-4 top-4 p-2 text-slate-500 hover:text-white hover:bg-white/10 transition-colors rounded-xl"
-              title="关闭"
+              title={t('common:actions.close')}
             >
               <X className="w-4 h-4" />
             </button>
             <div className="space-y-4 text-center">
-              <div className="text-white text-sm font-bold tracking-widest uppercase">客服咨询</div>
-              <div className="text-[10px] text-cyan-100/60 font-mono">扫码添加客服</div>
+              <div className="text-white text-sm font-bold tracking-widest uppercase">{t('nav.support')}</div>
+              <div className="text-[10px] text-cyan-100/60 font-mono">{t('groupQr.scanToAdd')}</div>
               <div className="bg-white p-3 inline-block rounded-2xl">
-                <img src={kefuCodeImg} alt="客服咨询二维码" className="w-64 h-64 object-contain" />
+                <img src={kefuCodeImg} alt={t('groupQr.qrAlt')} className="w-64 h-64 object-contain" />
               </div>
-              <div className="text-[10px] text-slate-500 font-mono">扫码后请说明来意</div>
+              <div className="text-[10px] text-slate-500 font-mono">{t('groupQr.scanNote')}</div>
             </div>
           </div>
         </div>
@@ -369,7 +371,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
             <button
               onClick={() => setShowLibraryModal(false)}
               className="absolute right-4 top-4 p-2 text-slate-500 hover:text-white hover:bg-white/10 transition-colors rounded-xl"
-              title="关闭"
+              title={t('common:actions.close')}
             >
               <X className="w-4 h-4" />
             </button>
@@ -377,11 +379,11 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
               <div>
                 <h2 className="text-lg text-white flex items-center gap-2">
                   <Archive className="w-4 h-4 text-cyan-300" />
-                  资产库
+                  {t('nav.library')}
                   <span className="text-cyan-100/40 text-xs font-mono uppercase tracking-widest">Asset Library</span>
                 </h2>
                 <p className="text-xs text-slate-400 mt-2">
-                  在项目「场景角色」中将内容加入资产库，跨项目复用
+                  {t('library.description')}
                 </p>
               </div>
               <div className="text-[10px] text-cyan-100/50 font-mono uppercase tracking-widest">
@@ -395,7 +397,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                 <input
                   value={libraryQuery}
                   onChange={(e) => setLibraryQuery(e.target.value)}
-                  placeholder="搜索资产名称..."
+                  placeholder={t('library.searchPlaceholder')}
                   className="w-full pl-9 pr-3 py-2 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-300/40"
                 />
               </div>
@@ -410,7 +412,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                         : 'bg-white/5 text-slate-400 border-white/10 hover:text-white hover:border-cyan-300/30'
                     }`}
                   >
-                    {type === 'all' ? '全部' : type === 'character' ? '角色' : '场景'}
+                    {type === 'all' ? t('library.filterAll') : type === 'character' ? t('library.character') : t('library.scene')}
                   </button>
                 ))}
               </div>
@@ -422,7 +424,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
               </div>
             ) : filteredLibraryItems.length === 0 ? (
                 <div className="border border-dashed border-cyan-200/15 rounded-2xl p-10 text-center text-slate-500 text-sm">
-                暂无资产。可在项目的「场景角色」中加入资产库。
+                {t('library.emptyState')}
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -453,7 +455,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                         <div>
                           <div className="text-sm text-white font-bold line-clamp-1">{item.name}</div>
                           <div className="text-[10px] text-cyan-100/50 font-mono uppercase tracking-widest mt-1">
-                            {item.type === 'character' ? '角色' : '场景'}
+                            {item.type === 'character' ? t('library.character') : t('library.scene')}
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -461,12 +463,12 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                             onClick={() => setAssetToUse(item)}
                             className="flex-1 py-2 bg-cyan-300 text-slate-950 hover:bg-cyan-200 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-colors"
                           >
-                            选择项目使用
+                            {t('library.useInProject')}
                           </button>
                           <button
                             onClick={() => handleDeleteLibraryItem(item.id)}
                             className="p-2 border border-white/10 text-slate-500 hover:text-red-300 hover:border-red-400/40 rounded-xl transition-colors"
-                            title="删除"
+                            title={t('common:actions.delete')}
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -490,17 +492,17 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
             <button
               onClick={() => setAssetToUse(null)}
               className="absolute right-4 top-4 p-2 text-slate-500 hover:text-white hover:bg-white/10 transition-colors rounded-xl"
-              title="关闭"
+              title={t('common:actions.close')}
             >
               <X className="w-4 h-4" />
             </button>
             <div className="space-y-4">
-              <div className="text-white text-sm font-bold tracking-widest uppercase">选择项目使用</div>
+              <div className="text-white text-sm font-bold tracking-widest uppercase">{t('library.useInProject')}</div>
               <div className="text-[10px] text-cyan-100/55 font-mono">
-                将资产“{assetToUse.name}”导入到以下项目
+                {t('library.importIntro', { name: assetToUse.name })}
               </div>
               {projects.length === 0 ? (
-                <div className="text-zinc-600 text-sm">暂无项目可用</div>
+                <div className="text-zinc-600 text-sm">{t('library.noProjectsAvailable')}</div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {projects.map((proj) => (
@@ -510,7 +512,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                       className="p-4 text-left border border-white/10 hover:border-cyan-300/30 bg-white/[0.04] hover:bg-white/[0.07] transition-colors rounded-2xl"
                     >
                       <div className="text-sm text-white font-bold line-clamp-1">{proj.title}</div>
-                      <div className="text-[10px] text-zinc-500 font-mono mt-1">最后修改: {formatDate(proj.lastModified)}</div>
+                      <div className="text-[10px] text-zinc-500 font-mono mt-1">{t('card.lastModifiedLabel', { date: formatDate(proj.lastModified) })}</div>
                     </button>
                   ))}
                 </div>

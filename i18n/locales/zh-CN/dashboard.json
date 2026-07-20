@@ -1,0 +1,54 @@
+{
+  "title": "项目库",
+  "tagline": "从故事草稿到制片导出，集中管理你的短剧项目和可复用视觉资产。",
+  "nav": {
+    "newProject": "新建项目",
+    "library": "资产库",
+    "modelConfig": "模型配置",
+    "help": "帮助",
+    "support": "客服咨询"
+  },
+  "sidebarNote": "左侧导航整合了项目创建、资产库和配置入口，方便快速切换。",
+  "stage": {
+    "script": "剧情创作",
+    "assets": "场景角色",
+    "director": "AI工作台",
+    "export": "制片导出",
+    "prompts": "资产管理",
+    "unknown": "未知"
+  },
+  "card": {
+    "deleteTooltip": "删除项目",
+    "lastModifiedLabel": "最后修改: {{date}}"
+  },
+  "deleteConfirm": {
+    "title": "确认删除项目？",
+    "irreversible": "此操作无法撤销",
+    "resourcesIntro": "将同时删除以下所有资源：",
+    "resourceCharacters": "· 角色和场景参考图",
+    "resourceKeyframes": "· 所有关键帧图像",
+    "resourceVideos": "· 所有生成的视频片段",
+    "resourceHistory": "· 渲染历史记录",
+    "confirmButton": "永久删除",
+    "deleteError": "删除项目失败: {{message}}\n\n请检查浏览器控制台查看详细信息"
+  },
+  "groupQr": {
+    "scanToAdd": "扫码添加客服",
+    "qrAlt": "客服咨询二维码",
+    "scanNote": "扫码后请说明来意"
+  },
+  "library": {
+    "description": "在项目「场景角色」中将内容加入资产库，跨项目复用",
+    "searchPlaceholder": "搜索资产名称...",
+    "filterAll": "全部",
+    "character": "角色",
+    "scene": "场景",
+    "emptyState": "暂无资产。可在项目的「场景角色」中加入资产库。",
+    "useInProject": "选择项目使用",
+    "confirmDeleteAsset": "确定从资产库删除该资源吗？",
+    "deleteAssetError": "删除资产失败: {{message}}",
+    "importIntro": "将资产“{{name}}”导入到以下项目",
+    "noProjectsAvailable": "暂无项目可用",
+    "importError": "导入失败: {{message}}"
+  }
+}
