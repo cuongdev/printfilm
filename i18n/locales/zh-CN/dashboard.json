@@ -10,11 +10,6 @@
   },
   "sidebarNote": "左侧导航整合了项目创建、资产库和配置入口，方便快速切换。",
   "stage": {
-    "script": "剧情创作",
-    "assets": "场景角色",
-    "director": "AI工作台",
-    "export": "制片导出",
-    "prompts": "资产管理",
     "unknown": "未知"
   },
   "card": {

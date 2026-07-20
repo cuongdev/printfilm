@@ -10,11 +10,6 @@
   },
   "sidebarNote": "The sidebar brings together project creation, the asset library, and configuration for quick switching.",
   "stage": {
-    "script": "Script Writing",
-    "assets": "Scenes & Characters",
-    "director": "AI Workbench",
-    "export": "Production Export",
-    "prompts": "Asset Management",
     "unknown": "Unknown"
   },
   "card": {

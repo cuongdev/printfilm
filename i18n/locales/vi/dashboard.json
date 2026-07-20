@@ -10,11 +10,6 @@
   },
   "sidebarNote": "Thanh điều hướng bên trái tích hợp tạo dự án, thư viện tài nguyên và cấu hình để chuyển đổi nhanh chóng.",
   "stage": {
-    "script": "Sáng tác kịch bản",
-    "assets": "Cảnh và nhân vật",
-    "director": "Bàn làm việc AI",
-    "export": "Xuất bản phim",
-    "prompts": "Quản lý tài nguyên",
     "unknown": "Không xác định"
   },
   "card": {

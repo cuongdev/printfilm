@@ -62,9 +62,9 @@
     "allCharactersAdded": "Đã thêm tất cả nhân vật",
     "removeCharacterTitle": "Xóa nhân vật",
     "doneButton": "Xong",
-    "visualPromptLabel": "Gợi ý hình ảnh",
-    "editVisualPromptTitle": "Chỉnh sửa gợi ý",
-    "visualPromptPlaceholder": "Nhập gợi ý hình ảnh..."
+    "visualPromptLabel": "Prompt hình ảnh",
+    "editVisualPromptTitle": "Chỉnh sửa prompt hình ảnh",
+    "visualPromptPlaceholder": "Nhập prompt hình ảnh..."
   },
   "inlineEditor": {
     "defaultPlaceholder": "Nhập nội dung...",

@@ -308,11 +308,11 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                         <h3 className="text-sm font-bold text-white mb-2 line-clamp-1 tracking-wide">{proj.title || t('common:defaults.untitledProject')}</h3>
                         <div className="flex flex-wrap gap-2 mb-4">
                             <span className="text-[9px] font-mono text-cyan-100/70 border border-cyan-200/15 bg-cyan-300/10 px-2 py-1 uppercase tracking-wider rounded-full">
-                              {proj.stage === 'script' ? t('stage.script') :
-                               proj.stage === 'assets' ? t('stage.assets') :
-                               proj.stage === 'director' ? t('stage.director') :
-                               proj.stage === 'export' ? t('stage.export') :
-                               proj.stage === 'prompts' ? t('stage.prompts') : t('stage.unknown')}
+                              {proj.stage === 'script' ? t('sidebar:nav.script') :
+                               proj.stage === 'assets' ? t('sidebar:nav.assets') :
+                               proj.stage === 'director' ? t('sidebar:nav.director') :
+                               proj.stage === 'export' ? t('sidebar:nav.export') :
+                               proj.stage === 'prompts' ? t('sidebar:nav.prompts') : t('stage.unknown')}
                             </span>
                         </div>
                         {proj.scriptData?.logline && (
