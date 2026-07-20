@@ -1,3 +1,4 @@
+import i18n from '../../i18n';
 import { Shot, ProjectState, Keyframe } from '../../types';
 import { VISUAL_STYLE_PROMPTS, VIDEO_PROMPT_TEMPLATES } from './constants';
 import { getCameraMovementCompositionGuide } from './cameraMovementGuides';
@@ -148,7 +149,7 @@ export const convertImageToBase64 = (file: File): Promise<string> => {
       resolve(event.target?.result as string);
     };
     reader.onerror = () => {
-      reject(new Error('读取文件失败'));
+      reject(new Error(i18n.t('director:errors.readFileFailed')));
     };
     reader.readAsDataURL(file);
   });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Loader2, Edit2, Upload, ArrowRight, ArrowLeft, Sparkles, Wand2 } from 'lucide-react';
 import { Keyframe } from '../../types';
 
@@ -37,6 +38,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
   onCopyNext,
   onImageClick
 }) => {
+  const { t } = useTranslation('director');
   const renderKeyframePanel = (
     type: 'start' | 'end',
     label: string,
@@ -56,7 +58,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
               onClick={() => onOptimizeWithAI(type)}
               disabled={isAIOptimizing}
               className="p-1 text-cyan-300 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              title="AI优化提示词"
+              title={t('keyframeEditor.optimizeTitle')}
             >
               {isAIOptimizing ? (
                 <Loader2 className="w-3 h-3 animate-spin" />
@@ -68,7 +70,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
               <button
                 onClick={() => onEditPrompt(type, keyframe.visualPrompt!)}
                 className="p-1 text-yellow-400 hover:text-white transition-colors"
-                title="编辑提示词"
+                title={t('keyframeEditor.editPromptTitle')}
               >
                 <Edit2 className="w-3 h-3" />
               </button>
@@ -82,11 +84,11 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
               <img
                 src={keyframe.imageUrl}
                 className="w-full h-full object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                onClick={() => onImageClick(keyframe.imageUrl!, `${label} - 关键帧`)}
+                onClick={() => onImageClick(keyframe.imageUrl!, t('keyframeEditor.previewTitle', { label }))}
                 alt={label}
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                <span className="text-white text-xs font-mono">点击预览</span>
+                <span className="text-white text-xs font-mono">{t('keyframeEditor.clickToPreview')}</span>
               </div>
             </>
           ) : (
@@ -94,21 +96,21 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
               {isGenerating ? (
                 <>
                   <Loader2 className="w-6 h-6 animate-spin mb-2 text-cyan-300" />
-                  <span className="text-[10px] text-zinc-500">生成中...</span>
+                  <span className="text-[10px] text-zinc-500">{t('keyframeEditor.generating')}</span>
                 </>
               ) : hasFailed ? (
                 <>
-                  <span className="text-[10px] text-red-500 mb-2">生成失败</span>
-                  <span className="text-[9px] text-zinc-500 text-center px-1 mb-2">若因内容安全拦截，请点击上方「编辑」修改提示词后重试</span>
+                  <span className="text-[10px] text-red-500 mb-2">{t('keyframeEditor.generationFailed')}</span>
+                  <span className="text-[9px] text-zinc-500 text-center px-1 mb-2">{t('keyframeEditor.contentSafetyHint')}</span>
                   <button
                     onClick={() => onGenerateKeyframe(type)}
                     className="px-2 py-1 bg-red-900/30 text-red-400 hover:bg-red-900/50 rounded text-[9px] font-bold transition-colors border border-red-700"
                   >
-                    重试
+                    {t('keyframeEditor.retryButton')}
                   </button>
                 </>
               ) : (
-                <span className="text-[10px] text-center">未生成</span>
+                <span className="text-[10px] text-center">{t('keyframeEditor.notGenerated')}</span>
               )}
             </div>
           )}
@@ -122,14 +124,14 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
                 disabled={isGenerating}
                 className="flex-1 py-1.5 bg-cyan-300 hover:bg-cyan-200 text-slate-950 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 disabled:opacity-50"
               >
-                {keyframe?.imageUrl ? '重新生成' : '生成'}
+                {keyframe?.imageUrl ? t('keyframeEditor.regenerateButton') : t('keyframeEditor.generateButton')}
               </button>
               <button
                 onClick={() => onUploadKeyframe(type)}
                 className="flex-1 py-1.5 bg-white/10 hover:bg-white/15 text-zinc-300 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
               >
                 <Upload className="w-3 h-3" />
-                上传
+                {t('keyframeEditor.uploadButton')}
               </button>
             </>
           )}
@@ -141,7 +143,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
             className="w-full py-1.5 bg-white/[0.06] hover:bg-white/10 text-zinc-400 hover:text-white rounded-xl text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 border border-white/10"
           >
             <ArrowRight className="w-3 h-3" />
-            复制上一镜头尾帧
+            {t('keyframeEditor.copyPreviousEndFrame')}
           </button>
         )}
 
@@ -151,7 +153,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
             className="w-full py-1.5 bg-white/[0.06] hover:bg-white/10 text-zinc-400 hover:text-white rounded-xl text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 border border-white/10"
           >
             <ArrowLeft className="w-3 h-3" />
-            复制下一镜头首帧
+            {t('keyframeEditor.copyNextStartFrame')}
           </button>
         )}
       </div>
@@ -162,19 +164,19 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
     <div className="space-y-4">
       <div className="flex items-center gap-2 border-b border-white/10 pb-2">
         <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest flex-1">
-          视觉制作 (Visual Production)
+          {t('keyframeEditor.visualProductionHeading')}
         </span>
-        
+
         <div className="flex items-center gap-2">
           <span className="text-[10px] text-zinc-500">
-            AI增强提示词
+            {t('labels.aiEnhancedPrompt')}
           </span>
           <button
             onClick={onToggleAIEnhancement}
             className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
               useAIEnhancement ? 'bg-cyan-300' : 'bg-slate-700'
             }`}
-            title={useAIEnhancement ? '关闭AI增强：使用基础提示词快速生成' : '开启AI增强：自动扩展为专业电影级描述'}
+            title={useAIEnhancement ? t('keyframeEditor.aiEnhancementOffTitle') : t('keyframeEditor.aiEnhancementOnTitle')}
           >
             <span
               className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${
@@ -188,25 +190,25 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({
           onClick={onOptimizeBothWithAI}
           disabled={isAIOptimizing}
           className="px-3 py-1.5 bg-cyan-300 hover:bg-cyan-200 text-slate-950 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
-          title="AI一次性优化起始帧和结束帧（推荐）"
+          title={t('keyframeEditor.optimizeBothTitle')}
         >
           {isAIOptimizing ? (
             <>
               <Loader2 className="w-3 h-3 animate-spin" />
-              <span>优化中...</span>
+              <span>{t('keyframeEditor.optimizingBoth')}</span>
             </>
           ) : (
             <>
               <Wand2 className="w-3 h-3" />
-              <span>AI优化两帧</span>
+              <span>{t('keyframeEditor.optimizeBothButton')}</span>
             </>
           )}
         </button>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        {renderKeyframePanel('start', '起始帧', startKeyframe)}
-        {renderKeyframePanel('end', '结束帧', endKeyframe)}
+        {renderKeyframePanel('start', t('labels.startFrame'), startKeyframe)}
+        {renderKeyframePanel('end', t('labels.endFrame'), endKeyframe)}
       </div>
     </div>
   );

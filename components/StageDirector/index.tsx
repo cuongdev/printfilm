@@ -1,5 +1,6 @@
 // Author: forsearch | Updated: 2026-04-30
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LayoutGrid, Sparkles, Loader2, AlertCircle, Edit2, Film, Video as VideoIcon } from 'lucide-react';
 import { ProjectState, Shot, Keyframe, AspectRatio, VideoDuration } from '../../types';
 import { migrateDeprecatedChatModelId, migrateDeprecatedVideoModelId } from '../../types/model';
@@ -34,6 +35,7 @@ interface Props {
 }
 
 const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError }) => {
+  const { t } = useTranslation('director');
   const { showAlert } = useAlert();
   const [activeShotId, setActiveShotId] = useState<string | null>(null);
   const [batchProgress, setBatchProgress] = useState<{current: number, total: number, message: string} | null>(null);
@@ -142,7 +144,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
       }));
       
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(`生成失败: ${e.message}`, { type: 'error' });
+      showAlert(t('errors.generateKeyframeFailed', { message: e.message }), { type: 'error' });
     }
   };
 
@@ -156,15 +158,15 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
       if (!file) return;
       
       if (!file.type.startsWith('image/')) {
-        showAlert('请选择图片文件！', { type: 'warning' });
+        showAlert(t('alerts.selectImageFile'), { type: 'warning' });
         return;
       }
-      
+
       try {
         const base64Url = await convertImageToBase64(file);
         const existingKf = shot.keyframes?.find(k => k.type === type);
         const kfId = existingKf?.id || generateId(`kf-${shot.id}-${type}`);
-        
+
         updateProject((prevProject: ProjectState) => ({
           ...prevProject,
           shots: prevProject.shots.map(s => {
@@ -174,7 +176,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
           })
         }));
       } catch (error) {
-        showAlert('读取文件失败！', { type: 'error' });
+        showAlert(t('alerts.readFileFailed'), { type: 'error' });
       }
     };
     
@@ -213,7 +215,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     const eKf = shot.keyframes?.find(k => k.type === 'end');
 
     if (!textToVideoOnly && !sKf?.imageUrl) {
-      return showAlert('请先生成起始帧，或勾选「纯文生视频（不使用首帧）」', { type: 'warning' });
+      return showAlert(t('alerts.needStartFrameOrTextOnly'), { type: 'warning' });
     }
 
     let selectedModel: string = migrateDeprecatedVideoModelId(
@@ -277,14 +279,14 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
       }));
       
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(e.message || '视频生成失败', { type: 'error' });
+      showAlert(e.message || t('errors.videoGenerationFailed'), { type: 'error' });
     }
   };
 
   // 内容审核拦截时保留叙事意图，但弱化敏感表述以便用户重试。
   const handleOptimizeVideoPromptForModeration = async () => {
     if (!activeShot?.interval?.videoPrompt) {
-      showAlert('当前镜头没有可优化的视频提示词，请先生成一次视频或编辑提示词后再试。', { type: 'warning' });
+      showAlert(t('alerts.noPromptToOptimize'), { type: 'warning' });
       return;
     }
     setIsAIGenerating(true);
@@ -294,10 +296,10 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
         ...s,
         interval: s.interval ? { ...s.interval, videoPrompt: optimized, status: 'pending' } : undefined
       }));
-      showAlert('已自动优化描述以规避审核，请点击「开始生成视频」重试。', { type: 'success' });
+      showAlert(t('alerts.moderationOptimizeSuccess'), { type: 'success' });
     } catch (e: any) {
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(`优化失败: ${e.message}`, { type: 'error' });
+      showAlert(t('errors.moderationOptimizeFailed', { message: e.message }), { type: 'error' });
     } finally {
       setIsAIGenerating(false);
     }
@@ -310,7 +312,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     const previousEndKf = previousShot?.keyframes?.find(k => k.type === 'end');
     
     if (!previousEndKf?.imageUrl) {
-      showAlert("上一个镜头还没有生成结束帧", { type: 'warning' });
+      showAlert(t('alerts.previousShotNoEndFrame'), { type: 'warning' });
       return;
     }
     
@@ -333,7 +335,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     const nextStartKf = nextShot?.keyframes?.find(k => k.type === 'start');
     
     if (!nextStartKf?.imageUrl) {
-      showAlert("下一个镜头还没有生成起始帧", { type: 'warning' });
+      showAlert(t('alerts.nextShotNoStartFrame'), { type: 'warning' });
       return;
     }
     
@@ -354,7 +356,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     
     let shotsToProcess = [];
     if (isRegenerate) {
-      showAlert("确定要重新生成所有镜头的首帧吗？这将覆盖现有图片。", {
+      showAlert(t('alerts.regenerateAllConfirm'), {
         type: 'warning',
         showCancel: true,
         onConfirm: async () => {
@@ -372,20 +374,20 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
   };
 
   const executeBatchGenerate = async (shotsToProcess: any[], isRegenerate: boolean) => {
-    setBatchProgress({ 
-      current: 0, 
-      total: shotsToProcess.length, 
-      message: isRegenerate ? "正在重新生成所有首帧..." : "正在批量生成缺失的首帧..." 
+    setBatchProgress({
+      current: 0,
+      total: shotsToProcess.length,
+      message: isRegenerate ? t('progress.regeneratingAll') : t('progress.batchGeneratingMissing')
     });
 
     for (let i = 0; i < shotsToProcess.length; i++) {
       if (i > 0) await delay(DEFAULTS.batchGenerateDelay);
-      
+
       const shot = shotsToProcess[i];
-      setBatchProgress({ 
-        current: i + 1, 
-        total: shotsToProcess.length, 
-        message: `正在生成镜头 ${i+1}/${shotsToProcess.length}...` 
+      setBatchProgress({
+        current: i + 1,
+        total: shotsToProcess.length,
+        message: t('progress.generatingShot', { current: i + 1, total: shotsToProcess.length })
       });
       
       try {
@@ -437,7 +439,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     const endKf = activeShot.keyframes?.find(k => k.type === 'end');
     
     if (!startKf?.visualPrompt && !endKf?.visualPrompt) {
-      showAlert('请先生成或编辑首帧和尾帧的提示词，以便AI更好地理解场景', { type: 'warning' });
+      showAlert(t('alerts.needKeyframePrompts'), { type: 'warning' });
       return;
     }
     
@@ -460,7 +462,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     } catch (e: any) {
       console.error('AI动作生成失败:', e);
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(`AI动作生成失败: ${e.message}`, { type: 'error' });
+      showAlert(t('errors.aiActionFailed', { message: e.message }), { type: 'error' });
     } finally {
       setIsAIGenerating(false);
     }
@@ -468,10 +470,10 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
 
   const handleOptimizeKeyframeWithAI = async (type: 'start' | 'end') => {
     if (!activeShot) return;
-    
+
     const scene = project.scriptData?.scenes.find(s => String(s.id) === String(activeShot.sceneId));
     if (!scene) {
-      showAlert('找不到场景信息', { type: 'warning' });
+      showAlert(t('alerts.sceneNotFound'), { type: 'warning' });
       return;
     }
     
@@ -514,11 +516,11 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
         );
       });
       
-      showAlert(`${type === 'start' ? '起始帧' : '结束帧'}提示词已优化`, { type: 'success' });
+      showAlert(t('alerts.keyframePromptOptimized', { frame: type === 'start' ? t('labels.startFrame') : t('labels.endFrame') }), { type: 'success' });
     } catch (e: any) {
       console.error('AI优化失败:', e);
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(`AI优化失败: ${e.message}`, { type: 'error' });
+      showAlert(t('errors.optimizeKeyframeFailed', { message: e.message }), { type: 'error' });
     } finally {
       setIsAIGenerating(false);
     }
@@ -526,10 +528,10 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
 
   const handleOptimizeBothKeyframes = async () => {
     if (!activeShot) return;
-    
+
     const scene = project.scriptData?.scenes.find(s => String(s.id) === String(activeShot.sceneId));
     if (!scene) {
-      showAlert('找不到场景信息', { type: 'warning' });
+      showAlert(t('alerts.sceneNotFound'), { type: 'warning' });
       return;
     }
     
@@ -579,11 +581,11 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
         return updated;
       });
       
-      showAlert('起始帧和结束帧提示词已优化', { type: 'success' });
+      showAlert(t('alerts.bothKeyframesOptimized'), { type: 'success' });
     } catch (e: any) {
       console.error('AI优化失败:', e);
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(`AI优化失败: ${e.message}`, { type: 'error' });
+      showAlert(t('errors.optimizeKeyframeFailed', { message: e.message }), { type: 'error' });
     } finally {
       setIsAIGenerating(false);
     }
@@ -592,10 +594,10 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
   // 将单个镜头拆成多个子镜头时，需要同步替换原镜头并保留场景/角色上下文。
   const handleSplitShot = async (shot: Shot) => {
     if (!shot) return;
-    
+
     const scene = project.scriptData?.scenes.find(s => String(s.id) === String(shot.sceneId));
     if (!scene) {
-      showAlert('找不到场景信息', { type: 'warning' });
+      showAlert(t('alerts.sceneNotFound'), { type: 'warning' });
       return;
     }
     
@@ -637,11 +639,11 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
       }));
       
       setActiveShotId(null);
-      showAlert(`镜头已拆分为 ${subShots.length} 个子镜头`, { type: 'success' });
+      showAlert(t('alerts.shotSplitSuccess', { count: subShots.length }), { type: 'success' });
     } catch (e: any) {
       console.error('镜头拆分失败:', e);
       if (onApiKeyError && onApiKeyError(e)) return;
-      showAlert(`拆分失败: ${e.message}`, { type: 'error' });
+      showAlert(t('errors.splitFailed', { message: e.message }), { type: 'error' });
     } finally {
       setIsSplittingShot(false);
     }
@@ -651,7 +653,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
     return (
       <div className="flex flex-col items-center justify-center h-full text-slate-500 bg-slate-950/35 backdrop-blur-sm">
         <AlertCircle className="w-12 h-12 mb-4 opacity-50"/>
-        <p>暂无镜头数据，请先返回阶段 1 生成分镜表。</p>
+        <p>{t('emptyState.message')}</p>
       </div>
     );
   }
@@ -679,7 +681,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
         <div className="flex items-center gap-4">
           <h2 className="text-lg font-bold text-white flex items-center gap-3">
             <LayoutGrid className="w-5 h-5 text-cyan-300" />
-            AI工作台
+            {t('header.title')}
             <span className="text-xs text-cyan-100/40 font-mono font-normal uppercase tracking-wider bg-white/5 px-2 py-1 rounded-full">
               Director Workbench
             </span>
@@ -690,7 +692,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">
             <Sparkles className={`w-3.5 h-3.5 ${useAIEnhancement ? 'text-cyan-300' : 'text-slate-600'}`} />
             <label className="flex items-center gap-2 cursor-pointer">
-              <span className="text-xs text-zinc-400">AI增强提示词</span>
+              <span className="text-xs text-zinc-400">{t('labels.aiEnhancedPrompt')}</span>
               <input
                 type="checkbox"
                 checked={useAIEnhancement}
@@ -701,7 +703,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
           </div>
           
           <span className="text-xs text-zinc-500 mr-4 font-mono">
-            {project.shots.filter(s => s.interval?.videoUrl).length} / {project.shots.length} 完成
+            {t('header.completedCount', { completed: project.shots.filter(s => s.interval?.videoUrl).length, total: project.shots.length })}
           </span>
           <button 
             onClick={handleBatchGenerateImages}
@@ -713,7 +715,7 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
             }`}
           >
             <Sparkles className="w-3 h-3" />
-            {allStartFramesGenerated ? '重新生成所有首帧' : '批量生成首帧'}
+            {allStartFramesGenerated ? t('buttons.regenerateAllStartFrames') : t('buttons.batchGenerateStartFrames')}
           </button>
         </div>
       </div>
@@ -802,9 +804,9 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
         onClose={() => setEditModal(null)}
         onSave={handleSaveEdit}
         title={
-          editModal?.type === 'action' ? '编辑叙事动作' :
-          editModal?.type === 'keyframe' ? '编辑关键帧提示词' :
-          '编辑视频提示词'
+          editModal?.type === 'action' ? t('editModal.titleAction') :
+          editModal?.type === 'keyframe' ? t('editModal.titleKeyframe') :
+          t('editModal.titleVideo')
         }
         icon={
           editModal?.type === 'action' ? <Film className="w-4 h-4 text-cyan-300" /> :
@@ -814,9 +816,9 @@ const StageDirector: React.FC<Props> = ({ project, updateProject, onApiKeyError 
         value={editModal?.value || ''}
         onChange={(value) => setEditModal(editModal ? { ...editModal, value } : null)}
         placeholder={
-          editModal?.type === 'action' ? '描述镜头的动作和内容...' :
-          editModal?.type === 'keyframe' ? '输入关键帧的提示词...' :
-          '输入视频生成的提示词...'
+          editModal?.type === 'action' ? t('editModal.placeholderAction') :
+          editModal?.type === 'keyframe' ? t('editModal.placeholderKeyframe') :
+          t('editModal.placeholderVideo')
         }
         textareaClassName={editModal?.type === 'keyframe' || editModal?.type === 'video' ? 'font-mono' : 'font-normal'}
         showAIGenerate={editModal?.type === 'action'}

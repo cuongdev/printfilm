@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight, X, Film, Edit2, MessageSquare, Sparkles, Loader2, Scissors } from 'lucide-react';
 import { Shot, Character, Scene, ProjectState, AspectRatio, VideoDuration } from '../../types';
 import SceneContext from './SceneContext';
@@ -72,6 +73,7 @@ const ShotWorkbench: React.FC<ShotWorkbenchProps> = ({
   onTextToVideoOnlyChange,
   onImageClick
 }) => {
+  const { t } = useTranslation('director');
   const scene = scriptData?.scenes.find(s => String(s.id) === String(shot.sceneId));
   const activeCharacters = scriptData?.characters.filter(c => shot.characters.includes(c.id)) || [];
   const availableCharacters = scriptData?.characters.filter(c => !shot.characters.includes(c.id)) || [];
@@ -99,7 +101,7 @@ const ShotWorkbench: React.FC<ShotWorkbenchProps> = ({
             {getShotDisplayNumber()}
           </span>
           <div>
-            <h3 className="text-white font-bold text-sm">镜头详情</h3>
+            <h3 className="text-white font-bold text-sm">{t('shotWorkbench.heading')}</h3>
             <p className="text-[10px] text-zinc-500 uppercase tracking-widest">
               {shot.cameraMovement}
             </p>
@@ -150,14 +152,14 @@ const ShotWorkbench: React.FC<ShotWorkbenchProps> = ({
           <div className="flex items-center gap-2 border-b border-white/10 pb-2">
             <Film className="w-4 h-4 text-zinc-500" />
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-              叙事动作 (Action & Dialogue)
+              {t('shotWorkbench.actionHeading')}
             </h4>
             <div className="ml-auto flex items-center gap-1">
-              <button 
+              <button
                 onClick={onSplitShot}
                 disabled={isSplittingShot}
                 className="p-1 text-green-400 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                title="AI拆分镜头"
+                title={t('shotWorkbench.splitShotTitle')}
               >
                 {isSplittingShot ? (
                   <Loader2 className="w-3 h-3 animate-spin" />
@@ -165,11 +167,11 @@ const ShotWorkbench: React.FC<ShotWorkbenchProps> = ({
                   <Scissors className="w-3 h-3" />
                 )}
               </button>
-              <button 
+              <button
                 onClick={onGenerateAIAction}
                 disabled={isAIOptimizing}
                 className="p-1 text-cyan-300 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                title="AI生成动作建议"
+                title={t('labels.generateActionSuggestion')}
               >
                 {isAIOptimizing ? (
                   <Loader2 className="w-3 h-3 animate-spin" />
@@ -177,16 +179,16 @@ const ShotWorkbench: React.FC<ShotWorkbenchProps> = ({
                   <Sparkles className="w-3 h-3" />
                 )}
               </button>
-              <button 
+              <button
                 onClick={onEditActionSummary}
                 className="p-1 text-yellow-400 hover:text-white transition-colors"
-                title="编辑叙事动作"
+                title={t('shotWorkbench.editActionTitle')}
               >
                 <Edit2 className="w-3 h-3" />
               </button>
             </div>
           </div>
-          
+
           <div className="space-y-3 max-h-[200px] overflow-y-auto custom-scrollbar">
             <div className="bg-white/[0.045] p-4 rounded-2xl border border-white/10">
               <p className="text-zinc-200 text-sm leading-relaxed">{shot.actionSummary}</p>

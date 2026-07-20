@@ -1,0 +1,122 @@
+{
+  "header": {
+    "title": "AI Workbench",
+    "completedCount": "{{completed}} / {{total}} completed"
+  },
+  "emptyState": {
+    "message": "No shots yet. Please go back to Stage 1 to generate the storyboard."
+  },
+  "labels": {
+    "aiEnhancedPrompt": "AI-Enhanced Prompt",
+    "startFrame": "Start Frame",
+    "endFrame": "End Frame",
+    "generateActionSuggestion": "AI Suggest Action"
+  },
+  "buttons": {
+    "regenerateAllStartFrames": "Regenerate All Start Frames",
+    "batchGenerateStartFrames": "Batch Generate Start Frames"
+  },
+  "editModal": {
+    "titleAction": "Edit Narrative Action",
+    "titleKeyframe": "Edit Keyframe Prompt",
+    "titleVideo": "Edit Video Prompt",
+    "placeholderAction": "Describe the shot's action and content...",
+    "placeholderKeyframe": "Enter the keyframe prompt...",
+    "placeholderVideo": "Enter the video generation prompt...",
+    "defaultPlaceholder": "Enter content...",
+    "aiGeneratingAction": "AI is generating an action suggestion..."
+  },
+  "alerts": {
+    "selectImageFile": "Please select an image file!",
+    "readFileFailed": "Failed to read the file!",
+    "needStartFrameOrTextOnly": "Please generate a start frame first, or enable \"Text-to-video only (no start frame)\"",
+    "noPromptToOptimize": "This shot has no video prompt to optimize. Please generate a video or edit the prompt first.",
+    "moderationOptimizeSuccess": "The description has been automatically optimized to avoid moderation. Click \"Start Generating Video\" to retry.",
+    "previousShotNoEndFrame": "The previous shot has no end frame yet",
+    "nextShotNoStartFrame": "The next shot has no start frame yet",
+    "regenerateAllConfirm": "Regenerate start frames for all shots? This will overwrite existing images.",
+    "needKeyframePrompts": "Please generate or edit the start/end frame prompts first so AI can better understand the scene",
+    "sceneNotFound": "Scene information not found",
+    "keyframePromptOptimized": "{{frame}} prompt optimized",
+    "bothKeyframesOptimized": "Start and end frame prompts optimized",
+    "shotSplitSuccess": "Shot split into {{count}} sub-shots"
+  },
+  "errors": {
+    "generateKeyframeFailed": "Generation failed: {{message}}",
+    "videoGenerationFailed": "Video generation failed",
+    "moderationOptimizeFailed": "Optimization failed: {{message}}",
+    "aiActionFailed": "AI action generation failed: {{message}}",
+    "optimizeKeyframeFailed": "AI optimization failed: {{message}}",
+    "splitFailed": "Split failed: {{message}}",
+    "readFileFailed": "Failed to read the file"
+  },
+  "progress": {
+    "regeneratingAll": "Regenerating all start frames...",
+    "batchGeneratingMissing": "Batch generating missing start frames...",
+    "generatingShot": "Generating shot {{current}}/{{total}}..."
+  },
+  "shotCard": {
+    "imageAlt": "Shot {{index}}",
+    "clickToEdit": "Click to edit"
+  },
+  "shotWorkbench": {
+    "heading": "Shot Details",
+    "actionHeading": "Action & Dialogue",
+    "splitShotTitle": "AI Split Shot",
+    "editActionTitle": "Edit Narrative Action"
+  },
+  "keyframeEditor": {
+    "optimizeTitle": "AI Optimize Prompt",
+    "editPromptTitle": "Edit Prompt",
+    "previewTitle": "{{label}} - Keyframe",
+    "clickToPreview": "Click to preview",
+    "generating": "Generating...",
+    "generationFailed": "Generation failed",
+    "contentSafetyHint": "If blocked by content moderation, click \"Edit\" above to modify the prompt and retry",
+    "retryButton": "Retry",
+    "notGenerated": "Not generated",
+    "generateButton": "Generate",
+    "regenerateButton": "Regenerate",
+    "uploadButton": "Upload",
+    "copyPreviousEndFrame": "Copy Previous Shot's End Frame",
+    "copyNextStartFrame": "Copy Next Shot's Start Frame",
+    "visualProductionHeading": "Visual Production",
+    "aiEnhancementOffTitle": "Turn off AI enhancement: use the basic prompt for faster generation",
+    "aiEnhancementOnTitle": "Turn on AI enhancement: automatically expand into a professional cinematic description",
+    "optimizeBothTitle": "AI optimize both start and end frames at once (recommended)",
+    "optimizingBoth": "Optimizing...",
+    "optimizeBothButton": "AI Optimize Both Frames"
+  },
+  "sceneContext": {
+    "heading": "Scene Context",
+    "unknownScene": "Unknown scene",
+    "baseAppearanceOption": "Base Appearance",
+    "removeCharacterTitle": "Remove character",
+    "addCharacterOption": "+ Add character to this shot"
+  },
+  "videoGenerator": {
+    "heading": "Video Generation",
+    "editPromptTitle": "Preview/edit video prompt",
+    "selectModelLabel": "Select Video Model",
+    "modelDetailPrefix": "✦ {{name}}: ",
+    "asyncModelDetail": " Supports {{aspectRatios}}, durations of {{durations}}s",
+    "syncModelDetail": " Fast generation, supports {{aspectRatios}}",
+    "videoSettingsLabel": "Video Settings",
+    "textToVideoOnlyLabel": "Text-to-video only (no start frame)",
+    "textToVideoOnlyHint": "Skip uploading the start keyframe as a reference image and generate from the video description only. Useful when the start frame contains a person blocked by platform moderation.",
+    "generatingVideoLabel": "Generating video ({{aspectRatio}}, {{detail}}{{suffix}})...",
+    "durationSeconds": "{{duration}}s",
+    "textOnlySuffix": ", text-to-video",
+    "regenerateButton": "Regenerate Video",
+    "startButton": "Start Generating Video",
+    "needStartFrameHint": "Please generate a start frame first, or enable \"Text-to-video only\"",
+    "optimizingModeration": "Optimizing description…",
+    "optimizeModerationButton": "AI Optimize Description (avoid moderation)",
+    "noEndFrameHint": "* No end frame detected, single-image generation mode will be used (Image-to-Video)",
+    "textOnlyModeHint": "* Text-to-video-only mode: no start/end frame will be uploaded, only the video description text is sent"
+  },
+  "imagePreviewModal": {
+    "alt": "Preview",
+    "closeHint": "Click anywhere to close"
+  }
+}

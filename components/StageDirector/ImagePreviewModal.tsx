@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 
 interface ImagePreviewModalProps {
@@ -8,6 +9,7 @@ interface ImagePreviewModalProps {
 }
 
 const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({ imageUrl, title, onClose }) => {
+  const { t } = useTranslation('director');
   if (!imageUrl) return null;
 
   return (
@@ -35,13 +37,13 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({ imageUrl, title, 
           src={imageUrl} 
           className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
           onClick={(e) => e.stopPropagation()}
-          alt={title || 'Preview'}
+          alt={title || t('imagePreviewModal.alt')}
         />
       </div>
       
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
         <div className="bg-black/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
-          <p className="text-white/60 text-xs">点击任意位置关闭</p>
+          <p className="text-white/60 text-xs">{t('imagePreviewModal.closeHint')}</p>
         </div>
       </div>
     </div>

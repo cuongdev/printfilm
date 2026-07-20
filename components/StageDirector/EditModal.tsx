@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { X, Edit2, Check, Sparkles, Loader2 } from 'lucide-react';
 
 interface EditModalProps {
@@ -24,12 +25,15 @@ const EditModal: React.FC<EditModalProps> = ({
   icon,
   value,
   onChange,
-  placeholder = '输入内容...',
+  placeholder,
   textareaClassName = 'font-normal',
   showAIGenerate = false,
   onAIGenerate,
   isAIGenerating = false
 }) => {
+  const { t } = useTranslation('director');
+  const resolvedPlaceholder = placeholder ?? t('editModal.defaultPlaceholder');
+
   if (!isOpen) return null;
 
   const handleAIGenerate = async () => {
@@ -74,12 +78,12 @@ const EditModal: React.FC<EditModalProps> = ({
               {isAIGenerating ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  AI正在生成动作建议...
+                  {t('editModal.aiGeneratingAction')}
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4" />
-                  AI生成动作建议
+                  {t('labels.generateActionSuggestion')}
                 </>
               )}
             </button>
@@ -90,7 +94,7 @@ const EditModal: React.FC<EditModalProps> = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className={`w-full h-64 bg-white/[0.06] text-white border border-white/10 rounded-2xl p-4 text-sm outline-none focus:border-cyan-300/40 transition-colors resize-none ${textareaClassName}`}
-          placeholder={placeholder}
+          placeholder={resolvedPlaceholder}
           autoFocus
           disabled={isAIGenerating}
         />
@@ -101,7 +105,7 @@ const EditModal: React.FC<EditModalProps> = ({
             disabled={isAIGenerating}
             className="px-4 py-2 bg-white/10 text-zinc-300 hover:bg-white/15 rounded-xl text-sm font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            取消
+            {t('common:actions.cancel')}
           </button>
           <button
             onClick={onSave}
@@ -109,7 +113,7 @@ const EditModal: React.FC<EditModalProps> = ({
             className="px-4 py-2 bg-cyan-300 text-slate-950 hover:bg-cyan-200 rounded-xl text-sm font-bold transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Check className="w-4 h-4" />
-            保存
+            {t('common:actions.save')}
           </button>
         </div>
       </div>

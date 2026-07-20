@@ -1,0 +1,122 @@
+{
+  "header": {
+    "title": "AI工作台",
+    "completedCount": "{{completed}} / {{total}} 完成"
+  },
+  "emptyState": {
+    "message": "暂无镜头数据，请先返回阶段 1 生成分镜表。"
+  },
+  "labels": {
+    "aiEnhancedPrompt": "AI增强提示词",
+    "startFrame": "起始帧",
+    "endFrame": "结束帧",
+    "generateActionSuggestion": "AI生成动作建议"
+  },
+  "buttons": {
+    "regenerateAllStartFrames": "重新生成所有首帧",
+    "batchGenerateStartFrames": "批量生成首帧"
+  },
+  "editModal": {
+    "titleAction": "编辑叙事动作",
+    "titleKeyframe": "编辑关键帧提示词",
+    "titleVideo": "编辑视频提示词",
+    "placeholderAction": "描述镜头的动作和内容...",
+    "placeholderKeyframe": "输入关键帧的提示词...",
+    "placeholderVideo": "输入视频生成的提示词...",
+    "defaultPlaceholder": "输入内容...",
+    "aiGeneratingAction": "AI正在生成动作建议..."
+  },
+  "alerts": {
+    "selectImageFile": "请选择图片文件！",
+    "readFileFailed": "读取文件失败！",
+    "needStartFrameOrTextOnly": "请先生成起始帧，或勾选「纯文生视频（不使用首帧）」",
+    "noPromptToOptimize": "当前镜头没有可优化的视频提示词，请先生成一次视频或编辑提示词后再试。",
+    "moderationOptimizeSuccess": "已自动优化描述以规避审核，请点击「开始生成视频」重试。",
+    "previousShotNoEndFrame": "上一个镜头还没有生成结束帧",
+    "nextShotNoStartFrame": "下一个镜头还没有生成起始帧",
+    "regenerateAllConfirm": "确定要重新生成所有镜头的首帧吗？这将覆盖现有图片。",
+    "needKeyframePrompts": "请先生成或编辑首帧和尾帧的提示词，以便AI更好地理解场景",
+    "sceneNotFound": "找不到场景信息",
+    "keyframePromptOptimized": "{{frame}}提示词已优化",
+    "bothKeyframesOptimized": "起始帧和结束帧提示词已优化",
+    "shotSplitSuccess": "镜头已拆分为 {{count}} 个子镜头"
+  },
+  "errors": {
+    "generateKeyframeFailed": "生成失败: {{message}}",
+    "videoGenerationFailed": "视频生成失败",
+    "moderationOptimizeFailed": "优化失败: {{message}}",
+    "aiActionFailed": "AI动作生成失败: {{message}}",
+    "optimizeKeyframeFailed": "AI优化失败: {{message}}",
+    "splitFailed": "拆分失败: {{message}}",
+    "readFileFailed": "读取文件失败"
+  },
+  "progress": {
+    "regeneratingAll": "正在重新生成所有首帧...",
+    "batchGeneratingMissing": "正在批量生成缺失的首帧...",
+    "generatingShot": "正在生成镜头 {{current}}/{{total}}..."
+  },
+  "shotCard": {
+    "imageAlt": "Shot {{index}}",
+    "clickToEdit": "点击编辑"
+  },
+  "shotWorkbench": {
+    "heading": "镜头详情",
+    "actionHeading": "叙事动作 (Action & Dialogue)",
+    "splitShotTitle": "AI拆分镜头",
+    "editActionTitle": "编辑叙事动作"
+  },
+  "keyframeEditor": {
+    "optimizeTitle": "AI优化提示词",
+    "editPromptTitle": "编辑提示词",
+    "previewTitle": "{{label}} - 关键帧",
+    "clickToPreview": "点击预览",
+    "generating": "生成中...",
+    "generationFailed": "生成失败",
+    "contentSafetyHint": "若因内容安全拦截，请点击上方「编辑」修改提示词后重试",
+    "retryButton": "重试",
+    "notGenerated": "未生成",
+    "generateButton": "生成",
+    "regenerateButton": "重新生成",
+    "uploadButton": "上传",
+    "copyPreviousEndFrame": "复制上一镜头尾帧",
+    "copyNextStartFrame": "复制下一镜头首帧",
+    "visualProductionHeading": "视觉制作 (Visual Production)",
+    "aiEnhancementOffTitle": "关闭AI增强：使用基础提示词快速生成",
+    "aiEnhancementOnTitle": "开启AI增强：自动扩展为专业电影级描述",
+    "optimizeBothTitle": "AI一次性优化起始帧和结束帧（推荐）",
+    "optimizingBoth": "优化中...",
+    "optimizeBothButton": "AI优化两帧"
+  },
+  "sceneContext": {
+    "heading": "场景环境 (Scene Context)",
+    "unknownScene": "未知场景",
+    "baseAppearanceOption": "基础造型",
+    "removeCharacterTitle": "移除角色",
+    "addCharacterOption": "+ 添加角色到此镜头"
+  },
+  "videoGenerator": {
+    "heading": "视频生成",
+    "editPromptTitle": "预览/编辑视频提示词",
+    "selectModelLabel": "选择视频模型",
+    "modelDetailPrefix": "✦ {{name}}: ",
+    "asyncModelDetail": " 支持 {{aspectRatios}}，可选 {{durations}}秒",
+    "syncModelDetail": " 高速生成，支持 {{aspectRatios}}",
+    "videoSettingsLabel": "视频设置",
+    "textToVideoOnlyLabel": "纯文生视频（不使用首帧）",
+    "textToVideoOnlyHint": "不上传起始关键帧作为参考图，仅根据视频描述生成。适用于首帧含人物被平台审核拦截的情况。",
+    "generatingVideoLabel": "生成视频中 ({{aspectRatio}}, {{detail}}{{suffix}})...",
+    "durationSeconds": "{{duration}}秒",
+    "textOnlySuffix": ", 纯文生",
+    "regenerateButton": "重新生成视频",
+    "startButton": "开始生成视频",
+    "needStartFrameHint": "请先生成起始帧，或勾选「纯文生视频」",
+    "optimizingModeration": "正在优化描述…",
+    "optimizeModerationButton": "AI 优化描述（规避审核）",
+    "noEndFrameHint": "* 未检测到结束帧，将使用单图生成模式 (Image-to-Video)",
+    "textOnlyModeHint": "* 纯文生模式：不会上传首帧/尾帧，仅发送视频描述文本"
+  },
+  "imagePreviewModal": {
+    "alt": "Preview",
+    "closeHint": "点击任意位置关闭"
+  }
+}

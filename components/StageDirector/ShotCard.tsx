@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Image as ImageIcon, Video } from 'lucide-react';
 import { Shot } from '../../types';
 
@@ -10,6 +11,7 @@ interface ShotCardProps {
 }
 
 const ShotCard: React.FC<ShotCardProps> = ({ shot, index, isActive, onClick }) => {
+  const { t } = useTranslation('director');
   const sKf = shot.keyframes?.find(k => k.type === 'start');
   const hasImage = !!sKf?.imageUrl;
   const hasVideo = !!shot.interval?.videoUrl;
@@ -47,8 +49,8 @@ const ShotCard: React.FC<ShotCardProps> = ({ shot, index, isActive, onClick }) =
         {hasImage ? (
           <img 
             src={sKf!.imageUrl} 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-            alt={`Shot ${index + 1}`}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            alt={t('shotCard.imageAlt', { index: index + 1 })}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-zinc-800">
@@ -67,7 +69,7 @@ const ShotCard: React.FC<ShotCardProps> = ({ shot, index, isActive, onClick }) =
 
         {!isActive && !hasImage && (
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <span className="text-white text-xs font-mono">点击编辑</span>
+            <span className="text-white text-xs font-mono">{t('shotCard.clickToEdit')}</span>
           </div>
         )}
       </div>

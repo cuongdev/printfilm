@@ -1,0 +1,122 @@
+{
+  "header": {
+    "title": "Bàn làm việc AI",
+    "completedCount": "{{completed}} / {{total}} hoàn thành"
+  },
+  "emptyState": {
+    "message": "Chưa có dữ liệu cảnh quay, vui lòng quay lại Giai đoạn 1 để tạo bảng phân cảnh."
+  },
+  "labels": {
+    "aiEnhancedPrompt": "Tăng cường prompt bằng AI",
+    "startFrame": "Khung hình đầu",
+    "endFrame": "Khung hình cuối",
+    "generateActionSuggestion": "AI gợi ý hành động"
+  },
+  "buttons": {
+    "regenerateAllStartFrames": "Tạo lại tất cả khung hình đầu",
+    "batchGenerateStartFrames": "Tạo hàng loạt khung hình đầu"
+  },
+  "editModal": {
+    "titleAction": "Chỉnh sửa hành động tường thuật",
+    "titleKeyframe": "Chỉnh sửa prompt khung hình chính",
+    "titleVideo": "Chỉnh sửa prompt video",
+    "placeholderAction": "Mô tả hành động và nội dung của cảnh quay...",
+    "placeholderKeyframe": "Nhập prompt cho khung hình chính...",
+    "placeholderVideo": "Nhập prompt để tạo video...",
+    "defaultPlaceholder": "Nhập nội dung...",
+    "aiGeneratingAction": "AI đang tạo gợi ý hành động..."
+  },
+  "alerts": {
+    "selectImageFile": "Vui lòng chọn tệp hình ảnh!",
+    "readFileFailed": "Đọc tệp thất bại!",
+    "needStartFrameOrTextOnly": "Vui lòng tạo khung hình đầu trước, hoặc chọn \"Chỉ tạo video từ văn bản (không dùng khung hình đầu)\"",
+    "noPromptToOptimize": "Cảnh quay hiện tại chưa có prompt video để tối ưu. Vui lòng tạo video hoặc chỉnh sửa prompt trước.",
+    "moderationOptimizeSuccess": "Đã tự động tối ưu mô tả để tránh bị kiểm duyệt, vui lòng nhấn \"Bắt đầu tạo video\" để thử lại.",
+    "previousShotNoEndFrame": "Cảnh quay trước chưa tạo khung hình cuối",
+    "nextShotNoStartFrame": "Cảnh quay sau chưa tạo khung hình đầu",
+    "regenerateAllConfirm": "Bạn có chắc muốn tạo lại khung hình đầu cho tất cả cảnh quay? Thao tác này sẽ ghi đè hình ảnh hiện có.",
+    "needKeyframePrompts": "Vui lòng tạo hoặc chỉnh sửa prompt khung hình đầu và cuối trước để AI hiểu rõ hơn về cảnh quay",
+    "sceneNotFound": "Không tìm thấy thông tin cảnh",
+    "keyframePromptOptimized": "Đã tối ưu prompt {{frame}}",
+    "bothKeyframesOptimized": "Đã tối ưu prompt khung hình đầu và cuối",
+    "shotSplitSuccess": "Cảnh quay đã được tách thành {{count}} cảnh quay con"
+  },
+  "errors": {
+    "generateKeyframeFailed": "Tạo thất bại: {{message}}",
+    "videoGenerationFailed": "Tạo video thất bại",
+    "moderationOptimizeFailed": "Tối ưu thất bại: {{message}}",
+    "aiActionFailed": "AI tạo hành động thất bại: {{message}}",
+    "optimizeKeyframeFailed": "AI tối ưu thất bại: {{message}}",
+    "splitFailed": "Tách cảnh quay thất bại: {{message}}",
+    "readFileFailed": "Đọc tệp thất bại"
+  },
+  "progress": {
+    "regeneratingAll": "Đang tạo lại tất cả khung hình đầu...",
+    "batchGeneratingMissing": "Đang tạo hàng loạt khung hình đầu còn thiếu...",
+    "generatingShot": "Đang tạo cảnh quay {{current}}/{{total}}..."
+  },
+  "shotCard": {
+    "imageAlt": "Cảnh quay {{index}}",
+    "clickToEdit": "Nhấn để chỉnh sửa"
+  },
+  "shotWorkbench": {
+    "heading": "Chi tiết cảnh quay",
+    "actionHeading": "Hành động & Lời thoại",
+    "splitShotTitle": "AI tách cảnh quay",
+    "editActionTitle": "Chỉnh sửa hành động tường thuật"
+  },
+  "keyframeEditor": {
+    "optimizeTitle": "AI tối ưu prompt",
+    "editPromptTitle": "Chỉnh sửa prompt",
+    "previewTitle": "{{label}} - Khung hình chính",
+    "clickToPreview": "Nhấn để xem trước",
+    "generating": "Đang tạo...",
+    "generationFailed": "Tạo thất bại",
+    "contentSafetyHint": "Nếu bị chặn do kiểm duyệt nội dung, hãy nhấn \"Chỉnh sửa\" ở trên để sửa prompt rồi thử lại",
+    "retryButton": "Thử lại",
+    "notGenerated": "Chưa tạo",
+    "generateButton": "Tạo",
+    "regenerateButton": "Tạo lại",
+    "uploadButton": "Tải lên",
+    "copyPreviousEndFrame": "Sao chép khung hình cuối của cảnh trước",
+    "copyNextStartFrame": "Sao chép khung hình đầu của cảnh sau",
+    "visualProductionHeading": "Sản xuất hình ảnh",
+    "aiEnhancementOffTitle": "Tắt tăng cường AI: dùng prompt cơ bản để tạo nhanh hơn",
+    "aiEnhancementOnTitle": "Bật tăng cường AI: tự động mở rộng thành mô tả điện ảnh chuyên nghiệp",
+    "optimizeBothTitle": "AI tối ưu đồng thời khung hình đầu và cuối (khuyến nghị)",
+    "optimizingBoth": "Đang tối ưu...",
+    "optimizeBothButton": "AI tối ưu cả hai khung hình"
+  },
+  "sceneContext": {
+    "heading": "Bối cảnh cảnh quay",
+    "unknownScene": "Cảnh không xác định",
+    "baseAppearanceOption": "Tạo hình cơ bản",
+    "removeCharacterTitle": "Xóa nhân vật",
+    "addCharacterOption": "+ Thêm nhân vật vào cảnh quay này"
+  },
+  "videoGenerator": {
+    "heading": "Tạo video",
+    "editPromptTitle": "Xem trước/chỉnh sửa prompt video",
+    "selectModelLabel": "Chọn mô hình video",
+    "modelDetailPrefix": "✦ {{name}}: ",
+    "asyncModelDetail": " Hỗ trợ {{aspectRatios}}, có thể chọn {{durations}} giây",
+    "syncModelDetail": " Tạo nhanh, hỗ trợ {{aspectRatios}}",
+    "videoSettingsLabel": "Cài đặt video",
+    "textToVideoOnlyLabel": "Chỉ tạo video từ văn bản (không dùng khung hình đầu)",
+    "textToVideoOnlyHint": "Không tải lên khung hình đầu làm ảnh tham chiếu, chỉ tạo dựa trên mô tả video. Phù hợp khi khung hình đầu có nhân vật bị nền tảng kiểm duyệt chặn.",
+    "generatingVideoLabel": "Đang tạo video ({{aspectRatio}}, {{detail}}{{suffix}})...",
+    "durationSeconds": "{{duration}} giây",
+    "textOnlySuffix": ", chỉ văn bản",
+    "regenerateButton": "Tạo lại video",
+    "startButton": "Bắt đầu tạo video",
+    "needStartFrameHint": "Vui lòng tạo khung hình đầu trước, hoặc chọn \"Chỉ tạo video từ văn bản\"",
+    "optimizingModeration": "Đang tối ưu mô tả…",
+    "optimizeModerationButton": "AI tối ưu mô tả (tránh kiểm duyệt)",
+    "noEndFrameHint": "* Không phát hiện khung hình cuối, sẽ dùng chế độ tạo từ một ảnh (Image-to-Video)",
+    "textOnlyModeHint": "* Chế độ chỉ tạo từ văn bản: sẽ không tải lên khung hình đầu/cuối, chỉ gửi nội dung mô tả video"
+  },
+  "imagePreviewModal": {
+    "alt": "Xem trước",
+    "closeHint": "Nhấn vào bất kỳ đâu để đóng"
+  }
+}
