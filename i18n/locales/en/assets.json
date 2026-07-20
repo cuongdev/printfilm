@@ -111,5 +111,12 @@
   },
   "errors": {
     "imageUploadFailed": "Image upload failed"
+  },
+  "defaults": {
+    "newCharacterName": "New character",
+    "unset": "Not set",
+    "toBeAdded": "To be added",
+    "newSceneLocation": "New scene",
+    "newOutfit": "New Outfit"
   }
 }

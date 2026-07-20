@@ -111,5 +111,12 @@
   },
   "errors": {
     "imageUploadFailed": "图片上传失败"
+  },
+  "defaults": {
+    "newCharacterName": "新角色",
+    "unset": "未设定",
+    "toBeAdded": "待补充",
+    "newSceneLocation": "新场景",
+    "newOutfit": "新服装"
   }
 }

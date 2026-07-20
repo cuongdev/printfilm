@@ -436,10 +436,10 @@ const StageAssets: React.FC<Props> = ({ project, updateProject, onApiKeyError })
     
     const newChar: Character = {
       id: generateId('char'),
-      name: '新角色',
-      gender: '未设定',
-      age: '未设定',
-      personality: '待补充',
+      name: t('defaults.newCharacterName'),
+      gender: t('defaults.unset'),
+      age: t('defaults.unset'),
+      personality: t('defaults.toBeAdded'),
       visualPrompt: '',
       variations: [],
       status: 'pending'
@@ -479,9 +479,9 @@ const StageAssets: React.FC<Props> = ({ project, updateProject, onApiKeyError })
     
     const newScene: Scene = {
       id: generateId('scene'),
-      location: '新场景',
-      time: '未设定',
-      atmosphere: '待补充',
+      location: t('defaults.newSceneLocation'),
+      time: t('defaults.unset'),
+      atmosphere: t('defaults.toBeAdded'),
       visualPrompt: '',
       status: 'pending'
     };
@@ -523,7 +523,7 @@ const StageAssets: React.FC<Props> = ({ project, updateProject, onApiKeyError })
 
     const newVar: CharacterVariation = {
       id: generateId('var'),
-      name: name || "New Outfit",
+      name: name || t('defaults.newOutfit'),
       visualPrompt: prompt || char.visualPrompt || "",
       referenceImage: undefined
     };

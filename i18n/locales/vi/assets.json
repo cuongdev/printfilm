@@ -111,5 +111,12 @@
   },
   "errors": {
     "imageUploadFailed": "Tải ảnh lên thất bại"
+  },
+  "defaults": {
+    "newCharacterName": "Nhân vật mới",
+    "unset": "Chưa đặt",
+    "toBeAdded": "Cần bổ sung",
+    "newSceneLocation": "Cảnh mới",
+    "newOutfit": "Trang phục mới"
   }
 }
