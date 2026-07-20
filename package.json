@@ -11,15 +11,19 @@
     "electron:dev": "npm run build && electron .",
     "electron:build": "npm run build && electron-builder",
     "electron:build:win": "npm run build && electron-builder --win",
-    "electron:build:mac": "npm run build && electron-builder --mac"
+    "electron:build:mac": "npm run build && electron-builder --mac",
+    "i18n:check": "node scripts/check-i18n.mjs"
   },
   "dependencies": {
     "express": "^4.21.0",
     "http-proxy-middleware": "^3.0.0",
+    "i18next": "^26.3.6",
+    "i18next-browser-languagedetector": "^8.2.1",
     "jszip": "^3.10.1",
     "lucide-react": "^0.554.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-i18next": "^17.0.10"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

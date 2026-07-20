@@ -1,6 +1,7 @@
 // Author: forsearch | Updated: 2026-04-30
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './i18n';
 import App from './App';
 import { AlertProvider } from './components/GlobalAlert';
 

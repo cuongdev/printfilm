@@ -1,0 +1,10 @@
+{
+  "appName": "AI Manga Studio",
+  "appTagline": "Creative Studio",
+  "language": {
+    "label": "Language",
+    "zh-CN": "中文",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}

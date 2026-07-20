@@ -1,0 +1,10 @@
+{
+  "appName": "AI 漫剧工场",
+  "appTagline": "创意工作室",
+  "language": {
+    "label": "语言",
+    "zh-CN": "中文",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}

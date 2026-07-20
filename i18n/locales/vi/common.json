@@ -1,0 +1,10 @@
+{
+  "appName": "AI Manga Studio",
+  "appTagline": "Xưởng Sáng Tạo",
+  "language": {
+    "label": "Ngôn ngữ",
+    "zh-CN": "中文",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}
