@@ -93,7 +93,7 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
       scriptData.visualStyle = finalVisualStyle;
       scriptData.shotGenerationModel = finalModel;
 
-      if (localTitle && localTitle !== t('common:defaults.untitledProject')) {
+      if (localTitle) {
         scriptData.title = localTitle;
       }
 

@@ -1,5 +1,4 @@
 import { ProjectState, Character, Scene, Shot } from '../../types';
-import i18n from '../../i18n';
 
 export const savePromptEdit = (
   project: ProjectState,
@@ -118,5 +117,5 @@ export const filterShots = (shots: Shot[], searchQuery: string): Shot[] => {
 };
 
 export const getDefaultVideoPrompt = (shot: Shot): string => {
-  return `${shot.actionSummary}\n\n${i18n.t('prompts:keyframe.cameraMovementLine', { movement: shot.cameraMovement })}\n${i18n.t('prompts:keyframe.modelLine', { model: shot.videoModel || 'sora-2' })}`;
+  return `${shot.actionSummary}\n\n镜头运动：${shot.cameraMovement}\n模型：${shot.videoModel || 'sora-2'}`;
 };

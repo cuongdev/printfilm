@@ -33,9 +33,7 @@
     "endFrame": "Khung hình cuối",
     "imageAlt": "Khung hình chính {{frame}}",
     "videoPromptLabel": "Prompt tạo video",
-    "notSavedWarning": "⚠ Prompt chưa được lưu khi video này được tạo, nội dung trên là suy luận",
-    "cameraMovementLine": "Chuyển động máy quay: {{movement}}",
-    "modelLine": "Mô hình: {{model}}"
+    "notSavedWarning": "⚠ Prompt chưa được lưu khi video này được tạo, nội dung trên là suy luận"
   },
   "editor": {
     "placeholder": "Nhập prompt..."

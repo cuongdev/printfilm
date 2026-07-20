@@ -235,7 +235,7 @@ export const createNewProjectState = (): ProjectState => {
   const id = 'proj_' + Date.now().toString(36);
   return {
     id,
-    title: i18n.t('common:defaults.untitledProject'),
+    title: '',
     createdAt: Date.now(),
     lastModified: Date.now(),
     stage: 'script',

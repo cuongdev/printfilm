@@ -33,9 +33,7 @@
     "endFrame": "结束帧",
     "imageAlt": "关键帧 {{frame}}",
     "videoPromptLabel": "视频生成提示词",
-    "notSavedWarning": "⚠ 此视频生成时未保存提示词，以上为推测内容",
-    "cameraMovementLine": "镜头运动：{{movement}}",
-    "modelLine": "模型：{{model}}"
+    "notSavedWarning": "⚠ 此视频生成时未保存提示词，以上为推测内容"
   },
   "editor": {
     "placeholder": "输入提示词..."

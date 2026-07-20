@@ -305,7 +305,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
 
                      <div className="flex-1">
                         <Folder className="w-9 h-9 text-cyan-300/25 mb-6 group-hover:text-cyan-200/70 transition-colors" />
-                        <h3 className="text-sm font-bold text-white mb-2 line-clamp-1 tracking-wide">{proj.title}</h3>
+                        <h3 className="text-sm font-bold text-white mb-2 line-clamp-1 tracking-wide">{proj.title || t('common:defaults.untitledProject')}</h3>
                         <div className="flex flex-wrap gap-2 mb-4">
                             <span className="text-[9px] font-mono text-cyan-100/70 border border-cyan-200/15 bg-cyan-300/10 px-2 py-1 uppercase tracking-wider rounded-full">
                               {proj.stage === 'script' ? t('stage.script') :
@@ -511,7 +511,7 @@ const Dashboard: React.FC<Props> = ({ onOpenProject, onShowOnboarding, onShowMod
                       onClick={() => handleUseAsset(proj.id)}
                       className="p-4 text-left border border-white/10 hover:border-cyan-300/30 bg-white/[0.04] hover:bg-white/[0.07] transition-colors rounded-2xl"
                     >
-                      <div className="text-sm text-white font-bold line-clamp-1">{proj.title}</div>
+                      <div className="text-sm text-white font-bold line-clamp-1">{proj.title || t('common:defaults.untitledProject')}</div>
                       <div className="text-[10px] text-zinc-500 font-mono mt-1">{t('card.lastModifiedLabel', { date: formatDate(proj.lastModified) })}</div>
                     </button>
                   ))}
