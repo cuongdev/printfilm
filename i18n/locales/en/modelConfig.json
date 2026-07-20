@@ -1,0 +1,118 @@
+{
+  "modal": {
+    "title": "Model Configuration",
+    "subtitle": "MODEL CONFIGURATION",
+    "footerNote": "Configuration is only saved in your local browser",
+    "doneButton": "Done"
+  },
+  "tabs": {
+    "global": "Global Settings"
+  },
+  "promo": {
+    "title": "Recommended: GitCC API",
+    "description": "Built-in text models GPT-5.2 and GPT-5.4 (custom models can be added); built-in image model Qwen Image 2.0; video defaults to Doubao Seedance 2.0 Fast, plus Sora-2 (custom models can be added). Stable, fast, and affordably priced. This open-source project is powered by GitCC API.",
+    "buyNow": "Buy Now"
+  },
+  "apiKey": {
+    "sectionLabel": "Global API Key",
+    "placeholder": "Enter your API Key...",
+    "helper": "The global API Key is used for all model calls. You can also configure a separate API Key for individual providers.",
+    "clearButton": "Clear Key",
+    "verifyButton": "Verify & Save",
+    "verifying": "Verifying...",
+    "configured": "API Key configured",
+    "required": "Please enter an API Key",
+    "verifySuccess": "Verified successfully! API Key saved",
+    "verifyError": "Error during verification",
+    "placeholderUseGlobal": "Leave blank to use the global API Key"
+  },
+  "notes": {
+    "title": "Configuration Notes",
+    "item1": "The global API Key is used for all built-in GitCC API models",
+    "item2": "You can adjust model parameters (temperature, tokens, etc.) for each model category",
+    "item3": "Supports adding custom models that use other API services",
+    "item4": "All configuration is only saved in your local browser and is never uploaded to a server"
+  },
+  "addModel": {
+    "title": "Add Custom Model",
+    "nameLabel": "Model Name *",
+    "namePlaceholder": "e.g. GPT-4 Turbo",
+    "apiModelLabel": "API Model Name * (can duplicate a built-in one)",
+    "apiModelPlaceholder": "e.g. gpt-4-turbo, claude-3-opus",
+    "apiModelHelper": "This field is used as the model parameter in API requests; the internal ID is generated automatically",
+    "descriptionLabel": "Description (optional)",
+    "descriptionPlaceholder": "Optional description",
+    "endpointLabel": "API Endpoint",
+    "endpointHelper": "Leave blank to use the default endpoint",
+    "apiKeyLabel": "API Key (optional)",
+    "apiKeyHelper": "Configure a dedicated API Key for this model; leave blank to use the globally configured key",
+    "submitButton": "Add Model",
+    "validationRequired": "Please fill in the model name and API model name"
+  },
+  "videoMode": {
+    "label": "API Mode",
+    "sync": "Sync mode (Chat Completion style)",
+    "async": "Async mode (Sora style)",
+    "doubao": "Doubao Seedance (Ark task-based)",
+    "helper": "Sync mode returns the result directly; async mode creates a task first and then polls for the result; Doubao adapts to Doubao Seedance's Ark task-based interface",
+    "summaryPrefix": "Mode:",
+    "summarySync": "Sync (Veo style)",
+    "summaryAsync": "Async (Sora style)"
+  },
+  "badges": {
+    "builtIn": "Built-in",
+    "default": "Default"
+  },
+  "params": {
+    "temperatureLabel": "Temperature",
+    "maxTokensLabel": "Max Tokens",
+    "maxTokensPlaceholder": "Leave blank for unlimited",
+    "maxTokensHelper": "Leave blank for no max token limit",
+    "defaultRatioLabel": "Default Ratio",
+    "defaultDurationLabel": "Default Duration"
+  },
+  "card": {
+    "apiModelName": "API Model: {{apiModel}}",
+    "internalId": " · Internal ID: {{id}}",
+    "useModelTooltip": "Use this model",
+    "useButton": "Use",
+    "disableTooltip": "Disable",
+    "enableTooltip": "Enable",
+    "apiKeyCardLabel": "API Key (blank uses the global key)",
+    "apiKeyConfiguredBadge": "✓ Dedicated key configured"
+  },
+  "status": {
+    "currentlyUsing": "Currently Using",
+    "noneSelected": "None selected",
+    "providerArrow": "→ {{provider}} ({{baseUrl}})",
+    "switchedTo": "Switched to {{name}}",
+    "switchedToWithProvider": "Switched to {{name}} ({{provider}})"
+  },
+  "list": {
+    "usageHint": "Click the \"Use this model\" button to switch the active model. Once a custom model has its own provider configured, API requests are sent to that address. Click the expand button to adjust model parameters.",
+    "confirmDelete": "Are you sure you want to delete this model?",
+    "errorSetActiveFailed": "Failed to set the active model; make sure the model is enabled",
+    "successDeleted": "Model deleted",
+    "successAdded": "Model added successfully",
+    "errorAddFailed": "Failed to add model"
+  },
+  "typeDescriptions": {
+    "chat": "For script parsing, storyboard generation, prompt optimization, and other text generation tasks",
+    "image": "For character styling, scene generation, keyframe generation, and other image generation tasks",
+    "video": "For video shot generation tasks"
+  },
+  "manager": {
+    "promoDescription": "Supports GPT-5.1, Gemini-3, Veo 3.1, Sora-2, and other models. Stable, fast, and affordably priced. This open-source project is powered by GitCC API.",
+    "providersLabel": "API Providers",
+    "addProviderButton": "Add Provider",
+    "providerNamePlaceholder": "Provider name",
+    "baseUrlPlaceholder": "API base URL (e.g. https://api.example.com)",
+    "apiKeyOptionalPlaceholder": "Dedicated API Key (optional, uses the global key if left blank)",
+    "apiKeyEditPlaceholder": "Dedicated API Key (optional)",
+    "confirmAddButton": "Confirm Add",
+    "confirmDeleteProvider": "Are you sure you want to delete this provider?",
+    "providerDeleted": "Provider deleted",
+    "defaultSettingsLabel": "Default Generation Settings",
+    "defaultDurationLabel": "Default Duration (Sora)"
+  }
+}

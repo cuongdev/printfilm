@@ -1,0 +1,118 @@
+{
+  "modal": {
+    "title": "Cấu hình mô hình",
+    "subtitle": "CẤU HÌNH MÔ HÌNH",
+    "footerNote": "Cấu hình chỉ được lưu trên trình duyệt cục bộ",
+    "doneButton": "Xong"
+  },
+  "tabs": {
+    "global": "Cài đặt chung"
+  },
+  "promo": {
+    "title": "Khuyến nghị sử dụng GitCC API",
+    "description": "Tích hợp sẵn mô hình văn bản GPT-5.2, GPT-5.4 (có thể thêm mô hình tùy chỉnh); tích hợp sẵn mô hình ảnh Qwen Image 2.0; video mặc định dùng Doubao Seedance 2.0 Fast, kèm theo Sora-2 (có thể thêm mô hình tùy chỉnh). Ổn định, nhanh chóng, giá cả ưu đãi. Dự án mã nguồn mở này được hỗ trợ bởi GitCC API.",
+    "buyNow": "Mua ngay"
+  },
+  "apiKey": {
+    "sectionLabel": "API Key toàn cục",
+    "placeholder": "Nhập API Key của bạn...",
+    "helper": "API Key toàn cục được dùng cho mọi lệnh gọi mô hình. Bạn cũng có thể cấu hình API Key riêng cho từng nhà cung cấp.",
+    "clearButton": "Xóa Key",
+    "verifyButton": "Xác minh & Lưu",
+    "verifying": "Đang xác minh...",
+    "configured": "Đã cấu hình API Key",
+    "required": "Vui lòng nhập API Key",
+    "verifySuccess": "Xác minh thành công! Đã lưu API Key",
+    "verifyError": "Có lỗi xảy ra khi xác minh",
+    "placeholderUseGlobal": "Để trống để dùng API Key toàn cục"
+  },
+  "notes": {
+    "title": "Ghi chú cấu hình",
+    "item1": "API Key toàn cục được dùng cho mọi mô hình tích hợp sẵn của GitCC API",
+    "item2": "Bạn có thể điều chỉnh tham số mô hình (nhiệt độ, token, v.v.) trong từng loại mô hình",
+    "item3": "Hỗ trợ thêm mô hình tùy chỉnh, sử dụng các dịch vụ API khác",
+    "item4": "Mọi cấu hình chỉ được lưu trên trình duyệt cục bộ, không tải lên máy chủ"
+  },
+  "addModel": {
+    "title": "Thêm mô hình tùy chỉnh",
+    "nameLabel": "Tên mô hình *",
+    "namePlaceholder": "Ví dụ: GPT-4 Turbo",
+    "apiModelLabel": "Tên mô hình API * (có thể trùng với mô hình tích hợp sẵn)",
+    "apiModelPlaceholder": "Ví dụ: gpt-4-turbo, claude-3-opus",
+    "apiModelHelper": "Trường này sẽ được dùng làm tham số model trong yêu cầu API; ID nội bộ sẽ được tự động tạo",
+    "descriptionLabel": "Mô tả (tùy chọn)",
+    "descriptionPlaceholder": "Thông tin mô tả tùy chọn",
+    "endpointLabel": "Điểm cuối API (Endpoint)",
+    "endpointHelper": "Để trống để dùng điểm cuối mặc định",
+    "apiKeyLabel": "API Key (tùy chọn)",
+    "apiKeyHelper": "Cấu hình API Key riêng cho mô hình này, để trống sẽ dùng Key đã cấu hình toàn cục",
+    "submitButton": "Thêm mô hình",
+    "validationRequired": "Vui lòng nhập tên mô hình và tên mô hình API"
+  },
+  "videoMode": {
+    "label": "Chế độ API",
+    "sync": "Chế độ đồng bộ (kiểu Chat Completion)",
+    "async": "Chế độ bất đồng bộ (kiểu Sora)",
+    "doubao": "Doubao Seedance (chế độ tác vụ Ark)",
+    "helper": "Chế độ đồng bộ: trả kết quả trực tiếp; chế độ bất đồng bộ: tạo tác vụ trước rồi thăm dò để lấy kết quả; Doubao: tương thích với giao diện tác vụ Ark của Doubao Seedance",
+    "summaryPrefix": "Chế độ:",
+    "summarySync": "Đồng bộ (kiểu Veo)",
+    "summaryAsync": "Bất đồng bộ (kiểu Sora)"
+  },
+  "badges": {
+    "builtIn": "Tích hợp sẵn",
+    "default": "Mặc định"
+  },
+  "params": {
+    "temperatureLabel": "Nhiệt độ",
+    "maxTokensLabel": "Token tối đa",
+    "maxTokensPlaceholder": "Để trống để không giới hạn",
+    "maxTokensHelper": "Để trống nếu không giới hạn số token tối đa",
+    "defaultRatioLabel": "Tỷ lệ mặc định",
+    "defaultDurationLabel": "Thời lượng mặc định"
+  },
+  "card": {
+    "apiModelName": "Tên mô hình API: {{apiModel}}",
+    "internalId": " · ID nội bộ: {{id}}",
+    "useModelTooltip": "Sử dụng mô hình này",
+    "useButton": "Sử dụng",
+    "disableTooltip": "Tắt",
+    "enableTooltip": "Bật",
+    "apiKeyCardLabel": "API Key (để trống để dùng Key toàn cục)",
+    "apiKeyConfiguredBadge": "✓ Đã cấu hình Key riêng"
+  },
+  "status": {
+    "currentlyUsing": "Đang sử dụng",
+    "noneSelected": "Chưa chọn",
+    "providerArrow": "→ {{provider}} ({{baseUrl}})",
+    "switchedTo": "Đã chuyển sang {{name}}",
+    "switchedToWithProvider": "Đã chuyển sang {{name}} ({{provider}})"
+  },
+  "list": {
+    "usageHint": "Nhấn nút \"Sử dụng mô hình này\" để chuyển đổi mô hình đang hoạt động. Sau khi mô hình tùy chỉnh được cấu hình nhà cung cấp riêng, yêu cầu API sẽ được gửi đến địa chỉ tương ứng. Nhấn nút mở rộng để điều chỉnh tham số mô hình.",
+    "confirmDelete": "Bạn có chắc muốn xóa mô hình này không?",
+    "errorSetActiveFailed": "Đặt mô hình đang hoạt động thất bại, hãy đảm bảo mô hình đã được bật",
+    "successDeleted": "Đã xóa mô hình",
+    "successAdded": "Thêm mô hình thành công",
+    "errorAddFailed": "Thêm mô hình thất bại"
+  },
+  "typeDescriptions": {
+    "chat": "Dùng cho các tác vụ phân tích kịch bản, tạo phân cảnh, tối ưu prompt và các tác vụ tạo văn bản khác",
+    "image": "Dùng cho các tác vụ tạo hình nhân vật, tạo bối cảnh, tạo khung hình chính và các tác vụ tạo ảnh khác",
+    "video": "Dùng cho tác vụ tạo đoạn video"
+  },
+  "manager": {
+    "promoDescription": "Hỗ trợ GPT-5.1, Gemini-3, Veo 3.1, Sora-2 và nhiều mô hình khác, ổn định, nhanh chóng, giá cả ưu đãi. Dự án mã nguồn mở này được hỗ trợ bởi GitCC API.",
+    "providersLabel": "Nhà cung cấp API",
+    "addProviderButton": "Thêm nhà cung cấp",
+    "providerNamePlaceholder": "Tên nhà cung cấp",
+    "baseUrlPlaceholder": "URL gốc API (ví dụ: https://api.example.com)",
+    "apiKeyOptionalPlaceholder": "API Key riêng (tùy chọn, để trống sẽ dùng Key toàn cục)",
+    "apiKeyEditPlaceholder": "API Key riêng (tùy chọn)",
+    "confirmAddButton": "Xác nhận thêm",
+    "confirmDeleteProvider": "Bạn có chắc muốn xóa nhà cung cấp này không?",
+    "providerDeleted": "Đã xóa nhà cung cấp",
+    "defaultSettingsLabel": "Cài đặt tạo mặc định",
+    "defaultDurationLabel": "Thời lượng mặc định (Sora)"
+  }
+}

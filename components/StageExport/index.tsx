@@ -1,5 +1,6 @@
 // Author: forsearch | Updated: 2026-04-30
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Film } from 'lucide-react';
 import { ProjectState } from '../../types';
 import { downloadMasterVideo, downloadSourceAssets } from '../../services/exportService';
@@ -24,6 +25,7 @@ interface Props {
 }
 
 const StageExport: React.FC<Props> = ({ project }) => {
+  const { t } = useTranslation('export');
   const { showAlert } = useAlert();
   const completedShots = getCompletedShots(project);
   const progress = calculateProgress(project);
@@ -120,7 +122,7 @@ const StageExport: React.FC<Props> = ({ project }) => {
       }, 2000);
     } catch (error) {
       console.error('Download failed:', error);
-      showAlert(`导出失败: ${error instanceof Error ? error.message : '未知错误'}`, { type: 'error' });
+      showAlert(t('errors.exportFailed', { message: error instanceof Error ? error.message : t('common:errors.unknown') }), { type: 'error' });
       setIsDownloading(false);
       setDownloadPhase('');
       setDownloadProgress(0);
@@ -131,7 +133,7 @@ const StageExport: React.FC<Props> = ({ project }) => {
     if (isDownloadingAssets) return;
     
     if (!hasDownloadableAssets(project)) {
-      showAlert('没有可下载的资源。请先生成角色、场景或镜头素材。', { type: 'warning' });
+      showAlert(t('warnings.noDownloadableAssets'), { type: 'warning' });
       return;
     }
     
@@ -151,7 +153,7 @@ const StageExport: React.FC<Props> = ({ project }) => {
       }, 2000);
     } catch (error) {
       console.error('Assets download failed:', error);
-      showAlert(`下载源资源失败: ${error instanceof Error ? error.message : '未知错误'}`, { type: 'error' });
+      showAlert(t('errors.assetsDownloadFailed', { message: error instanceof Error ? error.message : t('common:errors.unknown') }), { type: 'error' });
       setIsDownloadingAssets(false);
       setAssetsPhase('');
       setAssetsProgress(0);
@@ -164,13 +166,13 @@ const StageExport: React.FC<Props> = ({ project }) => {
         <div className="flex items-center gap-4">
           <h2 className={STYLES.header.title}>
             <Film className="w-5 h-5 text-cyan-300" />
-            制片导出
-            <span className={STYLES.header.subtitle}>Rendering & Export</span>
+            {t('header.title')}
+            <span className={STYLES.header.subtitle}>{t('header.subtitle')}</span>
           </h2>
         </div>
         <div className="flex items-center gap-2">
           <span className={STYLES.header.status}>
-            Status: {progress === 100 ? 'READY' : 'IN PROGRESS'}
+            {progress === 100 ? t('header.statusReady') : t('header.statusInProgress')}
           </span>
         </div>
       </div>

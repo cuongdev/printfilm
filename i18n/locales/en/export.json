@@ -1,0 +1,61 @@
+{
+  "header": {
+    "title": "Production Export",
+    "subtitle": "Rendering & Export",
+    "statusReady": "Status: READY",
+    "statusInProgress": "Status: IN PROGRESS"
+  },
+  "errors": {
+    "exportFailed": "Export failed: {{message}}",
+    "assetsDownloadFailed": "Failed to download source assets: {{message}}"
+  },
+  "warnings": {
+    "noDownloadableAssets": "No downloadable assets. Please generate characters, scenes, or shots first."
+  },
+  "actions": {
+    "previewVideo": "Preview Video ({{completed}}/{{total}})",
+    "downloadMaster": "Download Master (.mp4)",
+    "downloadingProgress": "{{phase}} {{progress}}%",
+    "exportEdlXml": "Export EDL / XML",
+    "notDeveloped": "Not available yet"
+  },
+  "secondary": {
+    "sourceAssetsTitle": "Source Assets",
+    "sourceAssetsDesc": "Download all generated images and raw video clips.",
+    "shareProjectTitle": "Share Project",
+    "shareProjectDesc": "Create a view-only link for client review."
+  },
+  "status": {
+    "untitledProject": "Untitled Project",
+    "masterSequenceBadge": "Master Sequence",
+    "shots": "Shots",
+    "estDuration": "Est. Duration",
+    "target": "Target",
+    "renderStatus": "Render Status"
+  },
+  "logs": {
+    "title": "Render Logs",
+    "description": "View generation history and status.",
+    "eventsCount": "{{count}} Events",
+    "totalEvents": "Total Events",
+    "completed": "Completed",
+    "failed": "Failed",
+    "empty": "No generation history available",
+    "resourceId": "Resource ID",
+    "prompt": "Prompt",
+    "tokenUsage": "Token Usage",
+    "input": "Input:",
+    "output": "Output:",
+    "total": "Total:"
+  },
+  "timeline": {
+    "label": "Sequence Map",
+    "noShots": "No Shots Available",
+    "shot": "Shot {{number}}",
+    "shotTooltip": "Shot {{number}}: {{summary}}"
+  },
+  "videoPreview": {
+    "title": "Video Preview",
+    "shotBadge": "Shot {{current}} / {{total}}"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "modal": {
+    "title": "模型配置",
+    "subtitle": "MODEL CONFIGURATION",
+    "footerNote": "配置仅保存在本地浏览器",
+    "doneButton": "完成"
+  },
+  "tabs": {
+    "global": "全局配置"
+  },
+  "promo": {
+    "title": "推荐使用 GitCC API",
+    "description": "文本内置 GPT-5.2、GPT-5.4（可添加自定义）；图像内置 Qwen Image 2.0；视频默认豆包 Seedance 2.0 Fast，另含 Sora-2（可添加自定义）。稳定快速，价格优惠。本开源项目由 GitCC API 提供支持。",
+    "buyNow": "立即购买"
+  },
+  "apiKey": {
+    "sectionLabel": "全局 API Key",
+    "placeholder": "输入你的 API Key...",
+    "helper": "全局 API Key 用于所有模型调用。你也可以为单个提供商配置独立的 API Key。",
+    "clearButton": "清除 Key",
+    "verifyButton": "验证并保存",
+    "verifying": "验证中...",
+    "configured": "API Key 已配置",
+    "required": "请输入 API Key",
+    "verifySuccess": "验证成功！API Key 已保存",
+    "verifyError": "验证过程出错",
+    "placeholderUseGlobal": "留空则使用全局 API Key"
+  },
+  "notes": {
+    "title": "配置说明",
+    "item1": "全局 API Key 用于所有 GitCC API 内置模型的调用",
+    "item2": "你可以在各模型类别中调整模型参数（温度、Token 等）",
+    "item3": "支持添加自定义模型，使用其他 API 服务",
+    "item4": "所有配置仅保存在本地浏览器，不会上传到服务器"
+  },
+  "addModel": {
+    "title": "添加自定义模型",
+    "nameLabel": "模型名称 *",
+    "namePlaceholder": "如：GPT-4 Turbo",
+    "apiModelLabel": "API 模型名 *（可与内置重复）",
+    "apiModelPlaceholder": "如：gpt-4-turbo、claude-3-opus",
+    "apiModelHelper": "该字段会作为 API 请求中的 model 参数；内部 ID 会自动生成",
+    "descriptionLabel": "描述（可选）",
+    "descriptionPlaceholder": "可选的描述信息",
+    "endpointLabel": "API 端点 (Endpoint)",
+    "endpointHelper": "留空则使用默认端点",
+    "apiKeyLabel": "API Key（可选）",
+    "apiKeyHelper": "为此模型单独配置 API Key，留空则使用全局配置的 Key",
+    "submitButton": "添加模型",
+    "validationRequired": "请填写模型名称和 API 模型名"
+  },
+  "videoMode": {
+    "label": "API 模式",
+    "sync": "同步模式（Chat Completion 类）",
+    "async": "异步模式（Sora 类）",
+    "doubao": "Doubao Seedance（Ark 任务制）",
+    "helper": "同步模式：直接返回结果；异步模式：先创建任务，再轮询获取结果；Doubao：适配 Doubao Seedance 的 Ark 任务制接口",
+    "summaryPrefix": "模式：",
+    "summarySync": "同步（Veo 类）",
+    "summaryAsync": "异步（Sora 类）"
+  },
+  "badges": {
+    "builtIn": "内置",
+    "default": "默认"
+  },
+  "params": {
+    "temperatureLabel": "温度",
+    "maxTokensLabel": "最大 Token",
+    "maxTokensPlaceholder": "留空不限制",
+    "maxTokensHelper": "留空则不限制最大 Token",
+    "defaultRatioLabel": "默认比例",
+    "defaultDurationLabel": "默认时长"
+  },
+  "card": {
+    "apiModelName": "API 模型名: {{apiModel}}",
+    "internalId": " · 内部ID: {{id}}",
+    "useModelTooltip": "使用此模型",
+    "useButton": "使用",
+    "disableTooltip": "禁用",
+    "enableTooltip": "启用",
+    "apiKeyCardLabel": "API Key（留空使用全局 Key）",
+    "apiKeyConfiguredBadge": "✓ 已配置专属 Key"
+  },
+  "status": {
+    "currentlyUsing": "当前使用",
+    "noneSelected": "未选择",
+    "providerArrow": "→ {{provider}} ({{baseUrl}})",
+    "switchedTo": "已切换到 {{name}}",
+    "switchedToWithProvider": "已切换到 {{name}} ({{provider}})"
+  },
+  "list": {
+    "usageHint": "点击「使用此模型」按钮可切换激活模型。自定义模型配置了独立提供商后，API 请求会发送到对应的地址。点击展开按钮可调整模型参数。",
+    "confirmDelete": "确定要删除这个模型吗？",
+    "errorSetActiveFailed": "设置激活模型失败，请确保模型已启用",
+    "successDeleted": "模型已删除",
+    "successAdded": "模型添加成功",
+    "errorAddFailed": "添加模型失败"
+  },
+  "typeDescriptions": {
+    "chat": "用于剧本解析、分镜生成、提示词优化等文本生成任务",
+    "image": "用于角色定妆、场景生成、关键帧生成等图片生成任务",
+    "video": "用于视频片段生成任务"
+  },
+  "manager": {
+    "promoDescription": "支持 GPT-5.1、Gemini-3、Veo 3.1、Sora-2 等多种模型，稳定快速，价格优惠。本开源项目由 GitCC API 提供支持。",
+    "providersLabel": "API 提供商",
+    "addProviderButton": "添加提供商",
+    "providerNamePlaceholder": "提供商名称",
+    "baseUrlPlaceholder": "API 基础 URL（如 https://api.example.com）",
+    "apiKeyOptionalPlaceholder": "独立 API Key（可选，不填则使用全局 Key）",
+    "apiKeyEditPlaceholder": "独立 API Key（可选）",
+    "confirmAddButton": "确认添加",
+    "confirmDeleteProvider": "确定要删除这个提供商吗？",
+    "providerDeleted": "提供商已删除",
+    "defaultSettingsLabel": "默认生成设置",
+    "defaultDurationLabel": "默认时长 (Sora)"
+  }
+}

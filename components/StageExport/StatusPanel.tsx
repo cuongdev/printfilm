@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Film, CheckCircle, BarChart3 } from 'lucide-react';
 import { ProjectState } from '../../types';
 import { STYLES } from './constants';
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const StatusPanel: React.FC<Props> = ({ project, progress, estimatedDuration }) => {
+  const { t } = useTranslation('export');
   return (
     <div className={STYLES.statusPanel.container}>
       <div className={STYLES.statusPanel.decoration.top}></div>
@@ -19,25 +21,25 @@ const StatusPanel: React.FC<Props> = ({ project, progress, estimatedDuration }) 
         <div>
           <div className="flex items-center gap-3 mb-2">
             <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-              {project.scriptData?.title || '未命名项目'}
+              {project.scriptData?.title || t('status.untitledProject')}
             </h3>
             <span className="px-2 py-0.5 bg-cyan-300/10 border border-cyan-200/15 text-cyan-100/65 text-[10px] rounded-full uppercase font-mono tracking-wider">
-              Master Sequence
+              {t('status.masterSequenceBadge')}
             </span>
           </div>
           <div className="flex items-center gap-6 mt-3">
             <div className={STYLES.statusPanel.stat}>
-              <span className={STYLES.statusPanel.statLabel}>Shots</span>
+              <span className={STYLES.statusPanel.statLabel}>{t('status.shots')}</span>
               <span className={STYLES.statusPanel.statValue}>{project.shots.length}</span>
             </div>
             <div className="w-px h-6 bg-white/10"></div>
             <div className={STYLES.statusPanel.stat}>
-              <span className={STYLES.statusPanel.statLabel}>Est. Duration</span>
+              <span className={STYLES.statusPanel.statLabel}>{t('status.estDuration')}</span>
               <span className={STYLES.statusPanel.statValue}>~{estimatedDuration}s</span>
             </div>
             <div className="w-px h-6 bg-white/10"></div>
             <div className={STYLES.statusPanel.stat}>
-              <span className={STYLES.statusPanel.statLabel}>Target</span>
+              <span className={STYLES.statusPanel.statLabel}>{t('status.target')}</span>
               <span className={STYLES.statusPanel.statValue}>{project.targetDuration}</span>
             </div>
           </div>
@@ -50,7 +52,7 @@ const StatusPanel: React.FC<Props> = ({ project, progress, estimatedDuration }) 
           </div>
           <div className="text-[10px] text-zinc-500 uppercase tracking-widest flex items-center justify-end gap-2">
             {progress === 100 ? <CheckCircle className="w-3 h-3 text-green-500" /> : <BarChart3 className="w-3 h-3" />}
-            Render Status
+            {t('status.renderStatus')}
           </div>
         </div>
       </div>

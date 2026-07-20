@@ -1,0 +1,61 @@
+{
+  "header": {
+    "title": "Xuất bản chế tác",
+    "subtitle": "Kết xuất & Xuất bản",
+    "statusReady": "Trạng thái: SẴN SÀNG",
+    "statusInProgress": "Trạng thái: ĐANG XỬ LÝ"
+  },
+  "errors": {
+    "exportFailed": "Xuất bản thất bại: {{message}}",
+    "assetsDownloadFailed": "Tải tài nguyên gốc thất bại: {{message}}"
+  },
+  "warnings": {
+    "noDownloadableAssets": "Không có tài nguyên nào để tải xuống. Vui lòng tạo nhân vật, bối cảnh hoặc cảnh quay trước."
+  },
+  "actions": {
+    "previewVideo": "Xem trước video ({{completed}}/{{total}})",
+    "downloadMaster": "Tải bản gốc (.mp4)",
+    "downloadingProgress": "{{phase}} {{progress}}%",
+    "exportEdlXml": "Xuất EDL / XML",
+    "notDeveloped": "Chưa phát triển"
+  },
+  "secondary": {
+    "sourceAssetsTitle": "Tài nguyên gốc",
+    "sourceAssetsDesc": "Tải toàn bộ hình ảnh đã tạo và các đoạn video gốc.",
+    "shareProjectTitle": "Chia sẻ dự án",
+    "shareProjectDesc": "Tạo liên kết chỉ xem để khách hàng duyệt."
+  },
+  "status": {
+    "untitledProject": "Dự án chưa đặt tên",
+    "masterSequenceBadge": "Chuỗi cảnh chính",
+    "shots": "Cảnh quay",
+    "estDuration": "Thời lượng dự kiến",
+    "target": "Mục tiêu",
+    "renderStatus": "Trạng thái dựng hình"
+  },
+  "logs": {
+    "title": "Nhật ký dựng hình",
+    "description": "Xem lịch sử và trạng thái tạo nội dung.",
+    "eventsCount": "{{count}} sự kiện",
+    "totalEvents": "Tổng sự kiện",
+    "completed": "Hoàn thành",
+    "failed": "Thất bại",
+    "empty": "Chưa có lịch sử tạo nội dung",
+    "resourceId": "ID tài nguyên",
+    "prompt": "Prompt",
+    "tokenUsage": "Sử dụng Token",
+    "input": "Đầu vào:",
+    "output": "Đầu ra:",
+    "total": "Tổng:"
+  },
+  "timeline": {
+    "label": "Sơ đồ trình tự",
+    "noShots": "Chưa có cảnh quay",
+    "shot": "Cảnh {{number}}",
+    "shotTooltip": "Cảnh {{number}}: {{summary}}"
+  },
+  "videoPreview": {
+    "title": "Xem trước video",
+    "shotBadge": "Cảnh {{current}} / {{total}}"
+  }
+}

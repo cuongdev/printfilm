@@ -1,4 +1,5 @@
 import { ProjectState, RenderLog } from '../../types';
+import i18n from '../../i18n';
 
 export const collectRenderLogs = (project: ProjectState): RenderLog[] => {
   const logs = project.renderLogs || [];
@@ -20,7 +21,7 @@ export const calculateProgress = (project: ProjectState): number => {
 };
 
 export const formatTimestamp = (timestamp: number): string => {
-  return new Date(timestamp).toLocaleString('zh-CN', {
+  return new Date(timestamp).toLocaleString(i18n.resolvedLanguage || i18n.language, {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',

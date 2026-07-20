@@ -1,0 +1,61 @@
+{
+  "header": {
+    "title": "制片导出",
+    "subtitle": "Rendering & Export",
+    "statusReady": "Status: READY",
+    "statusInProgress": "Status: IN PROGRESS"
+  },
+  "errors": {
+    "exportFailed": "导出失败: {{message}}",
+    "assetsDownloadFailed": "下载源资源失败: {{message}}"
+  },
+  "warnings": {
+    "noDownloadableAssets": "没有可下载的资源。请先生成角色、场景或镜头素材。"
+  },
+  "actions": {
+    "previewVideo": "Preview Video ({{completed}}/{{total}})",
+    "downloadMaster": "Download Master (.mp4)",
+    "downloadingProgress": "{{phase}} {{progress}}%",
+    "exportEdlXml": "Export EDL / XML",
+    "notDeveloped": "暂未开发"
+  },
+  "secondary": {
+    "sourceAssetsTitle": "Source Assets",
+    "sourceAssetsDesc": "Download all generated images and raw video clips.",
+    "shareProjectTitle": "Share Project",
+    "shareProjectDesc": "Create a view-only link for client review."
+  },
+  "status": {
+    "untitledProject": "未命名项目",
+    "masterSequenceBadge": "Master Sequence",
+    "shots": "Shots",
+    "estDuration": "Est. Duration",
+    "target": "Target",
+    "renderStatus": "Render Status"
+  },
+  "logs": {
+    "title": "Render Logs",
+    "description": "View generation history and status.",
+    "eventsCount": "{{count}} Events",
+    "totalEvents": "Total Events",
+    "completed": "Completed",
+    "failed": "Failed",
+    "empty": "No generation history available",
+    "resourceId": "Resource ID",
+    "prompt": "Prompt",
+    "tokenUsage": "Token Usage",
+    "input": "Input:",
+    "output": "Output:",
+    "total": "Total:"
+  },
+  "timeline": {
+    "label": "Sequence Map",
+    "noShots": "No Shots Available",
+    "shot": "Shot {{number}}",
+    "shotTooltip": "Shot {{number}}: {{summary}}"
+  },
+  "videoPreview": {
+    "title": "视频预览",
+    "shotBadge": "Shot {{current}} / {{total}}"
+  }
+}

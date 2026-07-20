@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Play, Download, FileVideo, Loader2 } from 'lucide-react';
 import { STYLES, DownloadState } from './constants';
 import { useAlert } from '../GlobalAlert';
@@ -20,6 +21,7 @@ const ActionButtons: React.FC<Props> = ({
   onPreview,
   onDownloadMaster
 }) => {
+  const { t } = useTranslation('export');
   const { showAlert } = useAlert();
   const { isDownloading, phase, progress: downloadProgress } = downloadState;
 
@@ -31,7 +33,7 @@ const ActionButtons: React.FC<Props> = ({
         className={completedShotsCount > 0 ? STYLES.button.primary : STYLES.button.disabled}
       >
         <Play className="w-4 h-4" />
-        Preview Video ({completedShotsCount}/{totalShots})
+        {t('actions.previewVideo', { completed: completedShotsCount, total: totalShots })}
       </button>
 
       <button 
@@ -50,15 +52,15 @@ const ActionButtons: React.FC<Props> = ({
         ) : (
           <Download className="w-4 h-4" />
         )}
-        {isDownloading ? `${phase} ${downloadProgress}%` : 'Download Master (.mp4)'}
+        {isDownloading ? t('actions.downloadingProgress', { phase, progress: downloadProgress }) : t('actions.downloadMaster')}
       </button>
-      
-      <button 
+
+      <button
         className={STYLES.button.tertiary}
-        onClick={() => showAlert('暂未开发', { type: 'info', title: '提示' })}
+        onClick={() => showAlert(t('actions.notDeveloped'), { type: 'info', title: t('common:alert.info') })}
       >
         <FileVideo className="w-4 h-4" />
-        Export EDL / XML
+        {t('actions.exportEdlXml')}
       </button>
     </div>
   );

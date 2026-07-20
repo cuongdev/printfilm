@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Layers, Share2, Clock, Loader2 } from 'lucide-react';
 import { STYLES, DownloadState } from './constants';
 
@@ -13,6 +14,7 @@ const SecondaryOptions: React.FC<Props> = ({
   onDownloadAssets,
   onShowLogs
 }) => {
+  const { t } = useTranslation('export');
   const { isDownloading, phase, progress } = assetsDownloadState;
 
   return (
@@ -34,27 +36,27 @@ const SecondaryOptions: React.FC<Props> = ({
           isDownloading ? 'text-cyan-300' : 'text-slate-600 group-hover:text-cyan-300'
         }`} />
         <div>
-          <h4 className="text-sm font-bold text-white mb-1">Source Assets</h4>
-          <p className="text-[10px] text-zinc-500">Download all generated images and raw video clips.</p>
+          <h4 className="text-sm font-bold text-white mb-1">{t('secondary.sourceAssetsTitle')}</h4>
+          <p className="text-[10px] text-zinc-500">{t('secondary.sourceAssetsDesc')}</p>
         </div>
       </div>
 
       <div className={STYLES.card.base}>
         <Share2 className="w-5 h-5 text-slate-600 group-hover:text-cyan-300 mb-4 transition-colors" />
         <div>
-          <h4 className="text-sm font-bold text-white mb-1">Share Project</h4>
-          <p className="text-[10px] text-zinc-500">Create a view-only link for client review.</p>
+          <h4 className="text-sm font-bold text-white mb-1">{t('secondary.shareProjectTitle')}</h4>
+          <p className="text-[10px] text-zinc-500">{t('secondary.shareProjectDesc')}</p>
         </div>
       </div>
 
-      <div 
+      <div
         onClick={onShowLogs}
         className={STYLES.card.base}
       >
         <Clock className="w-5 h-5 text-slate-600 group-hover:text-cyan-300 mb-4 transition-colors" />
         <div>
-          <h4 className="text-sm font-bold text-white mb-1">Render Logs</h4>
-          <p className="text-[10px] text-zinc-500">View generation history and status.</p>
+          <h4 className="text-sm font-bold text-white mb-1">{t('logs.title')}</h4>
+          <p className="text-[10px] text-zinc-500">{t('logs.description')}</p>
         </div>
       </div>
     </div>
