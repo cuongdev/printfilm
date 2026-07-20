@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "script": "剧情创作",
+    "assets": "场景角色",
+    "director": "AI工作台",
+    "export": "制片导出",
+    "prompts": "资产管理"
+  },
+  "backToProjects": "返回项目列表",
+  "currentProject": "当前项目",
+  "untitledProject": "未命名项目",
+  "onboarding": "新手引导",
+  "modelConfig": "模型配置"
+}

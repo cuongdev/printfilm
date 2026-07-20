@@ -1,6 +1,7 @@
 // Author: forsearch | Updated: 2026-04-30
 import React from 'react';
 import { LayoutDashboard, FileText, Users, Clapperboard, Film, ChevronLeft, ListTree, HelpCircle, Cpu } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 const LOGO_URL = 'https://www.gitcc.com/uploads/-/system/appearance/header_logo/1/gitpp.png';
 
@@ -14,12 +15,13 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, projectName, onShowOnboarding, onShowModelConfig }) => {
+  const { t } = useTranslation('sidebar');
   const navItems = [
-    { id: 'script', label: '剧情创作', icon: FileText, sub: 'Phase 01' },
-    { id: 'assets', label: '场景角色', icon: Users, sub: 'Phase 02' },
-    { id: 'director', label: 'AI工作台', icon: Clapperboard, sub: 'Phase 03' },
-    { id: 'export', label: '制片导出', icon: Film, sub: 'Phase 04' },
-    { id: 'prompts', label: '资产管理', icon: ListTree, sub: 'Advanced' },
+    { id: 'script', labelKey: 'nav.script', icon: FileText, sub: 'Phase 01' },
+    { id: 'assets', labelKey: 'nav.assets', icon: Users, sub: 'Phase 02' },
+    { id: 'director', labelKey: 'nav.director', icon: Clapperboard, sub: 'Phase 03' },
+    { id: 'export', labelKey: 'nav.export', icon: Film, sub: 'Phase 04' },
+    { id: 'prompts', labelKey: 'nav.prompts', icon: ListTree, sub: 'Advanced' },
   ];
 
   return (
@@ -46,13 +48,13 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, proje
           className="flex items-center gap-2 text-slate-400 hover:text-cyan-100 transition-colors text-xs font-mono uppercase tracking-wide group"
         >
           <ChevronLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-          返回项目列表
+          {t('backToProjects')}
         </button>
       </div>
 
       <div className="relative px-6 py-4 border-b border-white/10">
-         <div className="text-[10px] text-cyan-200/45 uppercase tracking-widest mb-1">当前项目</div>
-         <div className="text-sm font-medium text-slate-100 truncate font-mono">{projectName || '未命名项目'}</div>
+         <div className="text-[10px] text-cyan-200/45 uppercase tracking-widest mb-1">{t('currentProject')}</div>
+         <div className="text-sm font-medium text-slate-100 truncate font-mono">{projectName || t('untitledProject')}</div>
       </div>
 
       <nav className="relative flex-1 p-4 space-y-2">
@@ -74,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, proje
                 }`}>
                   <item.icon className={`w-4 h-4 ${isActive ? 'text-cyan-200' : 'text-slate-500 group-hover:text-cyan-200/70'}`} />
                 </span>
-                <span className="font-medium text-xs tracking-wider uppercase">{item.label}</span>
+                <span className="font-medium text-xs tracking-wider uppercase">{t(item.labelKey)}</span>
               </div>
               <span className={`text-[10px] font-mono ${isActive ? 'text-cyan-100/60' : 'text-slate-600'}`}>{item.sub}</span>
             </button>
@@ -88,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, proje
             onClick={onShowOnboarding}
             className="w-full flex items-center justify-between text-slate-500 hover:text-cyan-100 cursor-pointer transition-colors rounded-xl px-3 py-2 hover:bg-white/5"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest">新手引导</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest">{t('onboarding')}</span>
             <HelpCircle className="w-4 h-4" />
           </button>
         )}
@@ -97,7 +99,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, proje
             onClick={onShowModelConfig}
             className="w-full flex items-center justify-between text-slate-500 hover:text-cyan-100 cursor-pointer transition-colors rounded-xl px-3 py-2 hover:bg-white/5"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest">模型配置</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest">{t('modelConfig')}</span>
             <Cpu className="w-4 h-4" />
           </button>
         )}

@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "script": "Script Creation",
+    "assets": "Scenes & Characters",
+    "director": "AI Workbench",
+    "export": "Production Export",
+    "prompts": "Asset Management"
+  },
+  "backToProjects": "Back to Projects",
+  "currentProject": "Current Project",
+  "untitledProject": "Untitled Project",
+  "onboarding": "Onboarding",
+  "modelConfig": "Model Config"
+}

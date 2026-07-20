@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "script": "Sáng tác kịch bản",
+    "assets": "Cảnh & Nhân vật",
+    "director": "Bàn làm việc AI",
+    "export": "Xuất sản phẩm",
+    "prompts": "Quản lý tài nguyên"
+  },
+  "backToProjects": "Về danh sách dự án",
+  "currentProject": "Dự án hiện tại",
+  "untitledProject": "Dự án chưa đặt tên",
+  "onboarding": "Hướng dẫn",
+  "modelConfig": "Cấu hình mô hình"
+}
