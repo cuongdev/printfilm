@@ -1,5 +1,6 @@
 // Author: forsearch | Updated: 2026-04-30
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ProjectState } from '../../types';
 import { parseScriptToData, generateShotList, continueScript, continueScriptStream, rewriteScript, rewriteScriptStream } from '../../services/geminiService';
 import { getFinalValue, validateConfig } from './utils';
@@ -17,6 +18,7 @@ interface Props {
 type TabMode = 'story' | 'script';
 
 const StageScript: React.FC<Props> = ({ project, updateProject }) => {
+  const { t } = useTranslation('script');
   const [activeTab, setActiveTab] = useState<TabMode>(project.scriptData ? 'script' : 'story');
   
   const [localScript, setLocalScript] = useState(project.rawScript);
@@ -67,7 +69,7 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
     });
 
     if (!validation.valid) {
-      setError(validation.error);
+      setError(t(validation.errorKey || 'common:errors.unknown'));
       return;
     }
 
@@ -108,7 +110,7 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
 
     } catch (err: any) {
       console.error(err);
-      setError(`错误: ${err.message || "AI 连接失败"}`);
+      setError(t('errors.analyzeFailed', { message: err.message || t('errors.aiConnectionFailed') }));
       updateProject({ isParsingScript: false });
     } finally {
       setIsProcessing(false);
@@ -119,11 +121,11 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
     const finalModel = migrateDeprecatedChatModelId(getFinalValue(localModel, customModelInput));
     
     if (!localScript.trim()) {
-      setError("请先输入一些剧本内容作为基础。");
+      setError(t('errors.scriptRequiredForContinue'));
       return;
     }
     if (!finalModel) {
-      setError("请选择或输入模型名称。");
+      setError(t('errors.modelRequired'));
       return;
     }
 
@@ -150,7 +152,7 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
       }
     } catch (err: any) {
       console.error(err);
-      setError(`AI续写失败: ${err.message || "连接失败"}`);
+      setError(t('errors.continueFailed', { message: err.message || t('errors.connectionFailed') }));
       try {
         const continuedContent = await continueScript(baseScript, localLanguage, finalModel);
         const newScript = baseScript + '\n\n' + continuedContent;
@@ -168,11 +170,11 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
     const finalModel = migrateDeprecatedChatModelId(getFinalValue(localModel, customModelInput));
     
     if (!localScript.trim()) {
-      setError("请先输入剧本内容。");
+      setError(t('errors.scriptRequiredForRewrite'));
       return;
     }
     if (!finalModel) {
-      setError("请选择或输入模型名称。");
+      setError(t('errors.modelRequired'));
       return;
     }
 
@@ -199,7 +201,7 @@ const StageScript: React.FC<Props> = ({ project, updateProject }) => {
       }
     } catch (err: any) {
       console.error(err);
-      setError(`AI改写失败: ${err.message || "连接失败"}`);
+      setError(t('errors.rewriteFailed', { message: err.message || t('errors.connectionFailed') }));
       try {
         const rewrittenContent = await rewriteScript(baseScript, localLanguage, finalModel);
         setLocalScript(rewrittenContent);

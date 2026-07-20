@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Users, Edit2 } from 'lucide-react';
 import { Character } from '../../types';
 import InlineEditor from './InlineEditor';
@@ -20,10 +21,11 @@ const CharacterList: React.FC<Props> = ({
   onSave,
   onCancel
 }) => {
+  const { t } = useTranslation('script');
   return (
     <section>
       <h3 className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-4 flex items-center gap-2">
-        <Users className="w-3 h-3" /> 演员表
+        <Users className="w-3 h-3" /> {t('characterList.heading')}
       </h3>
       <div className="space-y-3">
         {characters.map(c => (
@@ -42,10 +44,10 @@ const CharacterList: React.FC<Props> = ({
                   onChange={(val) => onEdit(c.id, val)}
                   onSave={() => onSave(c.id, editingPrompt)}
                   onCancel={onCancel}
-                  placeholder="输入角色视觉描述..."
+                  placeholder={t('characterList.visualPromptPlaceholder')}
                   rows={4}
                   mono={true}
-                  emptyText="暂无视觉描述"
+                  emptyText={t('characterList.emptyVisualPrompt')}
                 />
               </div>
             </div>

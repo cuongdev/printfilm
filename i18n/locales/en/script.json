@@ -1,0 +1,133 @@
+{
+  "configPanel": {
+    "title": "Project Settings",
+    "fieldTitleLabel": "Project Title",
+    "titlePlaceholder": "Enter project name...",
+    "outputLanguageLabel": "Output Language",
+    "durationLabel": "Target Duration",
+    "durationCustomPlaceholder": "Enter duration (e.g. 90s, 3m)",
+    "modelSelectorLabel": "Shot Generation Model",
+    "modelHint": "Built in GPT-5.2 / GPT-5.4, add custom chat models under <1>Model Config</1>",
+    "visualStyleLabel": "Visual Style",
+    "visualStyleCustomPlaceholder": "Enter style (e.g. watercolor style, pixel art)",
+    "analyzeButton": {
+      "analyzing": "Analyzing...",
+      "generate": "Generate Shot Script"
+    }
+  },
+  "optionSelector": {
+    "tipPrefix": "💡 Tip: "
+  },
+  "scriptEditor": {
+    "heading": "Script Editor",
+    "continueButton": {
+      "loading": "Continuing...",
+      "idle": "AI Continue"
+    },
+    "rewriteButton": {
+      "loading": "Rewriting...",
+      "idle": "AI Rewrite"
+    },
+    "placeholder": "Enter your story outline here, or paste a script directly...",
+    "statsCharacters": "{{count}} characters",
+    "statsLines": "{{count}} lines",
+    "savedStatus": "Auto saved",
+    "readyStatus": "Ready"
+  },
+  "characterList": {
+    "heading": "Cast List",
+    "visualPromptPlaceholder": "Enter character visual description...",
+    "emptyVisualPrompt": "No visual description yet"
+  },
+  "sceneList": {
+    "heading": "Scene List"
+  },
+  "sceneBreakdown": {
+    "heading": "Shot List",
+    "projectLabel": "Project",
+    "backButton": "Back to Editing",
+    "loglineHeading": "Story Synopsis"
+  },
+  "shotRow": {
+    "actionLabel": "Action Description",
+    "actionPlaceholder": "Enter action description...",
+    "dialogueLabel": "Dialogue (optional)",
+    "dialoguePlaceholder": "Enter dialogue (leave blank for no dialogue)...",
+    "editActionTitle": "Edit action and dialogue",
+    "charactersLabel": "Characters",
+    "editCharactersTitle": "Edit character list",
+    "currentCharactersLabel": "Current Characters",
+    "noCharacters": "No characters",
+    "addCharactersLabel": "Add Character",
+    "allCharactersAdded": "All characters added",
+    "removeCharacterTitle": "Remove character",
+    "doneButton": "Done",
+    "visualPromptLabel": "Visual Prompt",
+    "editVisualPromptTitle": "Edit prompt",
+    "visualPromptPlaceholder": "Enter visual prompt..."
+  },
+  "inlineEditor": {
+    "defaultPlaceholder": "Enter content...",
+    "defaultEmptyText": "No content yet"
+  },
+  "options": {
+    "duration": {
+      "thirtySec": "30 seconds (Ad)",
+      "sixtySec": "60 seconds (Trailer)",
+      "twoMin": "2 minutes (Teaser)",
+      "fiveMin": "5 minutes (Short film)",
+      "fifteenMin": "15 minutes (Long series / single episode)",
+      "custom": "Custom"
+    },
+    "language": {
+      "chinese": "中文 (Chinese)",
+      "english": "English (US)",
+      "japanese": "日本語 (Japanese)",
+      "french": "Français (French)",
+      "spanish": "Español (Spanish)"
+    },
+    "visualStyle": {
+      "anime": {
+        "label": "🌟 Anime",
+        "desc": "Japanese animation style with strong linework"
+      },
+      "animation2d": {
+        "label": "🎨 2D Animation",
+        "desc": "Classic Chaplin / Disney style"
+      },
+      "animation3d": {
+        "label": "👾 3D Animation",
+        "desc": "Pixar / DreamWorks style"
+      },
+      "cyberpunk": {
+        "label": "🌌 Cyberpunk",
+        "desc": "High tech cyberpunk style"
+      },
+      "oilPainting": {
+        "label": "🖼️ Oil Painting",
+        "desc": "Oil painting texture art style"
+      },
+      "liveAction": {
+        "label": "🎬 Live Action",
+        "desc": "Ultra realistic film / TV drama style"
+      },
+      "custom": {
+        "label": "✨ Other (Custom)",
+        "desc": "Manually enter a style"
+      }
+    }
+  },
+  "errors": {
+    "analyzeFailed": "Error: {{message}}",
+    "aiConnectionFailed": "AI connection failed",
+    "scriptRequiredForContinue": "Please enter some script content first as a basis.",
+    "continueFailed": "AI continue failed: {{message}}",
+    "connectionFailed": "Connection failed",
+    "scriptRequiredForRewrite": "Please enter script content first.",
+    "rewriteFailed": "AI rewrite failed: {{message}}",
+    "modelRequired": "Please select or enter a model name.",
+    "scriptContentRequired": "Please enter script content.",
+    "durationRequired": "Please select a target duration.",
+    "visualStyleRequired": "Please select or enter a visual style."
+  }
+}

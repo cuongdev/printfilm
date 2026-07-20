@@ -1,0 +1,133 @@
+{
+  "configPanel": {
+    "title": "项目配置",
+    "fieldTitleLabel": "项目标题",
+    "titlePlaceholder": "输入项目名称...",
+    "outputLanguageLabel": "输出语言",
+    "durationLabel": "目标时长",
+    "durationCustomPlaceholder": "输入时长 (如: 90s, 3m)",
+    "modelSelectorLabel": "分镜生成模型",
+    "modelHint": "内置 GPT-5.2 / GPT-5.4，可在 <1>模型配置</1> 中添加自定义对话模型",
+    "visualStyleLabel": "视觉风格",
+    "visualStyleCustomPlaceholder": "输入风格 (如: 水彩风格, 像素艺术)",
+    "analyzeButton": {
+      "analyzing": "智能分析中...",
+      "generate": "生成分镜脚本"
+    }
+  },
+  "optionSelector": {
+    "tipPrefix": "💡 提示："
+  },
+  "scriptEditor": {
+    "heading": "剧本编辑器",
+    "continueButton": {
+      "loading": "续写中...",
+      "idle": "AI续写"
+    },
+    "rewriteButton": {
+      "loading": "改写中...",
+      "idle": "AI改写"
+    },
+    "placeholder": "在此输入故事大纲或直接粘贴剧本...",
+    "statsCharacters": "{{count}} 字符",
+    "statsLines": "{{count}} 行",
+    "savedStatus": "已自动保存",
+    "readyStatus": "准备就绪"
+  },
+  "characterList": {
+    "heading": "演员表",
+    "visualPromptPlaceholder": "输入角色视觉描述...",
+    "emptyVisualPrompt": "暂无视觉描述"
+  },
+  "sceneList": {
+    "heading": "场景列表"
+  },
+  "sceneBreakdown": {
+    "heading": "拍摄清单",
+    "projectLabel": "项目",
+    "backButton": "返回编辑",
+    "loglineHeading": "故事梗概"
+  },
+  "shotRow": {
+    "actionLabel": "动作描述",
+    "actionPlaceholder": "输入动作描述...",
+    "dialogueLabel": "台词（可选）",
+    "dialoguePlaceholder": "输入台词（留空表示无台词）...",
+    "editActionTitle": "编辑动作和台词",
+    "charactersLabel": "角色",
+    "editCharactersTitle": "编辑角色列表",
+    "currentCharactersLabel": "当前角色",
+    "noCharacters": "无角色",
+    "addCharactersLabel": "添加角色",
+    "allCharactersAdded": "所有角色已添加",
+    "removeCharacterTitle": "移除角色",
+    "doneButton": "完成",
+    "visualPromptLabel": "画面提示词",
+    "editVisualPromptTitle": "编辑提示词",
+    "visualPromptPlaceholder": "输入画面提示词..."
+  },
+  "inlineEditor": {
+    "defaultPlaceholder": "输入内容...",
+    "defaultEmptyText": "暂无内容"
+  },
+  "options": {
+    "duration": {
+      "thirtySec": "30秒 (广告)",
+      "sixtySec": "60秒 (预告)",
+      "twoMin": "2分钟 (片花)",
+      "fiveMin": "5分钟 (短片)",
+      "fifteenMin": "15分钟 (长剧/单集)",
+      "custom": "自定义"
+    },
+    "language": {
+      "chinese": "中文 (Chinese)",
+      "english": "English (US)",
+      "japanese": "日本語 (Japanese)",
+      "french": "Français (French)",
+      "spanish": "Español (Spanish)"
+    },
+    "visualStyle": {
+      "anime": {
+        "label": "🌟 日式动漫",
+        "desc": "日本动漫风格，线条感强"
+      },
+      "animation2d": {
+        "label": "🎨 2D动画",
+        "desc": "经典卓别林/迪士尼风格"
+      },
+      "animation3d": {
+        "label": "👾 3D动画",
+        "desc": "皮克斯/梦工厂风格"
+      },
+      "cyberpunk": {
+        "label": "🌌 赛博朋克",
+        "desc": "高科技赛博朋克风"
+      },
+      "oilPainting": {
+        "label": "🖼️ 油画风格",
+        "desc": "油画质感艺术风"
+      },
+      "liveAction": {
+        "label": "🎬 真人影视",
+        "desc": "超写实电影/电视剧风格"
+      },
+      "custom": {
+        "label": "✨ 其他 (自定义)",
+        "desc": "手动输入风格"
+      }
+    }
+  },
+  "errors": {
+    "analyzeFailed": "错误: {{message}}",
+    "aiConnectionFailed": "AI 连接失败",
+    "scriptRequiredForContinue": "请先输入一些剧本内容作为基础。",
+    "continueFailed": "AI续写失败: {{message}}",
+    "connectionFailed": "连接失败",
+    "scriptRequiredForRewrite": "请先输入剧本内容。",
+    "rewriteFailed": "AI改写失败: {{message}}",
+    "modelRequired": "请选择或输入模型名称。",
+    "scriptContentRequired": "请输入剧本内容。",
+    "durationRequired": "请选择目标时长。",
+    "visualStyleRequired": "请选择或输入视觉风格。"
+  }
+}

@@ -1,28 +1,28 @@
 export const DURATION_OPTIONS = [
-  { label: '30秒 (广告)', value: '30s' },
-  { label: '60秒 (预告)', value: '60s' },
-  { label: '2分钟 (片花)', value: '120s' },
-  { label: '5分钟 (短片)', value: '300s' },
-  { label: '15分钟 (长剧/单集)', value: '900s' },
-  { label: '自定义', value: 'custom' }
+  { labelKey: 'options.duration.thirtySec', value: '30s' },
+  { labelKey: 'options.duration.sixtySec', value: '60s' },
+  { labelKey: 'options.duration.twoMin', value: '120s' },
+  { labelKey: 'options.duration.fiveMin', value: '300s' },
+  { labelKey: 'options.duration.fifteenMin', value: '900s' },
+  { labelKey: 'options.duration.custom', value: 'custom' }
 ];
 
 export const LANGUAGE_OPTIONS = [
-  { label: '中文 (Chinese)', value: '中文' },
-  { label: 'English (US)', value: 'English' },
-  { label: '日本語 (Japanese)', value: 'Japanese' },
-  { label: 'Français (French)', value: 'French' },
-  { label: 'Español (Spanish)', value: 'Spanish' }
+  { labelKey: 'options.language.chinese', value: '中文' },
+  { labelKey: 'options.language.english', value: 'English' },
+  { labelKey: 'options.language.japanese', value: 'Japanese' },
+  { labelKey: 'options.language.french', value: 'French' },
+  { labelKey: 'options.language.spanish', value: 'Spanish' }
 ];
 
 export const VISUAL_STYLE_OPTIONS = [
-  { label: '🌟 日式动漫', value: 'anime', desc: '日本动漫风格，线条感强' },
-  { label: '🎨 2D动画', value: '2d-animation', desc: '经典卓别林/迪士尼风格' },
-  { label: '👾 3D动画', value: '3d-animation', desc: '皮克斯/梦工厂风格' },
-  { label: '🌌 赛博朋克', value: 'cyberpunk', desc: '高科技赛博朋克风' },
-  { label: '🖼️ 油画风格', value: 'oil-painting', desc: '油画质感艺术风' },
-  { label: '🎬 真人影视', value: 'live-action', desc: '超写实电影/电视剧风格' },
-  { label: '✨ 其他 (自定义)', value: 'custom', desc: '手动输入风格' }
+  { labelKey: 'options.visualStyle.anime.label', value: 'anime', descKey: 'options.visualStyle.anime.desc' },
+  { labelKey: 'options.visualStyle.animation2d.label', value: '2d-animation', descKey: 'options.visualStyle.animation2d.desc' },
+  { labelKey: 'options.visualStyle.animation3d.label', value: '3d-animation', descKey: 'options.visualStyle.animation3d.desc' },
+  { labelKey: 'options.visualStyle.cyberpunk.label', value: 'cyberpunk', descKey: 'options.visualStyle.cyberpunk.desc' },
+  { labelKey: 'options.visualStyle.oilPainting.label', value: 'oil-painting', descKey: 'options.visualStyle.oilPainting.desc' },
+  { labelKey: 'options.visualStyle.liveAction.label', value: 'live-action', descKey: 'options.visualStyle.liveAction.desc' },
+  { labelKey: 'options.visualStyle.custom.label', value: 'custom', descKey: 'options.visualStyle.custom.desc' }
 ];
 
 export const STYLES = {

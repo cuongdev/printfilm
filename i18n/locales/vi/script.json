@@ -1,0 +1,133 @@
+{
+  "configPanel": {
+    "title": "Cấu hình dự án",
+    "fieldTitleLabel": "Tiêu đề dự án",
+    "titlePlaceholder": "Nhập tên dự án...",
+    "outputLanguageLabel": "Ngôn ngữ đầu ra",
+    "durationLabel": "Thời lượng mục tiêu",
+    "durationCustomPlaceholder": "Nhập thời lượng (ví dụ: 90s, 3m)",
+    "modelSelectorLabel": "Mô hình tạo phân cảnh",
+    "modelHint": "Có sẵn GPT-5.2 / GPT-5.4, có thể thêm mô hình chat tùy chỉnh trong <1>Cấu hình mô hình</1>",
+    "visualStyleLabel": "Phong cách hình ảnh",
+    "visualStyleCustomPlaceholder": "Nhập phong cách (ví dụ: phong cách màu nước, pixel art)",
+    "analyzeButton": {
+      "analyzing": "Đang phân tích...",
+      "generate": "Tạo kịch bản phân cảnh"
+    }
+  },
+  "optionSelector": {
+    "tipPrefix": "💡 Mẹo: "
+  },
+  "scriptEditor": {
+    "heading": "Trình soạn kịch bản",
+    "continueButton": {
+      "loading": "Đang viết tiếp...",
+      "idle": "AI viết tiếp"
+    },
+    "rewriteButton": {
+      "loading": "Đang viết lại...",
+      "idle": "AI viết lại"
+    },
+    "placeholder": "Nhập dàn ý câu chuyện tại đây, hoặc dán trực tiếp kịch bản...",
+    "statsCharacters": "{{count}} ký tự",
+    "statsLines": "{{count}} dòng",
+    "savedStatus": "Đã tự động lưu",
+    "readyStatus": "Sẵn sàng"
+  },
+  "characterList": {
+    "heading": "Danh sách nhân vật",
+    "visualPromptPlaceholder": "Nhập mô tả hình ảnh nhân vật...",
+    "emptyVisualPrompt": "Chưa có mô tả hình ảnh"
+  },
+  "sceneList": {
+    "heading": "Danh sách cảnh"
+  },
+  "sceneBreakdown": {
+    "heading": "Danh sách cảnh quay",
+    "projectLabel": "Dự án",
+    "backButton": "Quay lại chỉnh sửa",
+    "loglineHeading": "Tóm tắt câu chuyện"
+  },
+  "shotRow": {
+    "actionLabel": "Mô tả hành động",
+    "actionPlaceholder": "Nhập mô tả hành động...",
+    "dialogueLabel": "Lời thoại (tùy chọn)",
+    "dialoguePlaceholder": "Nhập lời thoại (để trống nếu không có lời thoại)...",
+    "editActionTitle": "Chỉnh sửa hành động và lời thoại",
+    "charactersLabel": "Nhân vật",
+    "editCharactersTitle": "Chỉnh sửa danh sách nhân vật",
+    "currentCharactersLabel": "Nhân vật hiện tại",
+    "noCharacters": "Chưa có nhân vật",
+    "addCharactersLabel": "Thêm nhân vật",
+    "allCharactersAdded": "Đã thêm tất cả nhân vật",
+    "removeCharacterTitle": "Xóa nhân vật",
+    "doneButton": "Xong",
+    "visualPromptLabel": "Gợi ý hình ảnh",
+    "editVisualPromptTitle": "Chỉnh sửa gợi ý",
+    "visualPromptPlaceholder": "Nhập gợi ý hình ảnh..."
+  },
+  "inlineEditor": {
+    "defaultPlaceholder": "Nhập nội dung...",
+    "defaultEmptyText": "Chưa có nội dung"
+  },
+  "options": {
+    "duration": {
+      "thirtySec": "30 giây (Quảng cáo)",
+      "sixtySec": "60 giây (Trailer)",
+      "twoMin": "2 phút (Teaser)",
+      "fiveMin": "5 phút (Phim ngắn)",
+      "fifteenMin": "15 phút (Phim dài / tập lẻ)",
+      "custom": "Tùy chỉnh"
+    },
+    "language": {
+      "chinese": "中文 (Chinese)",
+      "english": "English (US)",
+      "japanese": "日本語 (Japanese)",
+      "french": "Français (French)",
+      "spanish": "Español (Spanish)"
+    },
+    "visualStyle": {
+      "anime": {
+        "label": "🌟 Anime Nhật Bản",
+        "desc": "Phong cách anime Nhật Bản, nét vẽ mạnh mẽ"
+      },
+      "animation2d": {
+        "label": "🎨 Hoạt hình 2D",
+        "desc": "Phong cách Chaplin / Disney cổ điển"
+      },
+      "animation3d": {
+        "label": "👾 Hoạt hình 3D",
+        "desc": "Phong cách Pixar / DreamWorks"
+      },
+      "cyberpunk": {
+        "label": "🌌 Cyberpunk",
+        "desc": "Phong cách cyberpunk công nghệ cao"
+      },
+      "oilPainting": {
+        "label": "🖼️ Tranh sơn dầu",
+        "desc": "Phong cách nghệ thuật chất liệu sơn dầu"
+      },
+      "liveAction": {
+        "label": "🎬 Người thật đóng",
+        "desc": "Phong cách phim điện ảnh / truyền hình siêu thực"
+      },
+      "custom": {
+        "label": "✨ Khác (Tùy chỉnh)",
+        "desc": "Nhập phong cách thủ công"
+      }
+    }
+  },
+  "errors": {
+    "analyzeFailed": "Lỗi: {{message}}",
+    "aiConnectionFailed": "Kết nối AI thất bại",
+    "scriptRequiredForContinue": "Vui lòng nhập một số nội dung kịch bản trước làm cơ sở.",
+    "continueFailed": "AI viết tiếp thất bại: {{message}}",
+    "connectionFailed": "Kết nối thất bại",
+    "scriptRequiredForRewrite": "Vui lòng nhập nội dung kịch bản trước.",
+    "rewriteFailed": "AI viết lại thất bại: {{message}}",
+    "modelRequired": "Vui lòng chọn hoặc nhập tên mô hình.",
+    "scriptContentRequired": "Vui lòng nhập nội dung kịch bản.",
+    "durationRequired": "Vui lòng chọn thời lượng mục tiêu.",
+    "visualStyleRequired": "Vui lòng chọn hoặc nhập phong cách hình ảnh."
+  }
+}

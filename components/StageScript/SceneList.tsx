@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin } from 'lucide-react';
 import { Scene } from '../../types';
 
@@ -7,10 +8,11 @@ interface Props {
 }
 
 const SceneList: React.FC<Props> = ({ scenes }) => {
+  const { t } = useTranslation('script');
   return (
     <section>
       <h3 className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-4 flex items-center gap-2">
-        <MapPin className="w-3 h-3" /> 场景列表
+        <MapPin className="w-3 h-3" /> {t('sceneList.heading')}
       </h3>
       <div className="space-y-1">
         {scenes.map((s) => (

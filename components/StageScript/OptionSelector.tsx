@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronRight } from 'lucide-react';
 import { STYLES } from './constants';
 
@@ -35,6 +36,7 @@ const OptionSelector: React.FC<Props> = ({
   helpText,
   helpLink
 }) => {
+  const { t } = useTranslation('script');
   return (
     <div className="space-y-2">
       <label className={`${STYLES.label} flex items-center gap-2`}>
@@ -71,7 +73,7 @@ const OptionSelector: React.FC<Props> = ({
       {helpText && (
         <div className="pt-1 px-3 py-2 bg-white/[0.04] border border-white/10 rounded-xl">
           <p className="text-[10px] text-zinc-500 leading-relaxed">
-            💡 提示：{helpText}
+            {t('optionSelector.tipPrefix')}{helpText}
             {helpLink && (
               <>
                 {' '}

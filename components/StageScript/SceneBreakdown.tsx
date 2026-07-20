@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Clock, List, ArrowLeft, TextQuote } from 'lucide-react';
 import { ProjectState, Shot } from '../../types';
 import { deduplicateScenes } from './utils';
@@ -57,6 +58,7 @@ const SceneBreakdown: React.FC<Props> = ({
   onCancelShotAction,
   onBackToStory
 }) => {
+  const { t } = useTranslation('script');
   const uniqueScenes = deduplicateScenes(project.scriptData?.scenes);
 
   return (
@@ -65,29 +67,29 @@ const SceneBreakdown: React.FC<Props> = ({
         <div className="flex items-center gap-6">
           <h2 className="text-lg font-light text-white tracking-tight flex items-center gap-3">
             <List className="w-5 h-5 text-cyan-300" />
-            拍摄清单
+            {t('sceneBreakdown.heading')}
             <span className="text-xs text-cyan-100/40 font-mono uppercase tracking-wider ml-1">Script Manifest</span>
           </h2>
           <div className="h-6 w-px bg-white/10"></div>
-          
+
           <div className="flex items-center gap-4">
             <div className="flex flex-col">
-              <span className="text-[10px] text-cyan-100/40 uppercase tracking-widest">项目</span>
+              <span className="text-[10px] text-cyan-100/40 uppercase tracking-widest">{t('sceneBreakdown.projectLabel')}</span>
               <span className="text-sm text-zinc-200 font-medium">{project.scriptData?.title}</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[10px] text-cyan-100/40 uppercase tracking-widest">时长</span>
+              <span className="text-[10px] text-cyan-100/40 uppercase tracking-widest">{t('common:aspectRatio.durationLabel')}</span>
               <span className="text-sm font-mono text-cyan-100/70">{project.targetDuration}</span>
             </div>
           </div>
         </div>
-        
-        <button 
+
+        <button
           onClick={onBackToStory}
           className="text-xs font-bold text-slate-400 hover:text-white flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-xl transition-all"
         >
           <ArrowLeft className="w-3 h-3" />
-          返回编辑
+          {t('sceneBreakdown.backButton')}
         </button>
       </div>
 
@@ -95,7 +97,7 @@ const SceneBreakdown: React.FC<Props> = ({
         <div className="w-72 border-r border-white/10 bg-slate-950/55 flex flex-col hidden lg:flex backdrop-blur-xl">
           <div className="p-6 border-b border-white/10">
             <h3 className="text-[10px] font-bold text-cyan-100/45 uppercase tracking-widest mb-4 flex items-center gap-2">
-              <TextQuote className="w-3 h-3" /> 故事梗概
+              <TextQuote className="w-3 h-3" /> {t('sceneBreakdown.loglineHeading')}
             </h3>
             <p className="text-xs text-slate-300 italic leading-relaxed font-serif">"{project.scriptData?.logline}"</p>
           </div>
