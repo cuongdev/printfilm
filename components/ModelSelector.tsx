@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Cpu, ChevronDown } from 'lucide-react';
 import { 
   ModelType, 
@@ -42,6 +43,7 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({
   compact = false,
   label,
 }) => {
+  const { t } = useTranslation('common');
   // 获取对应类型的模型列表（仅启用的模型）
   const getModels = (): ModelDefinition[] => {
     let models: ModelDefinition[] = [];
@@ -123,7 +125,7 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({
       </div>
       {selectedModel && !compact && (
         <p className="text-[9px] text-zinc-600">
-          ID: {selectedModel.id}
+          {t('modelSelector.idLabel', { id: selectedModel.id })}
         </p>
       )}
     </div>
@@ -140,13 +142,14 @@ export const VideoModelSelector: React.FC<{
   onChange: (modelId: string) => void;
   disabled?: boolean;
 }> = ({ value, onChange, disabled }) => {
+  const { t } = useTranslation('common');
   const models = getVideoModels().filter(m => m.isEnabled);
   const selectedModel = models.find(m => m.id === value) as VideoModelDefinition | undefined;
-  
+
   return (
     <div className="space-y-1">
       <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
-        视频模型
+        {t('modelSelector.videoModelLabel')}
       </label>
       <div className="relative">
         <select
@@ -157,7 +160,7 @@ export const VideoModelSelector: React.FC<{
         >
           {models.map((model) => {
             const videoModel = model as VideoModelDefinition;
-            const modeLabel = videoModel.params.mode === 'async' ? '异步' : '同步';
+            const modeLabel = videoModel.params.mode === 'async' ? t('modelSelector.modeAsync') : t('modelSelector.modeSync');
             return (
               <option key={model.id} value={model.id}>
                 {model.name} ({modeLabel})
@@ -169,9 +172,13 @@ export const VideoModelSelector: React.FC<{
       </div>
       {selectedModel && (
         <p className="text-[9px] text-zinc-600">
-          模式: {selectedModel.params.mode === 'async' ? '异步（需要轮询）' : '同步（直接返回）'}
-          {selectedModel.params.supportedDurations.length > 1 && 
-            ` · 支持时长: ${selectedModel.params.supportedDurations.join('/')}秒`
+          {t('modelSelector.modeLine', {
+            detail: selectedModel.params.mode === 'async'
+              ? t('modelSelector.modeAsyncDetail')
+              : t('modelSelector.modeSyncDetail')
+          })}
+          {selectedModel.params.supportedDurations.length > 1 &&
+            t('modelSelector.supportedDurations', { durations: selectedModel.params.supportedDurations.join('/') })
           }
         </p>
       )}

@@ -6,5 +6,58 @@
     "zh-CN": "中文",
     "en": "English",
     "vi": "Tiếng Việt"
+  },
+  "actions": {
+    "close": "关闭",
+    "delete": "删除",
+    "cancel": "取消",
+    "confirm": "确定",
+    "save": "保存",
+    "edit": "编辑"
+  },
+  "status": {
+    "loading": "加载中...",
+    "saving": "保存中...",
+    "saved": "已保存"
+  },
+  "errors": {
+    "unknown": "未知错误",
+    "unknownStage": "未知阶段"
+  },
+  "alert": {
+    "success": "成功",
+    "error": "错误",
+    "warning": "警告",
+    "info": "提示"
+  },
+  "logoAlt": "Logo",
+  "mobileNotice": {
+    "description": "为了获得最佳体验，请使用 PC 端浏览器访问。",
+    "detail": "本应用需要较大的屏幕空间和桌面级浏览器环境才能正常运行。",
+    "visitHomepage": "访问产品首页了解更多"
+  },
+  "aspectRatio": {
+    "landscape": "横屏",
+    "landscapeDesc": "1280x720",
+    "portrait": "竖屏",
+    "portraitDesc": "720x1280",
+    "square": "方形",
+    "squareDesc": "720x720",
+    "ratioLabel": "比例",
+    "durationLabel": "时长",
+    "durationValue": "{{seconds}}秒"
+  },
+  "modelSelector": {
+    "typeChat": "对话模型",
+    "typeImage": "图片模型",
+    "typeVideo": "视频模型",
+    "idLabel": "ID: {{id}}",
+    "videoModelLabel": "视频模型",
+    "modeAsync": "异步",
+    "modeSync": "同步",
+    "modeLine": "模式: {{detail}}",
+    "modeAsyncDetail": "异步（需要轮询）",
+    "modeSyncDetail": "同步（直接返回）",
+    "supportedDurations": " · 支持时长: {{durations}}秒"
   }
 }

@@ -6,5 +6,58 @@
     "zh-CN": "中文",
     "en": "English",
     "vi": "Tiếng Việt"
+  },
+  "actions": {
+    "close": "Đóng",
+    "delete": "Xóa",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "save": "Lưu",
+    "edit": "Chỉnh sửa"
+  },
+  "status": {
+    "loading": "Đang tải...",
+    "saving": "Đang lưu...",
+    "saved": "Đã lưu"
+  },
+  "errors": {
+    "unknown": "Lỗi không xác định",
+    "unknownStage": "Giai đoạn không xác định"
+  },
+  "alert": {
+    "success": "Thành công",
+    "error": "Lỗi",
+    "warning": "Cảnh báo",
+    "info": "Thông báo"
+  },
+  "logoAlt": "Logo",
+  "mobileNotice": {
+    "description": "Để có trải nghiệm tốt nhất, vui lòng truy cập bằng trình duyệt trên máy tính.",
+    "detail": "Ứng dụng này cần không gian màn hình lớn hơn và trình duyệt máy tính để hoạt động ổn định.",
+    "visitHomepage": "Truy cập trang chủ để tìm hiểu thêm"
+  },
+  "aspectRatio": {
+    "landscape": "Ngang",
+    "landscapeDesc": "1280x720",
+    "portrait": "Dọc",
+    "portraitDesc": "720x1280",
+    "square": "Vuông",
+    "squareDesc": "720x720",
+    "ratioLabel": "Tỷ lệ",
+    "durationLabel": "Thời lượng",
+    "durationValue": "{{seconds}} giây"
+  },
+  "modelSelector": {
+    "typeChat": "Mô hình chat",
+    "typeImage": "Mô hình ảnh",
+    "typeVideo": "Mô hình video",
+    "idLabel": "ID: {{id}}",
+    "videoModelLabel": "Mô hình video",
+    "modeAsync": "Bất đồng bộ",
+    "modeSync": "Đồng bộ",
+    "modeLine": "Chế độ: {{detail}}",
+    "modeAsyncDetail": "Bất đồng bộ (cần polling)",
+    "modeSyncDetail": "Đồng bộ (trả về ngay)",
+    "supportedDurations": " · Thời lượng hỗ trợ: {{durations}} giây"
   }
 }

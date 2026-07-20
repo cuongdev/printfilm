@@ -1,5 +1,6 @@
 // Author: forsearch | Updated: 2026-04-30
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import Sidebar from './components/Sidebar';
 import StageScript from './components/StageScript';
 import StageAssets from './components/StageAssets';
@@ -17,6 +18,7 @@ import { setLogCallback, clearLogCallback } from './services/renderLogService';
 const LOGO_URL = 'https://www.gitcc.com/uploads/-/system/appearance/header_logo/1/gitpp.png';
 
 function App() {
+  const { t, i18n } = useTranslation('common');
   const [project, setProject] = useState<ProjectState | null>(null);
   const [apiKey, setApiKey] = useState<string>('');
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'unsaved'>('saved');
@@ -28,6 +30,11 @@ function App() {
   
   const saveTimeoutRef = useRef<any>(null);
   const hideStatusTimeoutRef = useRef<any>(null);
+
+  useEffect(() => {
+    document.title = t('appName');
+    document.documentElement.lang = i18n.resolvedLanguage || 'zh-CN';
+  }, [t, i18n.resolvedLanguage]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -208,7 +215,7 @@ function App() {
       case 'prompts':
         return <StagePrompts project={project} updateProject={updateProject} />;
       default:
-        return <div className="text-white">未知阶段</div>;
+        return <div className="text-white">{t('errors.unknownStage')}</div>;
     }
   };
 
@@ -216,19 +223,19 @@ function App() {
     return (
       <div className="h-screen bg-[#050505] flex items-center justify-center p-6">
         <div className="max-w-md text-center space-y-6">
-          <img src={LOGO_URL} alt="Logo" className="w-20 h-20 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-white mb-2">AI 漫剧工场</h1>
+          <img src={LOGO_URL} alt={t('logoAlt')} className="w-20 h-20 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-white mb-2">{t('appName')}</h1>
           <div className="bg-[#0A0A0A] border border-zinc-800 rounded-xl p-8">
             <p className="text-zinc-400 text-base leading-relaxed mb-4">
-              为了获得最佳体验，请使用 PC 端浏览器访问。
+              {t('mobileNotice.description')}
             </p>
             <p className="text-zinc-600 text-sm">
-              本应用需要较大的屏幕空间和桌面级浏览器环境才能正常运行。
+              {t('mobileNotice.detail')}
             </p>
           </div>
           <div className="text-xs text-zinc-700">
             <a href="https://www.gitcc.com/" target="_blank" rel="noreferrer" className="hover:text-indigo-400 transition-colors">
-              访问产品首页了解更多
+              {t('mobileNotice.visitHomepage')}
             </a>
           </div>
         </div>
@@ -280,12 +287,12 @@ function App() {
              {saveStatus === 'saving' ? (
                <>
                  <Save className="w-3 h-3 animate-pulse" />
-                 保存中...
+                 {t('status.saving')}
                </>
              ) : (
                <>
                  <CheckCircle className="w-3 h-3 text-emerald-400" />
-                 已保存
+                 {t('status.saved')}
                </>
              )}
           </div>

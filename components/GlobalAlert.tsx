@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import { X, AlertCircle, CheckCircle, Info } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 type AlertType = 'info' | 'success' | 'error' | 'warning';
 
@@ -41,6 +42,7 @@ interface AlertState {
 }
 
 export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { t } = useTranslation('common');
   const [alertState, setAlertState] = useState<AlertState>({
     isOpen: false,
     message: '',
@@ -55,11 +57,11 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       type: options?.type || 'info',
       onConfirm: options?.onConfirm,
       onCancel: options?.onCancel,
-      confirmText: options?.confirmText || '确定',
-      cancelText: options?.cancelText || '取消',
+      confirmText: options?.confirmText || t('actions.confirm'),
+      cancelText: options?.cancelText || t('actions.cancel'),
       showCancel: options?.showCancel || false
     });
-  }, []);
+  }, [t]);
 
   const closeAlert = useCallback(() => {
     if (alertState.onConfirm) {
@@ -87,10 +89,10 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const getTitle = () => {
     if (alertState.title) return alertState.title;
     switch (alertState.type) {
-      case 'success': return '成功';
-      case 'error': return '错误';
-      case 'warning': return '警告';
-      default: return '提示';
+      case 'success': return t('alert.success');
+      case 'error': return t('alert.error');
+      case 'warning': return t('alert.warning');
+      default: return t('alert.info');
     }
   };
 

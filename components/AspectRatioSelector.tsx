@@ -1,5 +1,6 @@
 import React from 'react';
 import { Monitor, Smartphone, Square } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { AspectRatio, VideoDuration } from '../types';
 
 interface AspectRatioSelectorProps {
@@ -24,24 +25,25 @@ export const AspectRatioSelector: React.FC<AspectRatioSelectorProps> = ({
   compact = false,
   disabled = false
 }) => {
-  const options: { value: AspectRatio; label: string; icon: React.ReactNode; desc: string }[] = [
-    { 
-      value: '16:9', 
-      label: '横屏', 
+  const { t } = useTranslation('common');
+  const options: { value: AspectRatio; labelKey: string; icon: React.ReactNode; descKey: string }[] = [
+    {
+      value: '16:9',
+      labelKey: 'aspectRatio.landscape',
       icon: <Monitor className="w-4 h-4" />,
-      desc: '1280x720'
+      descKey: 'aspectRatio.landscapeDesc'
     },
-    { 
-      value: '9:16', 
-      label: '竖屏', 
+    {
+      value: '9:16',
+      labelKey: 'aspectRatio.portrait',
       icon: <Smartphone className="w-4 h-4" />,
-      desc: '720x1280'
+      descKey: 'aspectRatio.portraitDesc'
     },
-    { 
-      value: '1:1', 
-      label: '方形', 
+    {
+      value: '1:1',
+      labelKey: 'aspectRatio.square',
       icon: <Square className="w-4 h-4" />,
-      desc: '720x720'
+      descKey: 'aspectRatio.squareDesc'
     },
   ];
 
@@ -62,10 +64,10 @@ export const AspectRatioSelector: React.FC<AspectRatioSelectorProps> = ({
             }
             ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
           `}
-          title={`${option.label} (${option.desc})`}
+          title={`${t(option.labelKey)} (${t(option.descKey)})`}
         >
           {option.icon}
-          {!compact && <span>{option.label}</span>}
+          {!compact && <span>{t(option.labelKey)}</span>}
         </button>
       ))}
     </div>
@@ -88,6 +90,7 @@ export const VideoDurationSelector: React.FC<VideoDurationSelectorProps> = ({
   onChange,
   disabled = false
 }) => {
+  const { t } = useTranslation('common');
   const durations: VideoDuration[] = [4, 8, 12];
 
   return (
@@ -106,7 +109,7 @@ export const VideoDurationSelector: React.FC<VideoDurationSelectorProps> = ({
             ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
           `}
         >
-          {d}秒
+          {t('aspectRatio.durationValue', { seconds: d })}
         </button>
       ))}
     </div>
@@ -141,23 +144,24 @@ export const VideoSettingsPanel: React.FC<VideoSettingsPanelProps> = ({
   supportedAspectRatios,
   supportedDurations,
 }) => {
+  const { t } = useTranslation('common');
   // 根据模型支持的比例过滤
-  const allowSquare = supportedAspectRatios 
+  const allowSquare = supportedAspectRatios
     ? supportedAspectRatios.includes('1:1')
     : modelType === 'sora';
-  
+
   // 是否显示时长选择器
-  const showDuration = supportedDurations 
+  const showDuration = supportedDurations
     ? supportedDurations.length > 1
     : modelType === 'sora';
-  
+
   // 可用的时长列表
   const availableDurations = supportedDurations || [4, 8, 12];
 
   return (
     <div className="flex items-center gap-4 flex-wrap">
       <div className="flex items-center gap-2">
-        <span className="text-[10px] text-zinc-500 uppercase">比例</span>
+        <span className="text-[10px] text-zinc-500 uppercase">{t('aspectRatio.ratioLabel')}</span>
         <AspectRatioSelector
           value={aspectRatio}
           onChange={onAspectRatioChange}
@@ -165,10 +169,10 @@ export const VideoSettingsPanel: React.FC<VideoSettingsPanelProps> = ({
           disabled={disabled}
         />
       </div>
-      
+
       {showDuration && (
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-zinc-500 uppercase">时长</span>
+          <span className="text-[10px] text-zinc-500 uppercase">{t('aspectRatio.durationLabel')}</span>
           <div className="flex gap-1">
             {availableDurations.map((d) => (
               <button
@@ -184,7 +188,7 @@ export const VideoSettingsPanel: React.FC<VideoSettingsPanelProps> = ({
                   ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                 `}
               >
-                {d}秒
+                {t('aspectRatio.durationValue', { seconds: d })}
               </button>
             ))}
           </div>

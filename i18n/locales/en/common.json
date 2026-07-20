@@ -6,5 +6,58 @@
     "zh-CN": "中文",
     "en": "English",
     "vi": "Tiếng Việt"
+  },
+  "actions": {
+    "close": "Close",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit"
+  },
+  "status": {
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "saved": "Saved"
+  },
+  "errors": {
+    "unknown": "Unknown error",
+    "unknownStage": "Unknown stage"
+  },
+  "alert": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Notice"
+  },
+  "logoAlt": "Logo",
+  "mobileNotice": {
+    "description": "For the best experience, please use a PC browser to access this app.",
+    "detail": "This app needs a larger screen and a desktop browser environment to run properly.",
+    "visitHomepage": "Visit our homepage to learn more"
+  },
+  "aspectRatio": {
+    "landscape": "Landscape",
+    "landscapeDesc": "1280x720",
+    "portrait": "Portrait",
+    "portraitDesc": "720x1280",
+    "square": "Square",
+    "squareDesc": "720x720",
+    "ratioLabel": "Ratio",
+    "durationLabel": "Duration",
+    "durationValue": "{{seconds}}s"
+  },
+  "modelSelector": {
+    "typeChat": "Chat Model",
+    "typeImage": "Image Model",
+    "typeVideo": "Video Model",
+    "idLabel": "ID: {{id}}",
+    "videoModelLabel": "Video Model",
+    "modeAsync": "Async",
+    "modeSync": "Sync",
+    "modeLine": "Mode: {{detail}}",
+    "modeAsyncDetail": "Asynchronous (requires polling)",
+    "modeSyncDetail": "Synchronous (returns directly)",
+    "supportedDurations": " · Supported durations: {{durations}}s"
   }
 }
