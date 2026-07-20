@@ -38,8 +38,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, proje
             <img src={LOGO_URL} alt="Logo" className="w-7 h-7 flex-shrink-0" />
           </div>
           <div className="overflow-hidden">
-            <h1 className="text-sm font-bold text-white tracking-wider group-hover:text-cyan-100 transition-colors">AI 漫剧工场</h1>
-            <p className="text-[10px] text-cyan-200/50 tracking-widest group-hover:text-cyan-200/80 transition-colors">Creative Studio</p>
+            <h1 className="text-sm font-bold text-white tracking-wider group-hover:text-cyan-100 transition-colors">{t('common:appName')}</h1>
+            <p className="text-[10px] text-cyan-200/50 tracking-widest group-hover:text-cyan-200/80 transition-colors">{t('common:appTagline')}</p>
           </div>
         </a>
 
