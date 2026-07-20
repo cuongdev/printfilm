@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import LanguageSwitcher from '../LanguageSwitcher';
 import { LEGACY_ONBOARDING_STORAGE_KEY, ONBOARDING_STORAGE_KEY, ONBOARDING_PAGES, TOTAL_PAGES } from './constants';
 import ProgressDots from './ProgressDots';
 import WelcomePage from './WelcomePage';
@@ -101,6 +102,9 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete, onQuickStart, curre
 
       {/* 弹窗容器 */}
       <div className="relative z-10 w-full max-w-lg mx-4 bg-slate-950/90 border border-cyan-200/15 rounded-[1.75rem] shadow-2xl shadow-cyan-950/30 overflow-hidden animate-in zoom-in-95 fade-in duration-300 backdrop-blur-xl">
+        <div className="absolute top-4 left-4 z-20">
+          <LanguageSwitcher variant="onboarding" />
+        </div>
         {/* 关闭按钮 */}
         <button
           onClick={handleSkip}

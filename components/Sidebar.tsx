@@ -1,6 +1,7 @@
 // Author: forsearch | Updated: 2026-04-30
 import React from 'react';
 import { LayoutDashboard, FileText, Users, Clapperboard, Film, ChevronLeft, ListTree, HelpCircle, Cpu } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 const LOGO_URL = 'https://www.gitcc.com/uploads/-/system/appearance/header_logo/1/gitpp.png';
 
 interface SidebarProps {
@@ -100,6 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStage, setStage, onExit, proje
             <Cpu className="w-4 h-4" />
           </button>
         )}
+        <LanguageSwitcher variant="sidebar" />
       </div>
     </aside>
   );
