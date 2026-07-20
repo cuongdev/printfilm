@@ -1,0 +1,84 @@
+{
+  "closeAriaLabel": "Đóng hướng dẫn",
+  "welcome": {
+    "title": "Chào bạn, nhà sáng tạo",
+    "subtitle": "Biến câu chuyện của bạn thành một bộ phim ngắn sống động",
+    "description": "Chỉ cần một kịch bản, AI sẽ lo phần còn lại",
+    "cta": "Xem cách hoạt động",
+    "skip": "Tìm hiểu sau, bắt đầu ngay"
+  },
+  "workflow": {
+    "title": "Bốn bước để có video hoàn chỉnh",
+    "cta": "Tiếp tục tìm hiểu"
+  },
+  "workflowSteps": {
+    "script": {
+      "label": "Sáng tác kịch bản",
+      "desc": "AI tự động trích xuất nhân vật và bối cảnh"
+    },
+    "character": {
+      "label": "Tạo hình nhân vật",
+      "desc": "Tạo ảnh tạo hình nhân vật chỉ với một cú nhấp"
+    },
+    "storyboard": {
+      "label": "Dựng bảng phân cảnh",
+      "desc": "Tạo video dựa trên khung hình chính"
+    },
+    "export": {
+      "label": "Xuất phim",
+      "desc": "Ghép và xuất bộ phim ngắn hoàn chỉnh"
+    }
+  },
+  "highlight": {
+    "title": "Hình ảnh liền mạch, nhân vật không đổi mặt",
+    "quote": "\"Quay một bộ phim ngắn đổi trang phục, không còn lo nhân vật bị biến dạng\"",
+    "cta": "Bước cuối cùng"
+  },
+  "highlights": {
+    "frameLock": {
+      "label": "Khóa khung hình đầu/cuối",
+      "desc": "Kết thúc của cảnh trước chính là khởi đầu của cảnh sau"
+    },
+    "wardrobe": {
+      "label": "Tủ trang phục nhân vật",
+      "desc": "Cùng một nhân vật, đổi nhiều kiểu trang phục bất cứ lúc nào"
+    },
+    "styleConsistency": {
+      "label": "Phong cách đồng nhất",
+      "desc": "Chọn người thật, hoạt hình hoặc 3D, nhất quán xuyên suốt phim"
+    }
+  },
+  "apiKey": {
+    "title": "Thiết lập API Key của bạn",
+    "description": "Cần có API Key để sử dụng tính năng tạo nội dung bằng AI",
+    "placeholder": "Nhập API Key của bạn...",
+    "buyNow": "Mua ngay",
+    "consultNow": "Liên hệ ngay",
+    "verifying": "Đang xác minh...",
+    "verifyAndContinue": "Xác minh và tiếp tục",
+    "skip": "Thiết lập sau trong phần cài đặt",
+    "configured": "Đã thiết lập",
+    "emptyKeyError": "Vui lòng nhập API Key",
+    "verifySuccess": "Xác minh thành công!",
+    "verifyError": "Xác minh thất bại"
+  },
+  "action": {
+    "title": "Bắt đầu sáng tạo ngay",
+    "description": "Chọn một cách để trải nghiệm ngay",
+    "cta": "Tạo bộ phim ngắn đầu tiên của tôi",
+    "helper": "Bạn có thể xem lại hướng dẫn này bất cứ lúc nào trong mục Trợ giúp ở thanh bên"
+  },
+  "quickStart": {
+    "script": {
+      "label": "Bắt đầu từ kịch bản",
+      "desc": "Dán câu chuyện của bạn, AI sẽ giúp bạn chia cảnh"
+    },
+    "example": {
+      "label": "Xem dự án mẫu",
+      "desc": "Tham khảo cách người khác đã làm"
+    }
+  },
+  "progressDots": {
+    "ariaLabel": "Chuyển đến trang {{page}}"
+  }
+}

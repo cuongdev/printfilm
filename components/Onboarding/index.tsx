@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { LEGACY_ONBOARDING_STORAGE_KEY, ONBOARDING_STORAGE_KEY, ONBOARDING_PAGES, TOTAL_PAGES } from './constants';
 import ProgressDots from './ProgressDots';
@@ -17,6 +18,7 @@ interface OnboardingProps {
 }
 
 const Onboarding: React.FC<OnboardingProps> = ({ onComplete, onQuickStart, currentApiKey = '', onSaveApiKey }) => {
+  const { t } = useTranslation('onboarding');
   const [currentPage, setCurrentPage] = useState(ONBOARDING_PAGES.WELCOME);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -109,7 +111,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete, onQuickStart, curre
         <button
           onClick={handleSkip}
           className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-white transition-colors rounded-xl hover:bg-white/10"
-          aria-label="关闭引导"
+          aria-label={t('closeAriaLabel')}
         >
           <X className="w-4 h-4" />
         </button>

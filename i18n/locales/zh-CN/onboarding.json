@@ -1,0 +1,84 @@
+{
+  "closeAriaLabel": "关闭引导",
+  "welcome": {
+    "title": "嗨，创作者",
+    "subtitle": "把你的故事，变成会动的短剧",
+    "description": "只需一段剧本，AI帮你搞定剩下的一切",
+    "cta": "看看怎么玩",
+    "skip": "稍后了解，直接开始"
+  },
+  "workflow": {
+    "title": "四步出片，就这么简单",
+    "cta": "继续了解"
+  },
+  "workflowSteps": {
+    "script": {
+      "label": "剧情创作",
+      "desc": "AI自动提取角色和场景"
+    },
+    "character": {
+      "label": "定形象",
+      "desc": "一键生成角色定妆照"
+    },
+    "storyboard": {
+      "label": "排分镜",
+      "desc": "关键帧驱动视频生成"
+    },
+    "export": {
+      "label": "导成片",
+      "desc": "合并导出完整短剧"
+    }
+  },
+  "highlight": {
+    "title": "画面连贯，角色不变脸",
+    "quote": "\"拍一个换装变身的短剧，再也不怕角色走形了\"",
+    "cta": "最后一步"
+  },
+  "highlights": {
+    "frameLock": {
+      "label": "首尾帧锁定",
+      "desc": "上一镜的结尾，就是下一镜的开头"
+    },
+    "wardrobe": {
+      "label": "角色衣橱",
+      "desc": "同一角色，多套造型随时切换"
+    },
+    "styleConsistency": {
+      "label": "风格统一",
+      "desc": "真人、动漫、3D任选，全片一致"
+    }
+  },
+  "apiKey": {
+    "title": "配置你的 API Key",
+    "description": "需要 API Key 才能使用 AI 生成功能",
+    "placeholder": "输入你的 API Key...",
+    "buyNow": "立即购买",
+    "consultNow": "立即咨询",
+    "verifying": "验证中...",
+    "verifyAndContinue": "验证并继续",
+    "skip": "稍后在设置中配置",
+    "configured": "已配置",
+    "emptyKeyError": "请输入 API Key",
+    "verifySuccess": "验证成功！",
+    "verifyError": "验证出错"
+  },
+  "action": {
+    "title": "现在就开始创作",
+    "description": "选一个方式，马上体验",
+    "cta": "创建我的第一部短剧",
+    "helper": "以后可在侧边栏「帮助」中重新查看引导"
+  },
+  "quickStart": {
+    "script": {
+      "label": "从剧本开始",
+      "desc": "粘贴你的故事，AI帮你拆分镜"
+    },
+    "example": {
+      "label": "看看示例项目",
+      "desc": "先逛逛别人怎么做的"
+    }
+  },
+  "progressDots": {
+    "ariaLabel": "跳转到第 {{page}} 页"
+  }
+}

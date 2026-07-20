@@ -17,23 +17,23 @@ export const TOTAL_PAGES = 5;
 export const WORKFLOW_STEPS = [
   {
     number: '①',
-    title: '剧情创作',
-    description: 'AI自动提取角色和场景',
+    labelKey: 'workflowSteps.script.label',
+    descKey: 'workflowSteps.script.desc',
   },
   {
     number: '②',
-    title: '定形象',
-    description: '一键生成角色定妆照',
+    labelKey: 'workflowSteps.character.label',
+    descKey: 'workflowSteps.character.desc',
   },
   {
     number: '③',
-    title: '排分镜',
-    description: '关键帧驱动视频生成',
+    labelKey: 'workflowSteps.storyboard.label',
+    descKey: 'workflowSteps.storyboard.desc',
   },
   {
     number: '④',
-    title: '导成片',
-    description: '合并导出完整短剧',
+    labelKey: 'workflowSteps.export.label',
+    descKey: 'workflowSteps.export.desc',
   },
 ] as const;
 
@@ -41,18 +41,18 @@ export const WORKFLOW_STEPS = [
 export const HIGHLIGHTS = [
   {
     icon: '🎬',
-    title: '首尾帧锁定',
-    description: '上一镜的结尾，就是下一镜的开头',
+    labelKey: 'highlights.frameLock.label',
+    descKey: 'highlights.frameLock.desc',
   },
   {
     icon: '👔',
-    title: '角色衣橱',
-    description: '同一角色，多套造型随时切换',
+    labelKey: 'highlights.wardrobe.label',
+    descKey: 'highlights.wardrobe.desc',
   },
   {
     icon: '🎨',
-    title: '风格统一',
-    description: '真人、动漫、3D任选，全片一致',
+    labelKey: 'highlights.styleConsistency.label',
+    descKey: 'highlights.styleConsistency.desc',
   },
 ] as const;
 
@@ -61,13 +61,13 @@ export const QUICK_START_OPTIONS = [
   {
     id: 'script',
     icon: '📝',
-    title: '从剧本开始',
-    description: '粘贴你的故事，AI帮你拆分镜',
+    labelKey: 'quickStart.script.label',
+    descKey: 'quickStart.script.desc',
   },
   {
     id: 'example',
     icon: '🎬',
-    title: '看看示例项目',
-    description: '先逛逛别人怎么做的',
+    labelKey: 'quickStart.example.label',
+    descKey: 'quickStart.example.desc',
   },
 ] as const;

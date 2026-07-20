@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { TOTAL_PAGES } from './constants';
 
 interface ProgressDotsProps {
@@ -7,6 +8,7 @@ interface ProgressDotsProps {
 }
 
 const ProgressDots: React.FC<ProgressDotsProps> = ({ currentPage, onPageChange }) => {
+  const { t } = useTranslation('onboarding');
   return (
     <div className="flex items-center justify-center gap-2">
       {Array.from({ length: TOTAL_PAGES }, (_, index) => (
@@ -18,7 +20,7 @@ const ProgressDots: React.FC<ProgressDotsProps> = ({ currentPage, onPageChange }
               ? 'bg-white scale-125'
               : 'bg-zinc-600 hover:bg-zinc-500'
           }`}
-          aria-label={`跳转到第 ${index + 1} 页`}
+          aria-label={t('progressDots.ariaLabel', { page: index + 1 })}
         />
       ))}
     </div>

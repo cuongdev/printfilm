@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Key, Loader2, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { verifyApiKey } from '../../services/geminiService';
 
 interface ApiKeyPageProps {
@@ -9,23 +10,24 @@ interface ApiKeyPageProps {
   onSkip: () => void;
 }
 
-const ApiKeyPage: React.FC<ApiKeyPageProps> = ({ 
-  currentApiKey, 
-  onSaveApiKey, 
+const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
+  currentApiKey,
+  onSaveApiKey,
   onNext,
-  onSkip 
+  onSkip
 }) => {
+  const { t } = useTranslation('onboarding');
   const [inputKey, setInputKey] = useState(currentApiKey);
   const [isVerifying, setIsVerifying] = useState(false);
   const [verifyStatus, setVerifyStatus] = useState<'idle' | 'success' | 'error'>(
     currentApiKey ? 'success' : 'idle'
   );
-  const [verifyMessage, setVerifyMessage] = useState(currentApiKey ? '已配置' : '');
+  const [verifyMessage, setVerifyMessage] = useState(currentApiKey ? t('apiKey.configured') : '');
 
   const handleVerifyAndContinue = async () => {
     if (!inputKey.trim()) {
       setVerifyStatus('error');
-      setVerifyMessage('请输入 API Key');
+      setVerifyMessage(t('apiKey.emptyKeyError'));
       return;
     }
 
@@ -34,10 +36,10 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
 
     try {
       const result = await verifyApiKey(inputKey.trim());
-      
+
       if (result.success) {
         setVerifyStatus('success');
-        setVerifyMessage('验证成功！');
+        setVerifyMessage(t('apiKey.verifySuccess'));
         onSaveApiKey(inputKey.trim());
         // 短暂延迟后进入下一步
         setTimeout(() => {
@@ -49,7 +51,7 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
       }
     } catch (error: any) {
       setVerifyStatus('error');
-      setVerifyMessage(error.message || '验证出错');
+      setVerifyMessage(error.message || t('apiKey.verifyError'));
     } finally {
       setIsVerifying(false);
     }
@@ -71,12 +73,12 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
 
       {/* 标题 */}
       <h2 className="text-2xl font-bold text-white mb-2">
-        配置你的 API Key
+        {t('apiKey.title')}
       </h2>
 
       {/* 说明 */}
       <p className="text-zinc-500 text-sm mb-6 max-w-xs">
-        需要 API Key 才能使用 AI 生成功能
+        {t('apiKey.description')}
       </p>
 
       {/* 输入框 */}
@@ -89,7 +91,7 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
             setVerifyStatus('idle');
             setVerifyMessage('');
           }}
-          placeholder="输入你的 API Key..."
+          placeholder={t('apiKey.placeholder')}
           className="w-full bg-white/[0.06] border border-white/10 text-white px-4 py-3 text-sm rounded-xl focus:border-cyan-300/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/10 transition-all font-mono placeholder:text-slate-500 text-center"
           disabled={isVerifying}
           onKeyDown={(e) => {
@@ -122,16 +124,16 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
           rel="noreferrer" 
           className="text-xs text-cyan-300 hover:underline inline-flex items-center gap-1"
         >
-          立即购买 <ExternalLink className="w-3 h-3" />
+          {t('apiKey.buyNow')} <ExternalLink className="w-3 h-3" />
         </a>
         <span className="text-zinc-700">|</span>
-        <a 
-          href="https://www.gitcc.com" 
-          target="_blank" 
-          rel="noreferrer" 
+        <a
+          href="https://www.gitcc.com"
+          target="_blank"
+          rel="noreferrer"
           className="text-xs text-cyan-300 hover:underline inline-flex items-center gap-1"
         >
-          立即咨询 <ExternalLink className="w-3 h-3" />
+          {t('apiKey.consultNow')} <ExternalLink className="w-3 h-3" />
         </a>
       </div>
 
@@ -144,10 +146,10 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
         {isVerifying ? (
           <>
             <Loader2 className="w-4 h-4 animate-spin" />
-            验证中...
+            {t('apiKey.verifying')}
           </>
         ) : (
-          '验证并继续'
+          t('apiKey.verifyAndContinue')
         )}
       </button>
 
@@ -156,7 +158,7 @@ const ApiKeyPage: React.FC<ApiKeyPageProps> = ({
         onClick={onSkip}
         className="mt-4 text-xs text-zinc-600 hover:text-zinc-400 transition-colors"
       >
-        稍后在设置中配置
+        {t('apiKey.skip')}
       </button>
     </div>
   );

@@ -1,0 +1,84 @@
+{
+  "closeAriaLabel": "Close onboarding",
+  "welcome": {
+    "title": "Hey, creator",
+    "subtitle": "Turn your story into a short drama that moves",
+    "description": "Just bring a script, AI handles everything else",
+    "cta": "See how it works",
+    "skip": "Skip for now, get started"
+  },
+  "workflow": {
+    "title": "Four steps to your finished video",
+    "cta": "Keep going"
+  },
+  "workflowSteps": {
+    "script": {
+      "label": "Story Creation",
+      "desc": "AI automatically extracts characters and scenes"
+    },
+    "character": {
+      "label": "Character Design",
+      "desc": "Generate character reference looks with one click"
+    },
+    "storyboard": {
+      "label": "Storyboard",
+      "desc": "Keyframe driven video generation"
+    },
+    "export": {
+      "label": "Export",
+      "desc": "Merge and export the complete short drama"
+    }
+  },
+  "highlight": {
+    "title": "Consistent visuals, characters stay on model",
+    "quote": "\"Shoot a costume change drama and never worry about characters drifting off model again.\"",
+    "cta": "Last step"
+  },
+  "highlights": {
+    "frameLock": {
+      "label": "Start/End Frame Lock",
+      "desc": "The end of one shot becomes the start of the next"
+    },
+    "wardrobe": {
+      "label": "Character Wardrobe",
+      "desc": "Same character, switch between multiple looks anytime"
+    },
+    "styleConsistency": {
+      "label": "Unified Style",
+      "desc": "Choose live action, anime, or 3D, consistent throughout"
+    }
+  },
+  "apiKey": {
+    "title": "Set up your API key",
+    "description": "An API key is required to use AI generation features",
+    "placeholder": "Enter your API key...",
+    "buyNow": "Buy now",
+    "consultNow": "Contact us",
+    "verifying": "Verifying...",
+    "verifyAndContinue": "Verify and continue",
+    "skip": "Set it up later in settings",
+    "configured": "Configured",
+    "emptyKeyError": "Please enter an API key",
+    "verifySuccess": "Verified successfully!",
+    "verifyError": "Verification failed"
+  },
+  "action": {
+    "title": "Start creating now",
+    "description": "Pick a way to get started right away",
+    "cta": "Create my first short drama",
+    "helper": "You can revisit this guide anytime from Help in the sidebar"
+  },
+  "quickStart": {
+    "script": {
+      "label": "Start from a script",
+      "desc": "Paste your story, AI breaks it into shots for you"
+    },
+    "example": {
+      "label": "Browse an example project",
+      "desc": "See how others have done it"
+    }
+  },
+  "progressDots": {
+    "ariaLabel": "Jump to page {{page}}"
+  }
+}
