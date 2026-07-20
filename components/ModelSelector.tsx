@@ -109,11 +109,14 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({
           {showOrphanOption && (
             <option value={resolvedValue}>{resolvedValue}</option>
           )}
-          {models.map((model) => (
-            <option key={model.id} value={model.id}>
-              {model.name} {model.description ? `- ${model.description}` : ''}
-            </option>
-          ))}
+          {models.map((model) => {
+            const description = model.descriptionKey ? t(model.descriptionKey) : model.description;
+            return (
+              <option key={model.id} value={model.id}>
+                {model.name} {description ? `- ${description}` : ''}
+              </option>
+            );
+          })}
         </select>
         <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500 pointer-events-none" />
       </div>

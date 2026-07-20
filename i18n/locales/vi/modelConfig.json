@@ -109,6 +109,13 @@
     "image": "Dùng cho các tác vụ tạo hình nhân vật, tạo bối cảnh, tạo khung hình chính và các tác vụ tạo ảnh khác",
     "video": "Dùng cho tác vụ tạo đoạn video"
   },
+  "builtinModels": {
+    "gpt52Description": "Ưu tiên cho tách kịch bản: đầu ra có cấu trúc ổn định, phù hợp để chia cảnh/phân đoạn, trích xuất nhân vật và sự kiện",
+    "gpt54Description": "Tách kịch bản tăng cường sáng tạo: phù hợp hơn khi cần nhiều phương án chia cảnh, viết lại nhịp điệu và gợi ý góc quay",
+    "qwenImageDescription": "Tạo ảnh Qwen Wanxiang, chuyển văn bản thành ảnh qua /v1/images/generations",
+    "doubaoSeedanceDescription": "Tạo video Doubao Seedance 2.0 Fast (bất đồng bộ GitCC /v1/videos, khuyến nghị mặc định)",
+    "sora2Description": "Tạo video OpenAI Sora, chế độ bất đồng bộ, hỗ trợ nhiều thời lượng"
+  },
   "manager": {
     "promoDescription": "Hỗ trợ GPT-5.1, Gemini-3, Veo 3.1, Sora-2 và nhiều mô hình khác, ổn định, nhanh chóng, giá cả ưu đãi. Dự án mã nguồn mở này được hỗ trợ bởi GitCC API.",
     "providersLabel": "Nhà cung cấp API",

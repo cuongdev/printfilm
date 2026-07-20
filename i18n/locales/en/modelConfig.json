@@ -109,6 +109,13 @@
     "image": "For character styling, scene generation, keyframe generation, and other image generation tasks",
     "video": "For video shot generation tasks"
   },
+  "builtinModels": {
+    "gpt52Description": "Preferred for script breakdown: stable structured output, ideal for scene/shot splitting and extracting characters and events",
+    "gpt54Description": "Creativity-enhanced splitting: better suited for offering multiple splitting options, pacing rewrites, and shot suggestions",
+    "qwenImageDescription": "Qwen Wanxiang image generation; text-to-image via /v1/images/generations",
+    "doubaoSeedanceDescription": "Doubao Seedance 2.0 Fast video generation (GitCC async /v1/videos, recommended by default)",
+    "sora2Description": "OpenAI Sora video generation, async mode, supports multiple durations"
+  },
   "manager": {
     "promoDescription": "Supports GPT-5.1, Gemini-3, Veo 3.1, Sora-2, and other models. Stable, fast, and affordably priced. This open-source project is powered by GitCC API.",
     "providersLabel": "API Providers",

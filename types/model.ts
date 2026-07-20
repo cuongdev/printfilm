@@ -37,6 +37,8 @@ export interface ModelDefinitionBase {
   providerId: string;
   endpoint?: string;
   description?: string;
+  /** i18n key for built-in model descriptions; when set, render sites should prefer t(descriptionKey) over description */
+  descriptionKey?: string;
   isBuiltIn: boolean;
   isEnabled: boolean;
   apiKey?: string;
@@ -162,7 +164,7 @@ export const BUILTIN_CHAT_MODELS: ChatModelDefinition[] = [
     name: 'GPT-5.2',
     type: 'chat',
     providerId: 'antsk',
-    description: '剧情脚本切分首选：结构化输出稳定，适合分场/分镜、提取人物与事件',
+    descriptionKey: 'modelConfig:builtinModels.gpt52Description',
     isBuiltIn: true,
     isEnabled: true,
     params: { ...DEFAULT_CHAT_PARAMS },
@@ -172,7 +174,7 @@ export const BUILTIN_CHAT_MODELS: ChatModelDefinition[] = [
     name: 'GPT-5.4',
     type: 'chat',
     providerId: 'antsk',
-    description: '创意增强型切分：更适合提供多种切分方案、改写节奏与镜头建议',
+    descriptionKey: 'modelConfig:builtinModels.gpt54Description',
     isBuiltIn: true,
     isEnabled: true,
     params: { ...DEFAULT_CHAT_PARAMS },
@@ -189,7 +191,7 @@ export const BUILTIN_IMAGE_MODELS: ImageModelDefinition[] = [
     type: 'image',
     providerId: 'antsk',
     endpoint: '/v1/images/generations',
-    description: '通义万相图片生成，文生图走 /v1/images/generations',
+    descriptionKey: 'modelConfig:builtinModels.qwenImageDescription',
     isBuiltIn: true,
     isEnabled: true,
     params: { ...DEFAULT_IMAGE_PARAMS },
@@ -232,7 +234,7 @@ export const BUILTIN_VIDEO_MODELS: VideoModelDefinition[] = [
     providerId: 'antsk',
     apiModel: 'doubao-seedance-2-0-fast',
     endpoint: '/v1/videos',
-    description: '豆包 Seedance 2.0 Fast 视频生成（GitCC 异步 /v1/videos，默认推荐）',
+    descriptionKey: 'modelConfig:builtinModels.doubaoSeedanceDescription',
     isBuiltIn: true,
     isEnabled: true,
     params: { ...DEFAULT_VIDEO_PARAMS_SORA },
@@ -244,7 +246,7 @@ export const BUILTIN_VIDEO_MODELS: VideoModelDefinition[] = [
     providerId: 'antsk',
     apiModel: 'sora-2',
     endpoint: '/v1/videos',
-    description: 'OpenAI Sora 视频生成，异步模式，支持多种时长',
+    descriptionKey: 'modelConfig:builtinModels.sora2Description',
     isBuiltIn: true,
     isEnabled: true,
     params: { ...DEFAULT_VIDEO_PARAMS_SORA },

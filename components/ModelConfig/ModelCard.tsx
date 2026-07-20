@@ -160,6 +160,7 @@ const ModelCard: React.FC<ModelCardProps> = ({
   );
 
   const apiModel = model.apiModel || model.id;
+  const description = model.descriptionKey ? t(model.descriptionKey) : model.description;
 
   return (
     <div 
@@ -182,7 +183,7 @@ const ModelCard: React.FC<ModelCardProps> = ({
               {t('card.apiModelName', { apiModel })}
               {model.id !== apiModel && t('card.internalId', { id: model.id })}
               {model.endpoint && ` · ${model.endpoint}`}
-              {model.description && ` · ${model.description}`}
+              {description && ` · ${description}`}
             </p>
           </div>
         </div>

@@ -109,6 +109,13 @@
     "image": "用于角色定妆、场景生成、关键帧生成等图片生成任务",
     "video": "用于视频片段生成任务"
   },
+  "builtinModels": {
+    "gpt52Description": "剧情脚本切分首选：结构化输出稳定，适合分场/分镜、提取人物与事件",
+    "gpt54Description": "创意增强型切分：更适合提供多种切分方案、改写节奏与镜头建议",
+    "qwenImageDescription": "通义万相图片生成，文生图走 /v1/images/generations",
+    "doubaoSeedanceDescription": "豆包 Seedance 2.0 Fast 视频生成（GitCC 异步 /v1/videos，默认推荐）",
+    "sora2Description": "OpenAI Sora 视频生成，异步模式，支持多种时长"
+  },
   "manager": {
     "promoDescription": "支持 GPT-5.1、Gemini-3、Veo 3.1、Sora-2 等多种模型，稳定快速，价格优惠。本开源项目由 GitCC API 提供支持。",
     "providersLabel": "API 提供商",
