@@ -1,5 +1,6 @@
 import { REGIONAL_FEATURES, LANGUAGE_MAP, DEFAULTS } from './constants';
 import { convertImageToBase64 } from '../../services/storageService';
+import i18n from '../../i18n';
 
 export const getRegionalPrefix = (
   language: string,
@@ -17,7 +18,7 @@ export const handleImageUpload = async (file: File): Promise<string> => {
     return await convertImageToBase64(file);
   } catch (e: any) {
     console.error('图片上传失败:', e);
-    throw new Error(e.message || '图片上传失败');
+    throw new Error(e.message || i18n.t('assets:errors.imageUploadFailed'));
   }
 };
 

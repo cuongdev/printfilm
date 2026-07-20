@@ -1,0 +1,115 @@
+{
+  "noScriptData": "Vui lòng hoàn thành Phase 01 Sáng tác kịch bản trước",
+  "header": {
+    "heading": "Bối cảnh & Nhân vật",
+    "modelLabel": "Mô hình",
+    "ratioLabel": "Tỷ lệ"
+  },
+  "assetLibrary": {
+    "title": "Thư viện tài sản",
+    "searchPlaceholder": "Tìm tên tài sản...",
+    "filterAll": "Tất cả",
+    "emptyState": "Chưa có tài sản nào. Bạn có thể thêm từ thẻ nhân vật hoặc bối cảnh bằng \"Thêm vào thư viện\".",
+    "replaceButton": "Thay thế nhân vật hiện tại",
+    "importButton": "Nhập vào dự án hiện tại",
+    "confirmDelete": "Xác nhận xóa tài sản này khỏi thư viện?"
+  },
+  "assetType": {
+    "character": "Nhân vật",
+    "scene": "Bối cảnh"
+  },
+  "fromLibraryButton": "Chọn từ thư viện",
+  "addToLibraryButton": "Thêm vào thư viện",
+  "uploadLabel": "Tải lên",
+  "generateLabel": "Tạo",
+  "retryLabel": "Thử lại",
+  "regenerateLabel": "Tạo lại",
+  "generatingLabel": "Đang tạo...",
+  "failedLabel": "Tạo thất bại",
+  "casting": {
+    "sectionTitle": "Tạo hình nhân vật",
+    "sectionDesc": "Tạo hình ảnh tham chiếu nhất quán cho các nhân vật trong kịch bản",
+    "newCharacterButton": "Thêm nhân vật",
+    "regenerateAllButton": "Tạo lại tất cả nhân vật",
+    "generateAllButton": "Tạo tất cả nhân vật"
+  },
+  "scenes": {
+    "sectionTitle": "Khái niệm bối cảnh",
+    "sectionDesc": "Tạo hình ảnh môi trường tham chiếu cho các bối cảnh trong kịch bản",
+    "newSceneButton": "Thêm bối cảnh",
+    "regenerateAllButton": "Tạo lại tất cả bối cảnh",
+    "generateAllButton": "Tạo tất cả bối cảnh"
+  },
+  "batchProgress": {
+    "heading": "Đang tạo hàng loạt tài sản...",
+    "progressLabel": "Tiến độ: {{current}} / {{total}}"
+  },
+  "characterCard": {
+    "wardrobeButton": "Trang phục biến thể",
+    "replaceFromLibraryButton": "Thay thế từ thư viện",
+    "promptLabel": "Prompt nhân vật",
+    "promptPlaceholder": "Nhập mô tả hình ảnh của nhân vật...",
+    "regenerateImageButton": "Tạo lại hình ảnh",
+    "generateImageButton": "Tạo hình ảnh nhân vật",
+    "deleteButton": "Xóa nhân vật"
+  },
+  "sceneCard": {
+    "promptLabel": "Prompt bối cảnh",
+    "promptPlaceholder": "Nhập mô tả hình ảnh của bối cảnh...",
+    "uploadImageButton": "Tải ảnh lên",
+    "deleteButton": "Xóa bối cảnh"
+  },
+  "promptEditor": {
+    "defaultLabel": "Prompt",
+    "defaultPlaceholder": "Nhập mô tả hình ảnh...",
+    "editButtonTitle": "Chỉnh sửa prompt",
+    "emptyMessage": "Chưa có prompt. Nhấn nút chỉnh sửa để thêm mô tả hình ảnh."
+  },
+  "wardrobeModal": {
+    "baseAppearanceHeading": "Ngoại hình gốc",
+    "baseImageAlt": "Gốc",
+    "noImage": "Chưa có ảnh",
+    "defaultBadge": "Mặc định",
+    "variationsHeading": "Biến thể / Trang phục",
+    "failedBadge": "Thất bại",
+    "regenerateButton": "Tạo lại",
+    "generateLookButton": "Tạo diện mạo",
+    "uploadButton": "Tải lên",
+    "variationNamePlaceholder": "Tên biến thể (vd: Trang phục chiến thuật)",
+    "variationPromptPlaceholder": "Mô tả hình ảnh trang phục/trạng thái...",
+    "addVariationButton": "Thêm biến thể"
+  },
+  "imagePreviewModal": {
+    "alt": "Xem trước",
+    "closeHint": "Nhấn vào bất kỳ đâu để đóng"
+  },
+  "alerts": {
+    "addedToLibrary": "Đã thêm vào thư viện: {{name}}",
+    "addToLibraryFailed": "Thêm vào thư viện thất bại",
+    "addCharacterNoImageConfirm": "Nhân vật này chưa có ảnh tham chiếu, vẫn muốn thêm vào thư viện chứ?",
+    "addSceneNoImageConfirm": "Bối cảnh này chưa có ảnh tham chiếu, vẫn muốn thêm vào thư viện chứ?",
+    "imported": "Đã nhập: {{name}}",
+    "importFailed": "Nhập thất bại",
+    "selectCharacterAssetWarning": "Vui lòng chọn một tài sản nhân vật để thay thế",
+    "characterReplaced": "Đã thay thế nhân vật: {{from}} → {{to}}",
+    "deleteAssetFailed": "Xóa tài sản thất bại",
+    "characterCreated": "Đã tạo nhân vật mới, hãy chỉnh sửa prompt và tạo hình ảnh",
+    "sceneCreated": "Đã tạo bối cảnh mới, hãy chỉnh sửa prompt và tạo hình ảnh",
+    "regenerateAllCharactersConfirm": "Xác nhận tạo lại tất cả hình ảnh nhân vật?",
+    "regenerateAllScenesConfirm": "Xác nhận tạo lại tất cả hình ảnh bối cảnh?",
+    "variationGenerationFailed": "Tạo biến thể thất bại",
+    "deleteCharacterConfirm": {
+      "title": "Xóa nhân vật",
+      "message": "Xác nhận xóa nhân vật \"{{name}}\"?\n\nLưu ý: Thao tác này sẽ ảnh hưởng đến tất cả các phân cảnh sử dụng nhân vật này và có thể gây lỗi liên kết phân cảnh."
+    },
+    "characterDeleted": "Đã xóa nhân vật \"{{name}}\"",
+    "deleteSceneConfirm": {
+      "title": "Xóa bối cảnh",
+      "message": "Xác nhận xóa bối cảnh \"{{name}}\"?\n\nLưu ý: Thao tác này sẽ ảnh hưởng đến tất cả các phân cảnh sử dụng bối cảnh này và có thể gây lỗi liên kết phân cảnh."
+    },
+    "sceneDeleted": "Đã xóa bối cảnh \"{{name}}\""
+  },
+  "errors": {
+    "imageUploadFailed": "Tải ảnh lên thất bại"
+  }
+}

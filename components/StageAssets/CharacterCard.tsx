@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { User, Check, Sparkles, Loader2, Shirt, Trash2, Edit2, AlertCircle, FolderPlus } from 'lucide-react';
 import { Character } from '../../types';
 import PromptEditor from './PromptEditor';
@@ -31,6 +32,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   onAddToLibrary,
   onReplaceFromLibrary,
 }) => {
+  const { t } = useTranslation('assets');
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingGender, setIsEditingGender] = useState(false);
   const [isEditingAge, setIsEditingAge] = useState(false);
@@ -79,15 +81,15 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 {character.status === 'failed' ? (
                   <>
                     <AlertCircle className="w-8 h-8 mb-2 text-red-500" />
-                    <span className="text-[10px] text-red-500 mb-2">生成失败</span>
+                    <span className="text-[10px] text-red-500 mb-2">{t('failedLabel')}</span>
                     <ImageUploadButton
                       variant="inline"
                       size="small"
                       onUpload={onUpload}
                       onGenerate={onGenerate}
                       isGenerating={isGenerating}
-                      uploadLabel="上传"
-                      generateLabel="重试"
+                      uploadLabel={t('uploadLabel')}
+                      generateLabel={t('retryLabel')}
                     />
                   </>
                 ) : (
@@ -99,8 +101,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                       onUpload={onUpload}
                       onGenerate={onGenerate}
                       isGenerating={isGenerating}
-                      uploadLabel="上传"
-                      generateLabel="生成"
+                      uploadLabel={t('uploadLabel')}
+                      generateLabel={t('generateLabel')}
                     />
                   </>
                 )}
@@ -192,7 +194,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
               className="w-full py-1.5 bg-white/[0.06] hover:bg-white/10 text-slate-400 hover:text-white rounded-xl text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 border border-white/10 hover:border-cyan-300/30 transition-colors"
             >
               <Shirt className="w-3 h-3" />
-              服装变体
+              {t('characterCard.wardrobeButton')}
             </button>
 
             {character.referenceImage && (
@@ -203,7 +205,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                   onUpload={onUpload}
                   onGenerate={onGenerate}
                   isGenerating={isGenerating}
-                  uploadLabel="上传"
+                  uploadLabel={t('uploadLabel')}
                 />
               </div>
             )}
@@ -214,7 +216,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
               className="w-full py-1.5 bg-white/[0.06] hover:bg-white/10 text-slate-400 hover:text-white rounded-xl text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 border border-white/10 hover:border-cyan-300/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <FolderPlus className="w-3 h-3" />
-              从资产库替换
+              {t('characterCard.replaceFromLibraryButton')}
             </button>
           </div>
         </div>
@@ -225,8 +227,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
           <PromptEditor
             prompt={character.visualPrompt || ''}
             onSave={onPromptSave}
-            label="角色提示词"
-            placeholder="输入角色的视觉描述..."
+            label={t('characterCard.promptLabel')}
+            placeholder={t('characterCard.promptPlaceholder')}
           />
         </div>
 
@@ -238,12 +240,12 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
           {isGenerating ? (
             <>
               <Loader2 className="w-3 h-3 animate-spin" />
-              生成中...
+              {t('generatingLabel')}
             </>
           ) : (
             <>
               <Sparkles className="w-3 h-3" />
-              {character.referenceImage ? '重新生成图片' : '生成角色图片'}
+              {character.referenceImage ? t('characterCard.regenerateImageButton') : t('characterCard.generateImageButton')}
             </>
           )}
         </button>
@@ -254,7 +256,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
           className="w-full py-2 mt-2 bg-white/[0.06] hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 hover:border-cyan-300/30 rounded-xl text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
           <FolderPlus className="w-3 h-3" />
-          加入资产库
+          {t('addToLibraryButton')}
         </button>
 
         <button
@@ -263,7 +265,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
           className="w-full py-2 mt-2 bg-transparent hover:bg-red-950/10 text-red-400 hover:text-red-300 border border-red-500/50 hover:border-red-400 rounded text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
           <Trash2 className="w-3 h-3" />
-          删除角色
+          {t('characterCard.deleteButton')}
         </button>
       </div>
     </div>

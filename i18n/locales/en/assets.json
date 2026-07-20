@@ -1,0 +1,115 @@
+{
+  "noScriptData": "Please finish Phase 01 Story Creation first",
+  "header": {
+    "heading": "Assets & Cast",
+    "modelLabel": "Model",
+    "ratioLabel": "Ratio"
+  },
+  "assetLibrary": {
+    "title": "Asset Library",
+    "searchPlaceholder": "Search asset name...",
+    "filterAll": "All",
+    "emptyState": "No assets yet. You can add one from a character or scene card using \"Add to Library\".",
+    "replaceButton": "Replace Current Character",
+    "importButton": "Import to Current Project",
+    "confirmDelete": "Delete this asset from the library?"
+  },
+  "assetType": {
+    "character": "Character",
+    "scene": "Scene"
+  },
+  "fromLibraryButton": "Choose from Library",
+  "addToLibraryButton": "Add to Library",
+  "uploadLabel": "Upload",
+  "generateLabel": "Generate",
+  "retryLabel": "Retry",
+  "regenerateLabel": "Regenerate",
+  "generatingLabel": "Generating...",
+  "failedLabel": "Generation Failed",
+  "casting": {
+    "sectionTitle": "Character Casting",
+    "sectionDesc": "Generate a consistent reference look for the characters in your script",
+    "newCharacterButton": "New Character",
+    "regenerateAllButton": "Regenerate All Characters",
+    "generateAllButton": "Generate All Characters"
+  },
+  "scenes": {
+    "sectionTitle": "Scene Concepts",
+    "sectionDesc": "Generate environment reference images for your script scenes",
+    "newSceneButton": "New Scene",
+    "regenerateAllButton": "Regenerate All Scenes",
+    "generateAllButton": "Generate All Scenes"
+  },
+  "batchProgress": {
+    "heading": "Batch generating assets...",
+    "progressLabel": "Progress: {{current}} / {{total}}"
+  },
+  "characterCard": {
+    "wardrobeButton": "Wardrobe",
+    "replaceFromLibraryButton": "Replace from Library",
+    "promptLabel": "Character Prompt",
+    "promptPlaceholder": "Enter the character's visual description...",
+    "regenerateImageButton": "Regenerate Image",
+    "generateImageButton": "Generate Character Image",
+    "deleteButton": "Delete Character"
+  },
+  "sceneCard": {
+    "promptLabel": "Scene Prompt",
+    "promptPlaceholder": "Enter the scene's visual description...",
+    "uploadImageButton": "Upload Image",
+    "deleteButton": "Delete Scene"
+  },
+  "promptEditor": {
+    "defaultLabel": "Prompt",
+    "defaultPlaceholder": "Enter a visual description...",
+    "editButtonTitle": "Edit prompt",
+    "emptyMessage": "No prompt set yet. Click the edit button to add a visual description."
+  },
+  "wardrobeModal": {
+    "baseAppearanceHeading": "Base Appearance",
+    "baseImageAlt": "Base",
+    "noImage": "No Image",
+    "defaultBadge": "Default",
+    "variationsHeading": "Variations / Outfits",
+    "failedBadge": "Failed",
+    "regenerateButton": "Regenerate",
+    "generateLookButton": "Generate Look",
+    "uploadButton": "Upload",
+    "variationNamePlaceholder": "Variation Name (e.g. Tactical Gear)",
+    "variationPromptPlaceholder": "Visual description of outfit/state...",
+    "addVariationButton": "Add Variation"
+  },
+  "imagePreviewModal": {
+    "alt": "Preview",
+    "closeHint": "Click anywhere to close"
+  },
+  "alerts": {
+    "addedToLibrary": "Added to library: {{name}}",
+    "addToLibraryFailed": "Failed to add to library",
+    "addCharacterNoImageConfirm": "This character has no reference image yet. Add to library anyway?",
+    "addSceneNoImageConfirm": "This scene has no reference image yet. Add to library anyway?",
+    "imported": "Imported: {{name}}",
+    "importFailed": "Import failed",
+    "selectCharacterAssetWarning": "Please select a character asset to replace with",
+    "characterReplaced": "Character replaced: {{from}} → {{to}}",
+    "deleteAssetFailed": "Failed to delete asset",
+    "characterCreated": "New character created. Edit the prompt and generate an image",
+    "sceneCreated": "New scene created. Edit the prompt and generate an image",
+    "regenerateAllCharactersConfirm": "Regenerate all character images?",
+    "regenerateAllScenesConfirm": "Regenerate all scene images?",
+    "variationGenerationFailed": "Variation generation failed",
+    "deleteCharacterConfirm": {
+      "title": "Delete Character",
+      "message": "Delete character \"{{name}}\"?\n\nNote: This will affect every shot that uses this character and may cause shot association errors."
+    },
+    "characterDeleted": "Character \"{{name}}\" deleted",
+    "deleteSceneConfirm": {
+      "title": "Delete Scene",
+      "message": "Delete scene \"{{name}}\"?\n\nNote: This will affect every shot that uses this scene and may cause shot association errors."
+    },
+    "sceneDeleted": "Scene \"{{name}}\" deleted"
+  },
+  "errors": {
+    "imageUploadFailed": "Image upload failed"
+  }
+}

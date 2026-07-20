@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 
 interface ImagePreviewModalProps {
@@ -7,6 +8,7 @@ interface ImagePreviewModalProps {
 }
 
 const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({ imageUrl, onClose }) => {
+  const { t } = useTranslation('assets');
   if (!imageUrl) return null;
 
   return (
@@ -21,15 +23,15 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({ imageUrl, onClose
         <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform" />
       </button>
       <div className="flex items-center justify-center p-8 w-full h-full">
-        <img 
-          src={imageUrl} 
-          alt="Preview" 
+        <img
+          src={imageUrl}
+          alt={t('imagePreviewModal.alt')}
           className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         />
       </div>
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-black/60 backdrop-blur rounded-lg border border-white/10">
-        <p className="text-xs text-zinc-300 font-mono">点击任意处关闭</p>
+        <p className="text-xs text-zinc-300 font-mono">{t('imagePreviewModal.closeHint')}</p>
       </div>
     </div>
   );

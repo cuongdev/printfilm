@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Check, Sparkles, Loader2, Upload, Trash2, Edit2, AlertCircle, FolderPlus } from 'lucide-react';
 import PromptEditor from './PromptEditor';
 import ImageUploadButton from './ImageUploadButton';
@@ -34,6 +35,7 @@ const SceneCard: React.FC<SceneCardProps> = ({
   onUpdateInfo,
   onAddToLibrary,
 }) => {
+  const { t } = useTranslation('assets');
   const [isEditingLocation, setIsEditingLocation] = useState(false);
   const [isEditingTime, setIsEditingTime] = useState(false);
   const [isEditingAtmosphere, setIsEditingAtmosphere] = useState(false);
@@ -80,20 +82,20 @@ const SceneCard: React.FC<SceneCardProps> = ({
             {isGenerating ? (
               <>
                 <Loader2 className="w-10 h-10 mb-3 animate-spin text-cyan-300" />
-                <span className="text-[10px] text-zinc-500">生成中...</span>
+                <span className="text-[10px] text-zinc-500">{t('generatingLabel')}</span>
               </>
             ) : scene.status === 'failed' ? (
               <>
                 <AlertCircle className="w-10 h-10 mb-3 text-red-500" />
-                <span className="text-[10px] text-red-500 mb-2">生成失败</span>
+                <span className="text-[10px] text-red-500 mb-2">{t('failedLabel')}</span>
                 <ImageUploadButton
                   variant="inline"
                   size="small"
                   onUpload={onUpload}
                   onGenerate={onGenerate}
                   isGenerating={isGenerating}
-                  uploadLabel="上传"
-                  generateLabel="重试"
+                  uploadLabel={t('uploadLabel')}
+                  generateLabel={t('retryLabel')}
                 />
               </>
             ) : (
@@ -105,8 +107,8 @@ const SceneCard: React.FC<SceneCardProps> = ({
                   onUpload={onUpload}
                   onGenerate={onGenerate}
                   isGenerating={isGenerating}
-                  uploadLabel="上传"
-                  generateLabel="生成"
+                  uploadLabel={t('uploadLabel')}
+                  generateLabel={t('generateLabel')}
                 />
               </>
             )}
@@ -188,8 +190,8 @@ const SceneCard: React.FC<SceneCardProps> = ({
           <PromptEditor
             prompt={scene.visualPrompt || ''}
             onSave={onPromptSave}
-            label="场景提示词"
-            placeholder="输入场景视觉描述..."
+            label={t('sceneCard.promptLabel')}
+            placeholder={t('sceneCard.promptPlaceholder')}
             maxHeight="max-h-[120px]"
           />
         </div>
@@ -202,7 +204,7 @@ const SceneCard: React.FC<SceneCardProps> = ({
               onUpload={onUpload}
               onGenerate={onGenerate}
               isGenerating={isGenerating}
-              uploadLabel="上传图片"
+              uploadLabel={t('sceneCard.uploadImageButton')}
             />
           </div>
         )}
@@ -214,7 +216,7 @@ const SceneCard: React.FC<SceneCardProps> = ({
             className="w-full py-2 bg-white/[0.06] hover:bg-white/10 text-zinc-300 hover:text-white border border-white/10 hover:border-cyan-300/30 rounded-xl text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <FolderPlus className="w-3 h-3" />
-            加入资产库
+            {t('addToLibraryButton')}
           </button>
         </div>
 
@@ -225,7 +227,7 @@ const SceneCard: React.FC<SceneCardProps> = ({
             className="w-full py-2 bg-transparent hover:bg-red-950/10 text-red-400 hover:text-red-300 border border-red-500/50 hover:border-red-400 rounded text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <Trash2 className="w-3 h-3" />
-            删除场景
+            {t('sceneCard.deleteButton')}
           </button>
         </div>
       </div>

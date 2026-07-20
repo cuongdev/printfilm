@@ -1,0 +1,115 @@
+{
+  "noScriptData": "请先完成 Phase 01 剧情创作",
+  "header": {
+    "heading": "场景角色",
+    "modelLabel": "模型",
+    "ratioLabel": "比例"
+  },
+  "assetLibrary": {
+    "title": "资产库",
+    "searchPlaceholder": "搜索资产名称...",
+    "filterAll": "全部",
+    "emptyState": "暂无资产。可在角色或场景卡片中选择“加入资产库”。",
+    "replaceButton": "替换当前角色",
+    "importButton": "导入到当前项目",
+    "confirmDelete": "确定从资产库删除该资源吗？"
+  },
+  "assetType": {
+    "character": "角色",
+    "scene": "场景"
+  },
+  "fromLibraryButton": "从资产库选择",
+  "addToLibraryButton": "加入资产库",
+  "uploadLabel": "上传",
+  "generateLabel": "生成",
+  "retryLabel": "重试",
+  "regenerateLabel": "重新生成",
+  "generatingLabel": "生成中...",
+  "failedLabel": "生成失败",
+  "casting": {
+    "sectionTitle": "角色定妆 (Casting)",
+    "sectionDesc": "为剧本中的角色生成一致的参考形象",
+    "newCharacterButton": "新建角色",
+    "regenerateAllButton": "重新生成所有角色",
+    "generateAllButton": "一键生成所有角色"
+  },
+  "scenes": {
+    "sectionTitle": "场景概念 (Locations)",
+    "sectionDesc": "为剧本场景生成环境参考图",
+    "newSceneButton": "新建场景",
+    "regenerateAllButton": "重新生成所有场景",
+    "generateAllButton": "一键生成所有场景"
+  },
+  "batchProgress": {
+    "heading": "正在批量生成资源...",
+    "progressLabel": "进度: {{current}} / {{total}}"
+  },
+  "characterCard": {
+    "wardrobeButton": "服装变体",
+    "replaceFromLibraryButton": "从资产库替换",
+    "promptLabel": "角色提示词",
+    "promptPlaceholder": "输入角色的视觉描述...",
+    "regenerateImageButton": "重新生成图片",
+    "generateImageButton": "生成角色图片",
+    "deleteButton": "删除角色"
+  },
+  "sceneCard": {
+    "promptLabel": "场景提示词",
+    "promptPlaceholder": "输入场景视觉描述...",
+    "uploadImageButton": "上传图片",
+    "deleteButton": "删除场景"
+  },
+  "promptEditor": {
+    "defaultLabel": "提示词",
+    "defaultPlaceholder": "输入视觉描述...",
+    "editButtonTitle": "编辑提示词",
+    "emptyMessage": "未设置提示词。点击编辑按钮添加视觉描述。"
+  },
+  "wardrobeModal": {
+    "baseAppearanceHeading": "Base Appearance",
+    "baseImageAlt": "Base",
+    "noImage": "No Image",
+    "defaultBadge": "Default",
+    "variationsHeading": "Variations / Outfits",
+    "failedBadge": "失败",
+    "regenerateButton": "Regenerate",
+    "generateLookButton": "Generate Look",
+    "uploadButton": "Upload",
+    "variationNamePlaceholder": "Variation Name (e.g. Tactical Gear)",
+    "variationPromptPlaceholder": "Visual description of outfit/state...",
+    "addVariationButton": "Add Variation"
+  },
+  "imagePreviewModal": {
+    "alt": "Preview",
+    "closeHint": "点击任意处关闭"
+  },
+  "alerts": {
+    "addedToLibrary": "已加入资产库：{{name}}",
+    "addToLibraryFailed": "加入资产库失败",
+    "addCharacterNoImageConfirm": "该角色暂无参考图，仍要加入资产库吗？",
+    "addSceneNoImageConfirm": "该场景暂无参考图，仍要加入资产库吗？",
+    "imported": "已导入：{{name}}",
+    "importFailed": "导入失败",
+    "selectCharacterAssetWarning": "请选择角色资产进行替换",
+    "characterReplaced": "已替换角色：{{from}} → {{to}}",
+    "deleteAssetFailed": "删除资产失败",
+    "characterCreated": "新角色已创建，请编辑提示词并生成图片",
+    "sceneCreated": "新场景已创建，请编辑提示词并生成图片",
+    "regenerateAllCharactersConfirm": "确定要重新生成所有角色图吗？",
+    "regenerateAllScenesConfirm": "确定要重新生成所有场景图吗？",
+    "variationGenerationFailed": "Variation generation failed",
+    "deleteCharacterConfirm": {
+      "title": "删除角色",
+      "message": "确定要删除角色 \"{{name}}\" 吗？\n\n注意：这将会影响所有使用该角色的分镜，可能导致分镜关联错误。"
+    },
+    "characterDeleted": "角色 \"{{name}}\" 已删除",
+    "deleteSceneConfirm": {
+      "title": "删除场景",
+      "message": "确定要删除场景 \"{{name}}\" 吗？\n\n注意：这将会影响所有使用该场景的分镜，可能导致分镜关联错误。"
+    },
+    "sceneDeleted": "场景 \"{{name}}\" 已删除"
+  },
+  "errors": {
+    "imageUploadFailed": "图片上传失败"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { User, X, Shirt, Plus, RefreshCw, Loader2, Upload, AlertCircle } from 'lucide-react';
 import { Character, CharacterVariation } from '../../types';
 import ImageUploadButton from './ImageUploadButton';
@@ -23,6 +24,7 @@ const WardrobeModal: React.FC<WardrobeModalProps> = ({
   onUploadVariation,
   onImageClick,
 }) => {
+  const { t } = useTranslation('assets');
   const [newVarName, setNewVarName] = useState('');
   const [newVarPrompt, setNewVarPrompt] = useState('');
 
@@ -58,20 +60,20 @@ const WardrobeModal: React.FC<WardrobeModalProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                <User className="w-4 h-4" /> Base Appearance
+                <User className="w-4 h-4" /> {t('wardrobeModal.baseAppearanceHeading')}
               </h4>
               <div className="bg-white/[0.045] p-4 rounded-2xl border border-white/10 backdrop-blur">
-                <div 
+                <div
                   className="aspect-video bg-slate-950/70 rounded-2xl overflow-hidden mb-4 relative cursor-pointer border border-white/10"
                   onClick={() => character.referenceImage && onImageClick(character.referenceImage)}
                 >
                   {character.referenceImage ? (
-                    <img src={character.referenceImage} className="w-full h-full object-cover" alt="Base" />
+                    <img src={character.referenceImage} className="w-full h-full object-cover" alt={t('wardrobeModal.baseImageAlt')} />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-zinc-700">No Image</div>
+                    <div className="flex items-center justify-center h-full text-zinc-700">{t('wardrobeModal.noImage')}</div>
                   )}
                   <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur rounded text-[10px] text-white font-bold uppercase border border-white/10">
-                    Default
+                    {t('wardrobeModal.defaultBadge')}
                   </div>
                 </div>
                 <p className="text-xs text-zinc-500 leading-relaxed font-mono">{character.visualPrompt}</p>
@@ -81,7 +83,7 @@ const WardrobeModal: React.FC<WardrobeModalProps> = ({
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest flex items-center gap-2">
-                  <Shirt className="w-4 h-4" /> Variations / Outfits
+                  <Shirt className="w-4 h-4" /> {t('wardrobeModal.variationsHeading')}
                 </h4>
               </div>
 
@@ -115,7 +117,7 @@ const WardrobeModal: React.FC<WardrobeModalProps> = ({
                       )}
                       {variation.status === 'failed' && !variation.referenceImage && (
                         <div className="absolute bottom-0 left-0 right-0 bg-red-900/80 text-white text-[8px] text-center py-0.5">
-                          失败
+                          {t('wardrobeModal.failedBadge')}
                         </div>
                       )}
                     </div>
@@ -141,11 +143,11 @@ const WardrobeModal: React.FC<WardrobeModalProps> = ({
                           }`}
                         >
                           <RefreshCw className={`w-3 h-3 ${variation.status === 'generating' ? 'animate-spin' : ''}`} />
-                          {variation.status === 'failed' ? '重试' : variation.referenceImage ? 'Regenerate' : 'Generate Look'}
+                          {variation.status === 'failed' ? t('retryLabel') : variation.referenceImage ? t('wardrobeModal.regenerateButton') : t('wardrobeModal.generateLookButton')}
                         </button>
                         <label className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer">
                           <Upload className="w-3 h-3" />
-                          Upload
+                          {t('wardrobeModal.uploadButton')}
                           <input
                             type="file"
                             accept="image/*"
@@ -166,25 +168,25 @@ const WardrobeModal: React.FC<WardrobeModalProps> = ({
 
                 <div className="p-4 border border-dashed border-cyan-200/15 rounded-2xl bg-white/[0.035]">
                   <div className="space-y-3">
-                    <input 
-                      type="text" 
-                      placeholder="Variation Name (e.g. Tactical Gear)" 
+                    <input
+                      type="text"
+                      placeholder={t('wardrobeModal.variationNamePlaceholder')}
                       value={newVarName}
                       onChange={(e) => setNewVarName(e.target.value)}
                       className="w-full bg-white/[0.06] border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-300/40"
                     />
-                    <textarea 
-                      placeholder="Visual description of outfit/state..."
+                    <textarea
+                      placeholder={t('wardrobeModal.variationPromptPlaceholder')}
                       value={newVarPrompt}
                       onChange={(e) => setNewVarPrompt(e.target.value)}
                       className="w-full bg-white/[0.06] border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-300/40 resize-none h-16"
                     />
-                    <button 
+                    <button
                       onClick={handleAddVariation}
                       disabled={!newVarName || !newVarPrompt}
                       className="w-full py-2 bg-cyan-300 hover:bg-cyan-200 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 disabled:opacity-50 transition-colors"
                     >
-                      <Plus className="w-3 h-3" /> Add Variation
+                      <Plus className="w-3 h-3" /> {t('wardrobeModal.addVariationButton')}
                     </button>
                   </div>
                 </div>
